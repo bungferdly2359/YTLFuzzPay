@@ -1,40 +1,22 @@
 import { actionTypes as apiActionTypes } from '../api';
 import { actionTypes } from './';
 import { config } from '../../constants';
-
-const currentVersion = 1;
+import { FSArray } from '../../modules/fs-foundation';
 
 const initialState = (oldState = {}) => ({
-  currentMerchantId: 0,
-  merchants: [
-    {
-      name: null,
-      menus: [{}]
-    }
-  ]
+  currentMid: null,
+  merchants: []
 });
 
-export function userReducer(state = initialState(), action) {
+export function merchantsReducer(state = initialState(), action) {
   const { type, requestType, payload } = action;
 
-  switch (type) {
-    case '@@redux/INIT':
-      return state.version !== currentVersion ? initialState(state) : state;
-    case actionTypes.updateData:
-      return { ...state, ...payload };
-  }
-
   switch (requestType) {
-    case apiActionTypes.successOf(apiActionTypes.register):
-      return { ...state, merchants: state.merchants.map((m, i) => (i == state.currentMerchantId ? { ...m, name: payload.customPayload.merchantName } : m)) };
+    case apiActionTypes.successOf(apiActionTypes.getMerchants):
+      return { ...state, merchants: (payload.response.docs || []).map(d => ({ mid: d.id, ...d.data() })) };
 
-    case apiActionTypes.successOf(apiActionTypes.verifyPhoneNumber):
-      return {
-        ...state,
-        isRegistered: true,
-        refreshToken: (((payload || {}).response || {})._user || {}).refreshToken,
-        uid: (((payload || {}).response || {})._user || {}).uid
-      };
+    case apiActionTypes.successOf(apiActionTypes.updateMerchant):
+      return { ...state, merchants: [...state.merchants.filter(m => m.mid !== payload.customPayload.mid), payload.customPayload] };
 
     default:
       return state;

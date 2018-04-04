@@ -5,7 +5,7 @@ import stylesheet from './stylesheet';
 
 export const NavBar = ({ navigation, title, style, leftButtons, rightButtons }) => {
   const styles = stylesheet.styles();
-
+  console.log(rightButtons);
   return (
     <View style={[styles.container, style]}>
       {title && <Text style={styles.title}>{title}</Text>}

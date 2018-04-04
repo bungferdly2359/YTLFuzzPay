@@ -28,7 +28,7 @@ export function userReducer(state = initialState(), action) {
 
   switch (requestType) {
     case apiActionTypes.successOf(apiActionTypes.getUser):
-      return { ...state, ...(((payload || {}).response || {})._data || {}) };
+      return { ...state, ...payload.response.data() };
 
     case apiActionTypes.successOf(apiActionTypes.updateUser):
       return { ...state, ...payload.customPayload };

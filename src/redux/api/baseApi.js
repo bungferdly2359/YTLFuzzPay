@@ -81,7 +81,3 @@ export default props => (dispatch, getState) => {
       throw new Error(errorMessage);
     });
 };
-
-firebase.auth().onAuthStateChanged(u => {
-  console.log(u);
-});

@@ -1,8 +1,11 @@
 import baseApi from './baseApi';
 import firebase from 'react-native-firebase';
+import { IdHelper } from '../../helpers';
 
 export const actionTypes = {
   register: 'api::request::register',
+  updateMerchant: 'api::request::updateMerchant',
+  getMerchants: 'api::request::getMerchants',
   getUser: 'api::request::getUser',
   updateUser: 'api::request::updateUser',
   verifyPhoneNumber: 'api::request::verifyPhoneNumber',
@@ -13,46 +16,61 @@ export const actionTypes = {
 };
 
 let confirmResult = null;
+const db = name => firebase.firestore().collection(name);
 
 export const clearError = ({ requestType }) => ({
   type: actionTypes.clearError,
   payload: { requestType }
 });
 
+export const getMerchants = () =>
+  baseApi({
+    type: actionTypes.getMerchants,
+    api: db('merchants')
+      .where('uid', '==', IdHelper.currentUid())
+      .get()
+  });
+
+export const updateMerchant = ({ mid, ...params }) =>
+  baseApi({
+    type: actionTypes.updateMerchant,
+    customPayload: { mid, ...params },
+    loadingText: 'Updating...',
+    api: db('merchants')
+      .doc(mid)
+      .set(params)
+  });
+
 export const getUser = () =>
   baseApi({
     type: actionTypes.getUser,
-    api: firebase
-      .firestore()
-      .collection('users')
-      .doc(firebase.auth().currentUser.uid)
+    api: db('users')
+      .doc(IdHelper.currentUid())
       .get()
   });
 
 export const updateUser = params =>
   baseApi({
     type: actionTypes.updateUser,
-    api: firebase
-      .firestore()
-      .collection('users')
-      .doc(firebase.auth().currentUser.uid)
-      .set(params),
     customPayload: params,
-    loadingText: 'Updating...'
+    loadingText: 'Updating...',
+    api: db('users')
+      .doc(IdHelper.currentUid())
+      .set(params)
   });
 
 export const register = params =>
   baseApi({
     type: actionTypes.register,
+    customPayload: params,
+    loadingText: 'Registering...',
     api: firebase
       .auth()
       .signInWithPhoneNumber(params.phoneNumber)
       .then(r => {
         confirmResult = r;
         return r;
-      }),
-    customPayload: params,
-    loadingText: 'Registering...'
+      })
   });
 
 export const verifyPhoneNumber = verificationCode =>

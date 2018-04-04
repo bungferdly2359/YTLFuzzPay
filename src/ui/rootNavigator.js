@@ -8,6 +8,7 @@ import OrderPage from './pages/OrderPage';
 import MenuPage from './pages/MenuPage';
 import VerifyPage from './pages/VerifyPage';
 import ProfilePage from './pages/ProfilePage';
+import MerchantPage from './pages/MerchantPage';
 
 const mainTabNavigator = (config = {}) =>
   MainTabNavigator(
@@ -27,6 +28,7 @@ const rootNavigator = (config = {}) =>
       InitialPage: { screen: InitialPage },
       Onboarding: { screen: OnboardingPage },
       Register: { screen: RegisterPage },
+      Merchant: { screen: MerchantPage },
       Verify: { screen: VerifyPage },
       MainTab: { screen: mainTabNavigator(config.mainTabConfig) }
     },
