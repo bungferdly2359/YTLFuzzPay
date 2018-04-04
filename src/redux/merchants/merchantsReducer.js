@@ -5,15 +5,13 @@ import { config } from '../../constants';
 const currentVersion = 1;
 
 const initialState = (oldState = {}) => ({
-  version: currentVersion,
-  isRegistered: oldState.isRegistered || false,
-  refreshToken: null,
-  uid: null,
-  fullName: null,
-  userName: null,
-  phoneNumber: null,
-  bankName: null,
-  bankAccount: null
+  currentMerchantId: 0,
+  merchants: [
+    {
+      name: null,
+      menus: [{}]
+    }
+  ]
 });
 
 export function userReducer(state = initialState(), action) {
@@ -27,24 +25,16 @@ export function userReducer(state = initialState(), action) {
   }
 
   switch (requestType) {
-    case apiActionTypes.successOf(apiActionTypes.getUser):
-      return { ...state, ...(((payload || {}).response || {})._data || {}) };
-
-    case apiActionTypes.successOf(apiActionTypes.updateUser):
-      return { ...state, ...payload.customPayload };
-
     case apiActionTypes.successOf(apiActionTypes.register):
-      return { ...state, ...payload.customPayload };
+      return { ...state, merchants: state.merchants.map((m, i) => (i == state.currentMerchantId ? { ...m, name: payload.customPayload.merchantName } : m)) };
 
-    case apiActionTypes.successOf(apiActionTypes.verifyPhoneNumber): {
-      const { refreshToken, uid } = ((payload || {}).response || {})._user || {};
+    case apiActionTypes.successOf(apiActionTypes.verifyPhoneNumber):
       return {
         ...state,
         isRegistered: true,
-        refreshToken,
-        uid
+        refreshToken: (((payload || {}).response || {})._user || {}).refreshToken,
+        uid: (((payload || {}).response || {})._user || {}).uid
       };
-    }
 
     default:
       return state;

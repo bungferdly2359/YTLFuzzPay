@@ -3,7 +3,7 @@
   "editor.insertSpaces": true,
   "problems.decorations.enabled": false,
   "prettier.eslintIntegration": true,
-  "prettier.printWidth": 150,
+  "prettier.printWidth": 180,
   "prettier.singleQuote": true,
   "editor.formatOnSave": true
 }

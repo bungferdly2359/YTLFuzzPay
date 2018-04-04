@@ -2,21 +2,12 @@ import React from 'react';
 import { TextInput } from 'react-native';
 import stylesheet from './stylesheet';
 
-export default ({
-  value,
-  inputStyle,
-  keyboardType = 'default',
-  onChangeText,
-  onEndEditing,
-  onBlur,
-  onFocus,
-  returnKeyType,
-  placeholder
-}) => {
+export default ({ value, inputStyle, keyboardType = 'default', onChangeText, editable = true, onEndEditing, onBlur, onFocus, returnKeyType, placeholder }) => {
   const styles = stylesheet.styles();
 
   return (
     <TextInput
+      editable={editable}
       style={[styles.detailText, inputStyle]}
       autoCorrect={false}
       defaultValue={value}

@@ -24,9 +24,17 @@ export default FSStyleSheet.create(props => ({
     color: colors.orange
   },
   detailText: {
+    flex: 1,
     fontFamily: fonts.proximaNova,
     fontSize: 16,
     fontWeight: '600',
     color: colors.greyishBrown
+  },
+  inputContainer: {
+    flexDirection: 'row'
+  },
+  prefix: {
+    flex: 0,
+    marginRight: 5
   }
 }));

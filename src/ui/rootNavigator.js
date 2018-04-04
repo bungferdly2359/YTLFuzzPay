@@ -7,13 +7,14 @@ import RegisterPage from './pages/RegisterPage';
 import OrderPage from './pages/OrderPage';
 import MenuPage from './pages/MenuPage';
 import VerifyPage from './pages/VerifyPage';
+import ProfilePage from './pages/ProfilePage';
 
 const mainTabNavigator = (config = {}) =>
   MainTabNavigator(
     {
       Orders: { screen: OrderPage },
       Menu: { screen: MenuPage },
-      Accounts: { screen: OrderPage }
+      Accounts: { screen: ProfilePage }
     },
     {
       ...config

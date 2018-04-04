@@ -6,7 +6,7 @@ import { config } from '../../constants';
 
 const getErrorMessage = r => {
   if (!r) {
-    return 'No Data';
+    return null;
   }
   var response = r;
   if (response.response) {
@@ -18,6 +18,7 @@ const getErrorMessage = r => {
   if (response.message) {
     return response.message;
   }
+  return null;
 };
 
 export default props => (dispatch, getState) => {
@@ -80,3 +81,7 @@ export default props => (dispatch, getState) => {
       throw new Error(errorMessage);
     });
 };
+
+firebase.auth().onAuthStateChanged(u => {
+  console.log(u);
+});

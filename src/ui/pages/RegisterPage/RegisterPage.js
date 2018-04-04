@@ -12,12 +12,7 @@ const RegisterPage = props => {
   const styles = stylesheet.styles();
 
   const state = {
-    firstName: '',
-    lastName: '',
-    username: '',
-    phoneNumber: '',
-    bankName: '',
-    bankAccount: ''
+    phoneNumber: ''
   };
 
   const register = () => {
@@ -33,12 +28,7 @@ const RegisterPage = props => {
       <NavBar navigation={props.navigation} title="Registration" />
       <KeyboardAvoidingView style={styles.full} behavior="padding">
         <ScrollView style={styles.full} contentContainerStyle={styles.contentContainer}>
-          <Input title="First Name" placeholder="John" onChangeText={value => (state.firstName = value)} />
-          <Input title="Last Name" placeholder="Smith" onChangeText={value => (state.lastName = value)} />
-          <Input title="Username" placeholder="JohnSmith32" onChangeText={value => (state.username = value)} />
-          <Input title="Mobile Number" keyboardType="phone-pad" placeholder="+65 12345678" onChangeText={value => (state.phoneNumber = value)} />
-          <Input title="Bank Name" placeholder="UOB" onChangeText={value => (state.bankName = value)} />
-          <Input title="Bank Account Number" keyboardType="phone-pad" placeholder="1231231231" onChangeText={value => (state.bankAccount = value)} />
+          <Input prefix="+65" title="Mobile Number" keyboardType="phone-pad" placeholder="12345678" onChangeText={value => (state.phoneNumber = `+65${value}`)} />
           <Button text="Sign Up" onPress={register} />
         </ScrollView>
       </KeyboardAvoidingView>

@@ -30,6 +30,7 @@ export class Input extends Component {
   render() {
     const { 
       type = 'text',
+      prefix,
       style, 
       titleStyle,
       ...otherProps,
@@ -40,7 +41,13 @@ export class Input extends Component {
     return (
       <View style={[styles.container, line && styles.bottomLine, line && focus && styles.focusBottomLine, style]}>
         {otherProps.title != null && <Text style={[styles.title, focus && styles.focusTitle, titleStyle]}>{otherProps.title}</Text>}
-        <Element {...otherProps} onFocus={this.onFocus} onEndEditing={this.onEndEditing} />
+        {prefix != null && 
+          <View style={styles.inputContainer}> 
+            <Text style={[styles.detailText, styles.prefix]}>{prefix}</Text>
+            <Element {...otherProps} onFocus={this.onFocus} onEndEditing={this.onEndEditing} />
+          </View>
+        }
+        {prefix == null && <Element {...otherProps} onFocus={this.onFocus} onEndEditing={this.onEndEditing} />}
       </View>
     );
   }

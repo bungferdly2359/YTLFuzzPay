@@ -3,6 +3,7 @@ platform :ios, '9.0'
 def common_pods
     pod 'Firebase/Core' 
     pod 'Firebase/Auth'
+    pod 'Firebase/Firestore'
 end
 
 project = Xcodeproj::Project.open "./YTLFuzzPay.xcodeproj"
