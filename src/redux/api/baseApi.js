@@ -4,29 +4,27 @@ import firebase from 'react-native-firebase';
 import { actionTypes } from './apiActions';
 import { config } from '../../constants';
 
-const getErrorMessage = response => {
-  if (response.message || response.status < 200 || response.status >= 400) {
-    const responseJSON = response.data || response;
-    const defaultErrorMessage = 'Service unavailable. Please try again later.';
-    let errorMessage =
-      (responseJSON[0] || {}).message || responseJSON.message || (responseJSON.errorMessages || [])[0] || response.statusText || defaultErrorMessage;
-    if (~errorMessage.indexOf('exceeded')) {
-      errorMessage = defaultErrorMessage;
-    }
-    return errorMessage;
+const getErrorMessage = r => {
+  if (!r) {
+    return 'No Data';
+  }
+  var response = r;
+  if (response.response) {
+    response = response.response;
+  }
+  if (response.data) {
+    response = response.data;
+  }
+  if (response.message) {
+    return response.message;
   }
 };
 
 export default props => (dispatch, getState) => {
-  const { type, loadingText, errorType, customPayload } = props;
+  const { type, loadingText, errorType, api, customPayload } = props;
 
   const state = getState();
   const method = props.method || (props.body ? 'POST' : 'GET');
-  const headers = {
-    'x-access-token': state.user.token,
-    'Content-Type': 'application/json',
-    ...(props.headers || [])
-  };
   const data = props.body;
   const url = props.url; //.startsWith('http') ? props.url : `${URLHelper.getCurrentBaseURL()}${props.url}`;
   const timeout = 10000;
@@ -42,34 +40,32 @@ export default props => (dispatch, getState) => {
     }
   });
 
-  return axios
-    .request({ url, method, headers, data, timeout })
+  return (api || axios.request({ url, method, headers, data, timeout }))
     .then(response => {
       if (getErrorMessage(response)) {
         throw response;
       }
-      const responseJSON = response.data || { status: response.status };
       console.log({
         result: 'success',
-        url: response.config.url,
+        props,
         response
       });
       dispatch({
         type,
         requestType: actionTypes.successOf(type),
         payload: {
-          response: responseJSON,
+          response,
           customPayload,
           loadingText: null
         }
       });
-      return responseJSON;
+      return response;
     })
     .catch(response => {
-      const errorMessage = getErrorMessage(((response || {}).response || {}).data || response);
+      const errorMessage = getErrorMessage(response);
       console.log({
         result: 'failed',
-        url: response.config.url,
+        props,
         response
       });
       dispatch({

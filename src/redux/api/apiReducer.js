@@ -6,7 +6,6 @@ const initialState = () => ({
 
 export function apiReducer(state = initialState(), action) {
   const { type, payload } = action;
-
   if (type.startsWith('api::request::')) {
     const { response, customPayload, ...others } = payload;
     const request = {
@@ -22,9 +21,7 @@ export function apiReducer(state = initialState(), action) {
   } else if (type === actionTypes.clearError) {
     return {
       ...state,
-      requests: state.requests.map(
-        r => (r.type === payload.requestType ? { ...r, errorMessage: null } : r)
-      )
+      requests: state.requests.map(r => (r.type === payload.requestType ? { ...r, errorMessage: null } : r))
     };
   }
   return state;

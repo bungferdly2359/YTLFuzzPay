@@ -23,11 +23,11 @@ const mainTabNavigator = (config = {}) =>
 const rootNavigator = (config = {}) =>
   MainNavigator(
     {
+      InitialPage: { screen: InitialPage },
       Onboarding: { screen: OnboardingPage },
       Register: { screen: RegisterPage },
       Verify: { screen: VerifyPage },
-      MainTab: { screen: mainTabNavigator(config.mainTabConfig) },
-      InitialPage: { screen: InitialPage }
+      MainTab: { screen: mainTabNavigator(config.mainTabConfig) }
     },
     config
   );

@@ -2,6 +2,9 @@ import baseApi from './baseApi';
 import firebase from 'react-native-firebase';
 
 export const actionTypes = {
+  register: 'api::request::register',
+  verifyPhoneNumber: 'api::request::verifyPhoneNumber',
+  clearError: 'api::clearError',
   loadingOf: x => `${x}::loading`,
   successOf: x => `${x}::success`,
   failedOf: x => `${x}::failed`
@@ -14,28 +17,23 @@ export const clearError = ({ requestType }) => ({
   payload: { requestType }
 });
 
-export const registerWithPhoneNumber = phoneNumber => (dispatch, getState) => {
-  return firebase
-    .auth()
-    .signInWithPhoneNumber(phoneNumber)
-    .then(cr => {
-      debugger;
-      confirmResult = cr;
-    })
-    .catch(err => {
-      debugger;
-      throw err;
-    });
-};
+export const register = params =>
+  baseApi({
+    type: actionTypes.register,
+    api: firebase
+      .auth()
+      .signInWithPhoneNumber(params.phoneNumber)
+      .then(r => {
+        confirmResult = r;
+        return r;
+      }),
+    customPayload: params,
+    loadingText: 'Registering...'
+  });
 
-export const verifyPhoneNumber = verificationCode => (dispatch, getState) => {
-  return confirmResult
-    .confirm(verificationCode)
-    .then(user => {
-      debugger;
-    })
-    .catch(err => {
-      debugger;
-      throw err;
-    });
-};
+export const verifyPhoneNumber = verificationCode =>
+  baseApi({
+    type: actionTypes.verifyPhoneNumber,
+    api: confirmResult.confirm(verificationCode),
+    loadingText: 'Verifying...'
+  });
