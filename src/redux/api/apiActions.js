@@ -4,6 +4,9 @@ import { IdHelper } from '../../helpers';
 
 export const actionTypes = {
   register: 'api::request::register',
+  updateDish: 'api::request::updateDish',
+  deleteDish: 'api::request::deleteDish',
+  getDishes: 'api::request::getDishes',
   updateMerchant: 'api::request::updateMerchant',
   getMerchants: 'api::request::getMerchants',
   getUser: 'api::request::getUser',
@@ -22,6 +25,34 @@ export const clearError = ({ requestType }) => ({
   type: actionTypes.clearError,
   payload: { requestType }
 });
+
+export const getDishes = mid =>
+  baseApi({
+    type: actionTypes.getDishes,
+    api: db('dishes')
+      .where('mid', '==', mid)
+      .get()
+  });
+
+export const updateDish = ({ did, ...params }) =>
+  baseApi({
+    type: actionTypes.updateDish,
+    customPayload: { did, ...params },
+    loadingText: 'Updating...',
+    api: db('dishes')
+      .doc(did)
+      .set(params)
+  });
+
+export const deleteDish = did =>
+  baseApi({
+    type: actionTypes.deleteDish,
+    customPayload: did,
+    loadingText: 'Deleting...',
+    api: db('dishes')
+      .doc(did)
+      .delete()
+  });
 
 export const getMerchants = () =>
   baseApi({

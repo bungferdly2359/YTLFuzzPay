@@ -8,7 +8,7 @@ import { Image, Button, NavBar, Input } from '../../components';
 import resources from '../../resources';
 import { ValidateHelper, AlertHelper, IdHelper } from '../../../helpers';
 
-const mapStateToProps = ({ merchants, user }) => ({
+const mapStateToProps = ({ merchants }) => ({
   merchant: merchants.merchants.find(m => m.mid === merchants.currentMid) || merchants.merchants[0]
 });
 
@@ -16,14 +16,14 @@ class MerchantPage extends Component {
   state = { name: '', mid: IdHelper.createId(), uid: IdHelper.currentUid(), ...(this.props.merchant || {}) };
 
   update = () => {
-    if (ValidateHelper.isValidMerchant(this.state)) {
+    if (ValidateHelper.isValidParams(this.state)) {
       this.props.updateMerchant(this.state).then(() => AlertHelper.showSuccess('Merchant Updated!'));
     }
   };
 
   render() {
     const styles = stylesheet.styles();
-    const { name, mid } = this.state;
+    const { name } = this.state;
     const isNew = this.props.merchant == null;
     return (
       <View style={styles.container}>
@@ -31,7 +31,7 @@ class MerchantPage extends Component {
         <KeyboardAvoidingView style={styles.full} behavior="padding">
           <ScrollView style={styles.full} contentContainerStyle={styles.contentContainer}>
             <Input title="Merchant Name" placeholder="John's Cafe" value={name} onChangeText={value => (this.state.name = value)} />
-            <Button text={mid ? 'Update' : 'Create'} onPress={this.update} />
+            <Button text={isNew ? 'Create' : 'Update'} onPress={this.update} />
           </ScrollView>
         </KeyboardAvoidingView>
       </View>

@@ -5,20 +5,29 @@ import GridView from 'react-native-super-grid';
 import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox } from '../../components';
 import resources from '../../resources';
-import { getMerchants } from '../../../redux/api';
+import { getMerchants, getDishes } from '../../../redux/api';
 import MerchantPage from '../MerchantPage';
+import { setCurrentDid } from '../../../redux/dishes';
 
-const mapStateToProps = ({ merchants }) => ({ merchant: merchants.merchants.find(m => m.mid === merchants.currentMid) || merchants.merchants[0] });
+const mapStateToProps = ({ merchants, dishes }) => ({
+  merchant: merchants.merchants.find(m => m.mid === merchants.currentMid) || merchants.merchants[0],
+  dishes: dishes.dishes
+});
+
+const addMenu = { image: 'icon_newdish', resizeMode: 'center' };
 
 class MenuPage extends PureComponent {
   static navigationOptions = {
     tabBarIcon: 'icon_menu'
   };
 
-  itemOnPress = item => {};
+  itemOnPress = item => {
+    this.props.setCurrentDid(item.did);
+    this.props.navigation.navigate('Dish');
+  };
 
   componentDidMount() {
-    this.props.getMerchants();
+    this.props.getMerchants().then(() => this.props.merchant && this.props.getDishes(this.props.merchant.mid));
   }
 
   render() {
@@ -27,11 +36,12 @@ class MenuPage extends PureComponent {
     }
 
     const styles = stylesheet.styles();
-    const data = [{ name: 'Fried Chicken Porridge', price: '$3' }, { name: 'Fried Fish Porridge', price: '$3' }, { name: 'Steeamed Chicken Porridge', price: '$3' }];
+    const data = [...this.props.dishes, addMenu];
     return (
       <View style={styles.container}>
         <NavBar title={this.props.navigation.state.routeName} rightButtons={[{ text: 'Merchant', type: 'done', onPress: () => this.props.navigation.navigate('Merchant') }]} />
         <GridView
+          contentContainerStyle={styles.contentContainer}
           fixed
           spacing={10}
           itemDimension={145}
@@ -39,8 +49,8 @@ class MenuPage extends PureComponent {
           renderItem={item => (
             <View style={styles.itemContainer}>
               <TouchableHighlight onPress={() => this.itemOnPress(item)} style={styles.touchable}>
-                <Image style={styles.image}>
-                  <Text style={styles.price}>{item.price}</Text>
+                <Image style={styles.image} source={item.image} resizeMode={item.resizeMode}>
+                  {item.price != null && <Text style={styles.price}>${item.price}</Text>}
                 </Image>
               </TouchableHighlight>
               <Text style={styles.name}>{item.name}</Text>
@@ -53,5 +63,7 @@ class MenuPage extends PureComponent {
 }
 
 export default connect(mapStateToProps, {
-  getMerchants
+  setCurrentDid,
+  getMerchants,
+  getDishes
 })(MenuPage);

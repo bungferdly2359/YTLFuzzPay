@@ -6,5 +6,5 @@ firebase.auth().onAuthStateChanged(u => (uid = firebase.auth().currentUser.uid))
 
 export const IdHelper = {
   currentUid: () => uid,
-  createId: () => `${uid}_${moment().unix()}`
+  createId: () => `${uid.substring(0, 6)}${moment().unix()}`
 };

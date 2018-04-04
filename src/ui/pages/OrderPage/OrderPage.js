@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Text, View, KeyboardAvoidingView, FlatList } from 'react-native';
 import stylesheet from './stylesheet';
-import { Image, Button, NavBar, Input, CheckBox } from '../../components';
+import { Image, Button, NavBar, Input, CheckBox, Section } from '../../components';
 import resources from '../../resources';
 
 export default class OrderPage extends PureComponent {
@@ -30,7 +30,7 @@ export default class OrderPage extends PureComponent {
           keyExtractor={(item, i) => i.toString()}
           data={data}
           renderItem={({ item }) => (
-            <View style={styles.itemContainer}>
+            <Section style={styles.itemContainer}>
               {item.name && (
                 <View style={styles.iconContainer}>
                   <Image style={styles.iconImage} />
@@ -46,7 +46,7 @@ export default class OrderPage extends PureComponent {
                 ))}
               </View>
               <CheckBox style={styles.checkbox} />
-            </View>
+            </Section>
           )}
         />
       </View>

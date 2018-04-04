@@ -1,5 +1,4 @@
 import { actionTypes as apiActionTypes } from '../api';
-import { actionTypes } from './';
 import { config } from '../../constants';
 import { FSArray } from '../../modules/fs-foundation';
 

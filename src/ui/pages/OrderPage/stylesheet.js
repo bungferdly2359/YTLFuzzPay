@@ -4,19 +4,13 @@ import { colors, fonts } from '../../../constants';
 export default FSStyleSheet.create(props => ({
   container: {
     flex: 1,
-    backgroundColor: '#f2f2f2'
+    backgroundColor: colors.greyishWhite
   },
   contentContainer: {
     paddingVertical: 25
   },
   itemContainer: {
-    flexDirection: 'row',
-    backgroundColor: colors.white,
-    paddingVertical: 7,
-    paddingHorizontal: 20,
-    borderBottomWidth: 2,
-    borderColor: 'rgba(0, 0, 0, 0.13)',
-    marginVertical: 7
+    flexDirection: 'row'
   },
   iconContainer: {
     width: 83,

@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import InputText from './Input.text';
 import stylesheet from './stylesheet';
+import { CheckBox } from '..';
 
 const inputFields = {
-  text: { Element: InputText, line: true }
+  text: { Element: InputText, line: true },
+  checkbox: { Element: CheckBox, row: true }
 };
 
 export class Input extends Component {
@@ -37,10 +39,10 @@ export class Input extends Component {
     } = this.props;
     const { focus } = this.state;
     const styles = stylesheet.styles();
-    const { Element, line } = inputFields[type];
+    const { Element, line, row } = inputFields[type];
     return (
-      <View style={[styles.container, line && styles.bottomLine, line && focus && styles.focusBottomLine, style]}>
-        {otherProps.title != null && <Text style={[styles.title, focus && styles.focusTitle, titleStyle]}>{otherProps.title}</Text>}
+      <View style={[styles.container, line && styles.bottomLine, line && focus && styles.focusBottomLine, row && styles.rowContainer, style]}>
+        {otherProps.title != null && <Text style={[styles.title, focus && styles.focusTitle, row && styles.rowTitle, titleStyle]}>{otherProps.title}</Text>}
         {prefix != null && 
           <View style={styles.inputContainer}> 
             <Text style={[styles.detailText, styles.prefix]}>{prefix}</Text>

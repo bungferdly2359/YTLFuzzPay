@@ -13,6 +13,14 @@ export default FSStyleSheet.create(props => ({
   focusBottomLine: {
     borderColor: colors.orange
   },
+  rowContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  rowTitle: {
+    paddingBottom: 0
+  },
   title: {
     fontFamily: fonts.proximaNova,
     paddingBottom: 10,
@@ -28,7 +36,7 @@ export default FSStyleSheet.create(props => ({
     fontFamily: fonts.proximaNova,
     fontSize: 16,
     fontWeight: '600',
-    color: colors.greyishBrown
+    color: '#868686'
   },
   inputContainer: {
     flexDirection: 'row'

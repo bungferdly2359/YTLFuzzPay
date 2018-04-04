@@ -4,29 +4,24 @@ import stylesheet from './stylesheet';
 
 export class CheckBox extends Component {
   state = {
-    selected: this.props.selected
+    value: this.props.value || false
   };
-
-  componentWillReceiveProps(nextProps) {
-    if (this.state.selected !== nextProps.selected) {
-      this.setState({ selected: !this.state.selected });
-    }
-  }
 
   shouldComponentUpdate() {
     return true;
   }
 
   toggleIndex = () => {
-    this.setState({ selected: !this.state.selected });
-    if (this.props.onValueChanged) {
-      this.props.onValueChanged(this.state.selected);
+    const value = !this.state.value;
+    this.setState({ value });
+    if (this.props.onChangeValue) {
+      this.props.onChangeValue(value);
     }
   };
 
   render() {
     const { style, text, textStyle } = this.props;
-    const { selected } = this.state;
-    return <Button type="none" icon={selected ? 'icon_checkbox1' : 'icon_checkbox0'} style={style} onPress={() => this.toggleIndex()} />;
+    const { value } = this.state;
+    return <Button type="none" icon={value ? 'icon_checkbox1' : 'icon_checkbox0'} style={style} onPress={() => this.toggleIndex()} />;
   }
 }

@@ -4,7 +4,10 @@ import { colors, fonts } from '../../../constants';
 export default FSStyleSheet.create(props => ({
   container: {
     flex: 1,
-    backgroundColor: '#f2f2f2'
+    backgroundColor: colors.white
+  },
+  contentContainer: {
+    paddingVertical: 25
   },
   itemContainer: {
     marginBottom: 5
@@ -15,8 +18,9 @@ export default FSStyleSheet.create(props => ({
     overflow: 'hidden'
   },
   image: {
+    width: 145,
     height: 145,
-    backgroundColor: colors.orange,
+    backgroundColor: '#EDEDED',
     alignItems: 'center',
     justifyContent: 'center'
   },
