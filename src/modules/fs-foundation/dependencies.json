@@ -1,0 +1,4 @@
+{
+  "app": ["react-redux", "redux", "redux-persist", "redux-thunk"],
+  "navigation": ["react-navigation"]
+}

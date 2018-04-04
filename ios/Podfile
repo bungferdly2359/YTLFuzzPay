@@ -1,0 +1,13 @@
+platform :ios, '9.0'
+
+def common_pods
+    pod 'Firebase/Core' 
+    pod 'Firebase/Auth'
+end
+
+project = Xcodeproj::Project.open "./YTLFuzzPay.xcodeproj"
+project.targets.each do |t|
+    target t.name do
+        common_pods
+    end
+end

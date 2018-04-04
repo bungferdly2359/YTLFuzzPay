@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>721775440052-h0bjalbvr972o1rpebh47g7de6sjhrji.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.721775440052-h0bjalbvr972o1rpebh47g7de6sjhrji</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAN1CKVfu0SJqleZYprfcbGCqcC31mdIck</string>
+	<key>GCM_SENDER_ID</key>
+	<string>721775440052</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.yewteelab.fuzzpay</string>
+	<key>PROJECT_ID</key>
+	<string>fuzzpay-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fuzzpay-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:721775440052:ios:fd47f83812c20ac5</string>
+	<key>DATABASE_URL</key>
+	<string>https://fuzzpay-dev.firebaseio.com</string>
+</dict>
+</plist>
