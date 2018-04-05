@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { Text, View, KeyboardAvoidingView, ScrollView, LayoutAnimation } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
@@ -15,6 +15,11 @@ const mapStateToProps = ({ merchants, dishes }) => ({
 
 class DishPage extends Component {
   state = {
+    optionsLength: ((this.props.dish || {}).options || []).length,
+    imagePath: null
+  };
+
+  dishState = {
     did: IdHelper.createId(),
     mid: (this.props.merchant || {}).mid,
     name: '',
@@ -23,11 +28,16 @@ class DishPage extends Component {
     price: '',
     imageURL: null,
     imagePath: null,
-    ...(this.props.dish || {})
+    ...(this.props.dish || {}),
+    options: [...((this.props.dish || {}).options || [])]
   };
 
   componentWillUnmount() {
     AlertHelper.cleanImagePickerCache();
+  }
+
+  componentDidUpdate() {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
   }
 
   chooseImage = () => {
@@ -39,26 +49,41 @@ class DishPage extends Component {
         cropping: true
       },
       image => {
+        this.dishState.imagePath = image.path;
         this.setState({ imagePath: image.path });
       }
     );
   };
 
   update = () => {
-    if (ValidateHelper.isValidParams(this.state)) {
-      this.props.updateDish(this.state).then(() => this.props.navigation.goBack());
+    if (ValidateHelper.isValidParams(this.dishState)) {
+      this.props.updateDish(this.dishState).then(() => this.props.navigation.goBack());
     }
   };
 
   delete = () => {
-    if (ValidateHelper.isValidParams(this.state)) {
-      this.props.deleteDish(this.state.did).then(() => this.props.navigation.goBack());
+    if (ValidateHelper.isValidParams(this.dishState)) {
+      this.props.deleteDish(this.dishState.did).then(() => this.props.navigation.goBack());
     }
+  };
+
+  deleteOptionIndex = index => {
+    this.dishState.options.splice(index, 1);
+    this.setState({ optionsLength: this.dishState.options.length });
+  };
+
+  toggleNewOption = () => {
+    this.props.navigation.navigate('DishOption', {
+      completion: option => {
+        this.dishState.options.push(option);
+        this.setState({ optionsLength: this.dishState.options.length });
+      }
+    });
   };
 
   render() {
     const styles = stylesheet.styles();
-    const { name, description, price, available, imageURL, imagePath } = this.state;
+    const { name, description, price, available, imageURL, imagePath, options } = this.dishState;
     const isNew = this.props.dish == null;
     return (
       <View style={styles.container}>
@@ -69,14 +94,28 @@ class DishPage extends Component {
               <Button type="none" icon="image_edit" onPress={this.chooseImage} />
             </Image>
             <Section>
-              <Input title="Name" placeholder="Fish Soup" value={name} onChangeText={value => (this.state.name = value)} />
-              <Input title="Description" placeholder="Enter description here" value={price} onChangeText={value => (this.state.description = value)} />
-              <Input title="Price" prefix="$" keyboardType="numeric" placeholder="0.00" value={description} onChangeText={value => (this.state.price = value)} />
-              <Input title="Availability" type="checkbox" value={available} onChangeValue={value => (this.state.available = value)} />
+              <Input title="Name" placeholder="Fish Soup" value={name} onChangeText={value => (this.dishState.name = value)} />
+              <Input title="Description" placeholder="Enter description here" value={description} onChangeText={value => (this.dishState.description = value)} />
+              <Input title="Price" prefix="$" keyboardType="numeric" placeholder="0.00" value={price} onChangeText={value => (this.dishState.price = value)} />
+              <Input title="Availability" type="checkbox" value={available} onChangeValue={value => (this.dishState.available = value)} />
             </Section>
-            <Section>
-              <Button style={styles.button} text={isNew ? 'Save' : 'Update'} onPress={this.update} />
+            <Section title="Options" action={{ text: '+Add', type: 'baritem done', onPress: this.toggleNewOption }}>
+              {options.map((o, i) => (
+                <Input
+                  action={{ text: 'Remove', onPress: () => this.deleteOptionIndex(i) }}
+                  key={i}
+                  title={o.name}
+                  prefix="$"
+                  keyboardType="numeric"
+                  placeholder="0.00"
+                  value={o.price}
+                  onChangeText={value => (this.dishState.options[i].price = value)}
+                />
+              ))}
+            </Section>
+            <Section style={styles.buttonContainer}>
               {!isNew && <Button style={styles.button} text={'Delete'} onPress={this.delete} />}
+              <Button style={styles.button} text={isNew ? 'Save' : 'Update'} onPress={this.update} />
             </Section>
           </ScrollView>
         </KeyboardAvoidingView>

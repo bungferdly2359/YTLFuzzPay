@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import InputText from './Input.text';
 import stylesheet from './stylesheet';
-import { CheckBox } from '..';
+import { CheckBox, Button } from '..';
 
 const inputFields = {
   text: { Element: InputText, line: true },
@@ -34,22 +34,24 @@ export class Input extends Component {
       type = 'text',
       prefix,
       style, 
+      action,
       titleStyle,
       ...otherProps,
     } = this.props;
     const { focus } = this.state;
     const styles = stylesheet.styles();
     const { Element, line, row } = inputFields[type];
+    
     return (
       <View style={[styles.container, line && styles.bottomLine, line && focus && styles.focusBottomLine, row && styles.rowContainer, style]}>
-        {otherProps.title != null && <Text style={[styles.title, focus && styles.focusTitle, row && styles.rowTitle, titleStyle]}>{otherProps.title}</Text>}
-        {prefix != null && 
-          <View style={styles.inputContainer}> 
-            <Text style={[styles.detailText, styles.prefix]}>{prefix}</Text>
-            <Element {...otherProps} onFocus={this.onFocus} onEndEditing={this.onEndEditing} />
-          </View>
-        }
-        {prefix == null && <Element {...otherProps} onFocus={this.onFocus} onEndEditing={this.onEndEditing} />}
+        <View style={styles.titleContainer}>
+          {otherProps.title != null && <Text style={[styles.title, focus && styles.focusTitle, row && styles.rowTitle, titleStyle]}>{otherProps.title}</Text>}
+          {action && <Button type='baritem done' {...action} />}
+        </View>
+        <View style={styles.inputContainer}> 
+          {prefix != null && <Text style={[styles.detailText, styles.prefix]}>{prefix}</Text>}
+          <Element {...otherProps} onFocus={this.onFocus} onEndEditing={this.onEndEditing} />
+        </View>
       </View>
     );
   }

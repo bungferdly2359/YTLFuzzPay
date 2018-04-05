@@ -9,7 +9,8 @@ import MenuPage from './pages/MenuPage';
 import VerifyPage from './pages/VerifyPage';
 import ProfilePage from './pages/ProfilePage';
 import MerchantPage from './pages/MerchantPage';
-import DishPage from './pages/DishPage/DishPage';
+import DishOptionPage from './pages/DishOptionPage';
+import DishPage from './pages/DishPage';
 
 const mainTabNavigator = (config = {}) =>
   MainTabNavigator(
@@ -31,6 +32,7 @@ const rootNavigator = (config = {}) =>
       Register: { screen: RegisterPage },
       Merchant: { screen: MerchantPage },
       Dish: { screen: DishPage },
+      DishOption: { screen: DishOptionPage },
       Verify: { screen: VerifyPage },
       MainTab: { screen: mainTabNavigator(config.mainTabConfig) }
     },

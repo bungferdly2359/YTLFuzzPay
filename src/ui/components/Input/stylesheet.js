@@ -22,6 +22,7 @@ export default FSStyleSheet.create(props => ({
     paddingBottom: 0
   },
   title: {
+    maxWidth: 240,
     fontFamily: fonts.proximaNova,
     paddingBottom: 10,
     fontSize: 16,
@@ -37,6 +38,10 @@ export default FSStyleSheet.create(props => ({
     fontSize: 16,
     fontWeight: '600',
     color: '#868686'
+  },
+  titleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   inputContainer: {
     flexDirection: 'row'

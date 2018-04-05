@@ -9,5 +9,22 @@ export default FSStyleSheet.create(props => ({
     borderBottomWidth: 2,
     borderColor: 'rgba(0, 0, 0, 0.13)',
     marginVertical: 7
+  },
+  titleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    borderColor: '#c2c2c2',
+    height: 40,
+    marginHorizontal: -20,
+    marginBottom: 10,
+    paddingHorizontal: 20
+  },
+  title: {
+    fontFamily: fonts.proximaNova,
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.greyishBrown
   }
 }));

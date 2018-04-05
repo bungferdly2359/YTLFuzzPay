@@ -1,1 +1,1 @@
-export { default } from './MerchantPage';
+export { default } from './DishPage';

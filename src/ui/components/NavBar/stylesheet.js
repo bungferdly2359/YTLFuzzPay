@@ -13,7 +13,8 @@ export default FSStyleSheet.create(props => ({
       height: 2
     },
     shadowRadius: 2,
-    shadowOpacity: 1
+    shadowOpacity: 1,
+    zIndex: 100
   },
   buttonsContainer: {
     flexDirection: 'row',

@@ -65,7 +65,7 @@ class OrdersPage extends Component {
                   {menu.map((m, i) => (
                     <View key={i} style={styles.dishContainer}>
                       <Text style={styles.dishName}>{m.name}</Text>
-                      {(m.detail || '').length > 0 && <Text style={styles.dishDetail}>{m.detail}</Text>}
+                      {(m.additional || '').length > 0 && <Text style={styles.dishDetail}>{m.additional}</Text>}
                     </View>
                   ))}
                 </View>
