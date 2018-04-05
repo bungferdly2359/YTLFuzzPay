@@ -30,7 +30,6 @@ class ProfilePage extends Component {
   };
 
   render() {
-    console.log('render');
     const styles = stylesheet.styles();
     const { fullName, phoneNumber, bankName, bankAccount, userName } = { ...this.props.user, ...this.state };
     return (

@@ -4,7 +4,7 @@ import MainTabNavigator from './navigators/MainTabNavigator';
 import OnboardingPage from './pages/OnboardingPage';
 import InitialPage from './InitialPage';
 import RegisterPage from './pages/RegisterPage';
-import OrderPage from './pages/OrderPage';
+import OrdersPage from './pages/OrdersPage';
 import MenuPage from './pages/MenuPage';
 import VerifyPage from './pages/VerifyPage';
 import ProfilePage from './pages/ProfilePage';
@@ -14,7 +14,7 @@ import DishPage from './pages/DishPage/DishPage';
 const mainTabNavigator = (config = {}) =>
   MainTabNavigator(
     {
-      Orders: { screen: OrderPage },
+      Orders: { screen: OrdersPage },
       Menu: { screen: MenuPage },
       Accounts: { screen: ProfilePage }
     },

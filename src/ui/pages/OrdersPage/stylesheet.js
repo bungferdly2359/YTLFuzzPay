@@ -15,10 +15,10 @@ export default FSStyleSheet.create(props => ({
   iconContainer: {
     width: 83,
     paddingHorizontal: 5,
+    paddingVertical: 10,
     borderRightWidth: 1,
     borderColor: '#e8e8e8',
     alignItems: 'center',
-    justifyContent: 'center',
     marginVertical: -3,
     marginLeft: -20,
     marginRight: 13
@@ -36,20 +36,18 @@ export default FSStyleSheet.create(props => ({
     fontWeight: '600',
     color: '#383838'
   },
-  ordersContainer: {
-    flex: 1
+  menuContainer: {
+    flex: 1,
+    marginVertical: 12
   },
-  orderContainer: {
-    marginVertical: 8
-  },
-  detail: {
+  dishName: {
     fontFamily: fonts.proximaNova,
     fontSize: 16,
     fontWeight: '600',
-    color: '#383838',
-    marginBottom: 7
+    color: '#383838'
   },
-  subdetail: {
+  dishDetail: {
+    marginTop: 7,
     fontFamily: fonts.proximaNova,
     fontSize: 14,
     fontWeight: 'normal',

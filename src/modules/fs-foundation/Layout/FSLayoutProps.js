@@ -56,7 +56,7 @@ class FSLayoutProps {
     this.isLandscape = width > height;
     this.width = width;
     this.height = height;
-    this.statusBarHeight = isIOS ? (isIphoneX ? 30 : 20) : 0;
+    this.statusBarHeight = isIOS ? (isIphoneX ? 40 : 20) : 0;
     this.navigationBarHeight = deviceWidth >= 768 ? 60 : (isIOS ? 44 : 54) * deviceScale;
     this.topTabBarHeight = (isIOS ? 31 : 36) * deviceScale;
     this.tabBarHeight = 48 * deviceScale;

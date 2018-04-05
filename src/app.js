@@ -5,10 +5,12 @@ import RequestService from './services/RequestService';
 import { userReducer } from './redux/user';
 import { merchantsReducer } from './redux/merchants';
 import { dishesReducer } from './redux/dishes';
+import { ordersReducer } from './redux/orders';
 
 FSApp.setAppBundle('YTLFuzzPay', () => {
   //setup reducers
   FSApp.addReducer('api', apiReducer);
+  FSApp.addReducer('orders', ordersReducer);
   FSApp.addReducer('merchants', merchantsReducer, { whitelist: true });
   FSApp.addReducer('dishes', dishesReducer, { whitelist: true });
   FSApp.addReducer('user', userReducer, { whitelist: true });
