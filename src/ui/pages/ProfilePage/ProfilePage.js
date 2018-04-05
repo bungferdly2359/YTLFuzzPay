@@ -15,7 +15,7 @@ class ProfilePage extends Component {
     tabBarIcon: 'icon_account'
   };
 
-  state = { ...this.props.user };
+  state = {};
 
   componentDidMount() {
     this.props.getUser();
@@ -24,14 +24,15 @@ class ProfilePage extends Component {
   update = () => {
     const { fullName, bankName, bankAccount, userName } = this.state;
     const params = { fullName, bankName, bankAccount, userName };
-    if (ValidateHelper.isValidUser(params)) {
+    if (ValidateHelper.isValidParams(params)) {
       this.props.updateUser(params).then(() => AlertHelper.showSuccess('Profile Updated!'));
     }
   };
 
   render() {
+    console.log('render');
     const styles = stylesheet.styles();
-    const { fullName, phoneNumber, bankName, bankAccount, userName } = this.state;
+    const { fullName, phoneNumber, bankName, bankAccount, userName } = { ...this.props.user, ...this.state };
     return (
       <View style={styles.container}>
         <NavBar title="Profile" />

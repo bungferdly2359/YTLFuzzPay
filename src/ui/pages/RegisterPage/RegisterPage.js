@@ -16,7 +16,7 @@ const RegisterPage = props => {
   };
 
   const register = () => {
-    if (ValidateHelper.isValidUser(state)) {
+    if (ValidateHelper.isValidParams(state)) {
       props.register(state).then(() => {
         props.navigation.navigate('Verify');
       });
