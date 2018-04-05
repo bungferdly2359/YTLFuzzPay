@@ -21,7 +21,27 @@ class DishPage extends Component {
     description: '',
     available: false,
     price: '',
+    imageURL: null,
+    imagePath: null,
     ...(this.props.dish || {})
+  };
+
+  componentWillUnmount() {
+    AlertHelper.cleanImagePickerCache();
+  }
+
+  chooseImage = () => {
+    AlertHelper.showImagePicker(
+      {
+        width: 290,
+        height: 290,
+        writeTempFile: false,
+        cropping: true
+      },
+      image => {
+        this.setState({ imagePath: image.path });
+      }
+    );
   };
 
   update = () => {
@@ -38,13 +58,16 @@ class DishPage extends Component {
 
   render() {
     const styles = stylesheet.styles();
-    const { name, description, price, available } = this.state;
+    const { name, description, price, available, imageURL, imagePath } = this.state;
     const isNew = this.props.dish == null;
     return (
       <View style={styles.container}>
         <NavBar navigation={this.props.navigation} title={isNew ? 'Add New Dish' : 'Update Dish'} />
         <KeyboardAvoidingView style={styles.full} behavior="padding">
           <ScrollView style={styles.full} contentContainerStyle={styles.contentContainer}>
+            <Image style={styles.image} resizeMode="cover" source={imagePath || imageURL}>
+              <Button type="none" icon="image_edit" onPress={this.chooseImage} />
+            </Image>
             <Section>
               <Input title="Name" placeholder="Fish Soup" value={name} onChangeText={value => (this.state.name = value)} />
               <Input title="Description" placeholder="Enter description here" value={price} onChangeText={value => (this.state.description = value)} />

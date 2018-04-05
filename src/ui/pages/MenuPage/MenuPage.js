@@ -14,7 +14,7 @@ const mapStateToProps = ({ merchants, dishes }) => ({
   dishes: dishes.dishes
 });
 
-const addMenu = { image: 'icon_newdish', resizeMode: 'center' };
+const addMenu = { imageURL: 'icon_newdish', resizeMode: 'center' };
 
 class MenuPage extends PureComponent {
   static navigationOptions = {
@@ -49,7 +49,7 @@ class MenuPage extends PureComponent {
           renderItem={item => (
             <View style={styles.itemContainer}>
               <TouchableHighlight onPress={() => this.itemOnPress(item)} style={styles.touchable}>
-                <Image style={styles.image} source={item.image} resizeMode={item.resizeMode}>
+                <Image style={styles.image} source={item.imageURL} resizeMode={item.resizeMode}>
                   {item.price != null && <Text style={styles.price}>${item.price}</Text>}
                 </Image>
               </TouchableHighlight>

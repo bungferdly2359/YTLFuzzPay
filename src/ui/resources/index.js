@@ -7,6 +7,7 @@ FSResources.setResources({
   icon_menu: require('./images/icon_menu.png'),
   icon_newdish: require('./images/icon_newdish.png'),
   icon_orders: require('./images/icon_orders.png'),
+  image_edit: require('./images/image_edit.png'),
   image_onboarding: require('../../../ios/YTLFuzzPay/Resources/Images/AppSplash.png')
 });
 

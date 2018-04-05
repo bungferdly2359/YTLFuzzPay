@@ -4,6 +4,7 @@ import { IdHelper } from '../../helpers';
 
 export const actionTypes = {
   register: 'api::request::register',
+  uploadImage: 'api::request::uploadImage',
   updateDish: 'api::request::updateDish',
   deleteDish: 'api::request::deleteDish',
   getDishes: 'api::request::getDishes',
@@ -26,6 +27,22 @@ export const clearError = ({ requestType }) => ({
   payload: { requestType }
 });
 
+export const getImageURLPromise = iid =>
+  firebase
+    .storage()
+    .ref()
+    .child(iid)
+    .getDownloadURL();
+
+export const uploadImagePromise = (iid, imagePath) =>
+  imagePath
+    ? firebase
+        .storage()
+        .ref()
+        .child(iid)
+        .putFile(imagePath)
+    : Promise.resolve({});
+
 export const getDishes = mid =>
   baseApi({
     type: actionTypes.getDishes,
@@ -34,15 +51,21 @@ export const getDishes = mid =>
       .get()
   });
 
-export const updateDish = ({ did, ...params }) =>
-  baseApi({
+export const updateDish = ({ did, imagePath, ...params }) => {
+  const customPayload = { did, ...params };
+  return baseApi({
     type: actionTypes.updateDish,
-    customPayload: { did, ...params },
+    customPayload,
     loadingText: 'Updating...',
-    api: db('dishes')
-      .doc(did)
-      .set(params)
+    api: uploadImagePromise(IdHelper.dishIid(did), imagePath).then(({ downloadURL }) => {
+      const imageURL = downloadURL || params.imageURL;
+      customPayload.imageURL = imageURL;
+      return db('dishes')
+        .doc(did)
+        .set({ ...params, imageURL });
+    })
   });
+};
 
 export const deleteDish = did =>
   baseApi({

@@ -9,10 +9,13 @@ export default FSStyleSheet.create(props => ({
   full: {
     flex: 1
   },
-  contentContainer: {
-    paddingVertical: 25
-  },
   button: {
     marginVertical: 5
+  },
+  image: {
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    paddingBottom: 15,
+    height: 180
   }
 }));

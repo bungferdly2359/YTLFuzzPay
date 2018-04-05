@@ -2,9 +2,9 @@ let _resources = {};
 let _baseURLFunction = null;
 
 export default {
-  setResources: (resources) => (_resources = resources),
-  setBaseURLFunction: (baseURLFunction) => (_baseURLFunction = baseURLFunction),
-  getResource: (resourceName) => {
+  setResources: resources => (_resources = resources),
+  setBaseURLFunction: baseURLFunction => (_baseURLFunction = baseURLFunction),
+  getResource: resourceName => {
     if (!resourceName) {
       return null;
     }
@@ -12,10 +12,10 @@ export default {
       return resourceName;
     }
     if (typeof resourceName === 'string') {
-      if (resourceName.startsWith('http')) {
-        return { uri: resourceName };
-      } else if (resourceName.startsWith('/') && _baseURLFunction) {
+      if (resourceName.startsWith('/') && _baseURLFunction) {
         return { uri: `${_baseURLFunction()}${resourceName}` };
+      } else if (resourceName.startsWith('http') || resourceName.startsWith('file:') || resourceName.startsWith('/')) {
+        return { uri: resourceName };
       }
       const res = _resources[resourceName];
       if (res) {

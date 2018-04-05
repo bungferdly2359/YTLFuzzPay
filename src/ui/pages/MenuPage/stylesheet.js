@@ -26,8 +26,14 @@ export default FSStyleSheet.create(props => ({
   },
   price: {
     fontFamily: fonts.proximaNova,
-    fontSize: 30,
-    color: 'white'
+    fontSize: 36,
+    color: colors.white,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {
+      width: 0,
+      height: 2
+    },
+    textShadowRadius: 4
   },
   name: {
     fontFamily: fonts.proximaNova,
