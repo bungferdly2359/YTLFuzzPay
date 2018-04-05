@@ -1622,7 +1622,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yewteelab.fuzzpay;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yewteelab.fuzzpay.staging;
 				PRODUCT_NAME = Staging;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1658,7 +1658,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yewteelab.fuzzpay;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yewteelab.fuzzpay.staging;
 				PRODUCT_NAME = Staging;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
