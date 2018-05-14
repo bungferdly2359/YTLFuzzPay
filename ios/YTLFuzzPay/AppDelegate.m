@@ -38,6 +38,18 @@ BOOL prod = true;
 BOOL prod = false;
 #endif
 
+#ifdef CUSTOMER
+BOOL customer = true;
+#else
+BOOL customer = false;
+#endif
+
+#ifdef MERCHANT
+BOOL merchant = true;
+#else
+BOOL merchant = false;
+#endif
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -53,6 +65,8 @@ BOOL prod = false;
                                                initialProperties:@{@"debug": @(debug),
                                                                    @"staging": @(staging),
                                                                    @"prod": @(prod),
+                                                                   @"customer": @(customer),
+                                                                   @"merchant": @(merchant),
                                                                    @"testUI": @(testUI)}
                                                    launchOptions:launchOptions];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
@@ -64,8 +78,6 @@ BOOL prod = false;
   [rootViewController.view insertSubview:rootView atIndex:0];
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
-  
-  NSLog (@"Font families: %@", [UIFont familyNames]);
   return YES;
 }
 

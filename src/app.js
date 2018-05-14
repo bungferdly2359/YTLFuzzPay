@@ -1,5 +1,6 @@
 import { FSApp, FSNavigationService } from './modules/fs-foundation';
-import rootNavigator from './ui/rootNavigator';
+import merchantNavigator from './ui/merchantNavigator';
+import customerNavigator from './ui/customerNavigator';
 import { apiReducer } from './redux/api';
 import RequestService from './services/RequestService';
 import { userReducer } from './redux/user';
@@ -19,5 +20,9 @@ FSApp.setAppBundle('YTLFuzzPay', () => {
   FSApp.addService(RequestService);
 
   //setup root navigator
-  FSNavigationService.setNavigator(rootNavigator());
+  if (FSApp.appProps.nativeProps.isCustomer) {
+    FSNavigationService.setNavigator(customerNavigator());
+  } else {
+    FSNavigationService.setNavigator(merchantNavigator());
+  }
 });
