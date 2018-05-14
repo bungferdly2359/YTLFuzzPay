@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { FSLayoutActions, FSStyleSheet } from './';
 import { FSApp } from '../';
 
-const mapStateToProps = (state) => (state.layout);
+const mapStateToProps = state => state.layout;
 const { setAppDimension } = FSLayoutActions;
 
 const styles = StyleSheet.create({
@@ -19,26 +19,22 @@ const styles = StyleSheet.create({
 });
 
 class CTLayoutService extends Component {
-  
   shouldComponentUpdate() {
     return false;
   }
-  
-  onLayout = (event) => {
+
+  onLayout = event => {
     const { width, height } = event.nativeEvent.layout;
     if (this.props.appDimension.width !== width || this.props.appDimension.height !== height) {
       FSStyleSheet.setAppDimension({ width, height });
       this.props.setAppDimension({ width, height });
     }
-  }
-  
+  };
+
   render() {
-    return (
-      <View style={styles.container} pointerEvents='none' onLayout={this.onLayout} />
-    );
+    return <View style={styles.container} pointerEvents="none" onLayout={this.onLayout} />;
   }
 }
 
 const service = connect(mapStateToProps, { setAppDimension })(CTLayoutService);
-FSApp.addService(service);
 export default service;

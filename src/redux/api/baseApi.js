@@ -4,6 +4,8 @@ import firebase from 'react-native-firebase';
 import { actionTypes } from './apiActions';
 import { config } from '../../constants';
 
+let mockFetch = null;
+
 const getErrorMessage = r => {
   if (!r) {
     return null;
@@ -21,7 +23,11 @@ const getErrorMessage = r => {
   return null;
 };
 
-export default props => (dispatch, getState) => {
+export const setMockFetch = (mf = (props = {}) => {}) => {
+  mockFetch = mf;
+};
+
+export const defaultFetch = props => (dispatch, getState) => {
   const { type, loadingText, errorType, api, customPayload } = props;
 
   const state = getState();
@@ -41,7 +47,7 @@ export default props => (dispatch, getState) => {
     }
   });
 
-  return (api || axios.request({ url, method, headers, data, timeout }))
+  return ((api && api()) || axios.request({ url, method, headers, data, timeout }))
     .then(response => {
       if (getErrorMessage(response)) {
         throw response;
@@ -80,4 +86,12 @@ export default props => (dispatch, getState) => {
       });
       throw new Error(errorMessage);
     });
+};
+
+export default (props = {}) => (dispatch, getState) => {
+  if (mockFetch) {
+    return dispatch(mockFetch(props));
+  } else {
+    return dispatch(defaultFetch(props));
+  }
 };

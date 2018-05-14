@@ -28,7 +28,14 @@ const RegisterPage = props => {
       <NavBar navigation={props.navigation} title="Registration" />
       <KeyboardAvoidingView style={styles.full} behavior="padding">
         <ScrollView style={styles.full} contentContainerStyle={styles.contentContainer}>
-          <Input prefix="+65" title="Mobile Number" keyboardType="phone-pad" placeholder="12345678" onChangeText={value => (state.phoneNumber = `+65${value}`)} />
+          <Input
+            style={styles.input}
+            prefix="+65"
+            title="Mobile Number"
+            keyboardType="phone-pad"
+            placeholder="12345678"
+            onChangeText={value => (state.phoneNumber = `+65${value}`)}
+          />
           <Button text="Sign Up" onPress={register} />
         </ScrollView>
       </KeyboardAvoidingView>

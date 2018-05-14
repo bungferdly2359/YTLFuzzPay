@@ -18,5 +18,4 @@ function reducer(state = initialState(), action) {
   }
 }
 
-FSApp.addReducer('layout', reducer);
 export default reducer;

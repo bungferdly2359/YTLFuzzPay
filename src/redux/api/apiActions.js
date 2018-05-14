@@ -47,47 +47,50 @@ export const uploadImagePromise = (iid, imagePath) =>
 export const getOrders = mid => (dispatch, getState) =>
   baseApi({
     type: actionTypes.getOrders,
-    api: db('orders')
-      .where('mid', '==', mid)
-      .get()
-      .then(resp => {
-        const oldCustomers = getState().orders.customers;
-        const orders = (resp.docs || []).map(d => ({ oid: d.id, ...d.data() }));
-        const newCustomerUids = orders.filter(o => oldCustomers.every(c => c.uid != o.uid)).map(o => o.uid);
-        const amid = mid;
-        return Promise.all(
-          newCustomerUids.map(uid =>
-            db('users')
-              .doc(uid)
-              .get()
-          )
-        ).then(resp => {
-          const dishes = getState().dishes.dishes;
-          const newCustomers = resp.map(r => ({ uid: r.id, ...r.data() }));
-          const customers = [...oldCustomers, ...newCustomers];
-          return {
-            orders: OrderHelper.getOrdersInfo(orders, customers, dishes),
-            customers
-          };
-        });
-      })
+    api: () =>
+      db('orders')
+        .where('mid', '==', mid)
+        .get()
+        .then(resp => {
+          const oldCustomers = getState().orders.customers;
+          const orders = (resp.docs || []).map(d => ({ oid: d.id, ...d.data() }));
+          const newCustomerUids = orders.filter(o => oldCustomers.every(c => c.uid != o.uid)).map(o => o.uid);
+          const amid = mid;
+          return Promise.all(
+            newCustomerUids.map(uid =>
+              db('users')
+                .doc(uid)
+                .get()
+            )
+          ).then(resp => {
+            const dishes = getState().dishes.dishes;
+            const newCustomers = resp.map(r => ({ uid: r.id, ...r.data() }));
+            const customers = [...oldCustomers, ...newCustomers];
+            return {
+              orders: OrderHelper.getOrdersInfo(orders, customers, dishes),
+              customers
+            };
+          });
+        })
   })(dispatch, getState);
 
 export const updateOrderStatus = (oid, status) =>
   baseApi({
     type: actionTypes.updateOrderStatus,
     customPayload: { status },
-    api: db('orders')
-      .doc(oid)
-      .set({ status }, { merge: true })
+    api: () =>
+      db('orders')
+        .doc(oid)
+        .set({ status }, { merge: true })
   });
 
 export const getDishes = mid =>
   baseApi({
     type: actionTypes.getDishes,
-    api: db('dishes')
-      .where('mid', '==', mid)
-      .get()
+    api: () =>
+      db('dishes')
+        .where('mid', '==', mid)
+        .get()
   });
 
 export const updateDish = ({ did, imagePath, ...params }) => {
@@ -96,13 +99,14 @@ export const updateDish = ({ did, imagePath, ...params }) => {
     type: actionTypes.updateDish,
     customPayload,
     loadingText: 'Updating...',
-    api: uploadImagePromise(IdHelper.dishIid(did), imagePath).then(({ downloadURL }) => {
-      const imageURL = downloadURL || params.imageURL;
-      customPayload.imageURL = imageURL;
-      return db('dishes')
-        .doc(did)
-        .set({ ...params, imageURL });
-    })
+    api: () =>
+      uploadImagePromise(IdHelper.dishIid(did), imagePath).then(({ downloadURL }) => {
+        const imageURL = downloadURL || params.imageURL;
+        customPayload.imageURL = imageURL;
+        return db('dishes')
+          .doc(did)
+          .set({ ...params, imageURL });
+      })
   });
 };
 
@@ -111,17 +115,19 @@ export const deleteDish = did =>
     type: actionTypes.deleteDish,
     customPayload: did,
     loadingText: 'Deleting...',
-    api: db('dishes')
-      .doc(did)
-      .delete()
+    api: () =>
+      db('dishes')
+        .doc(did)
+        .delete()
   });
 
 export const getMerchants = () =>
   baseApi({
     type: actionTypes.getMerchants,
-    api: db('merchants')
-      .where('uid', '==', IdHelper.currentUid())
-      .get()
+    api: () =>
+      db('merchants')
+        .where('uid', '==', IdHelper.currentUid())
+        .get()
   });
 
 export const updateMerchant = ({ mid, ...params }) =>
@@ -129,17 +135,19 @@ export const updateMerchant = ({ mid, ...params }) =>
     type: actionTypes.updateMerchant,
     customPayload: { mid, ...params },
     loadingText: 'Updating...',
-    api: db('merchants')
-      .doc(mid)
-      .set(params)
+    api: () =>
+      db('merchants')
+        .doc(mid)
+        .set(params)
   });
 
 export const getUser = () =>
   baseApi({
     type: actionTypes.getUser,
-    api: db('users')
-      .doc(IdHelper.currentUid())
-      .get()
+    api: () =>
+      db('users')
+        .doc(IdHelper.currentUid())
+        .get()
   });
 
 export const updateUser = params =>
@@ -147,9 +155,10 @@ export const updateUser = params =>
     type: actionTypes.updateUser,
     customPayload: params,
     loadingText: 'Updating...',
-    api: db('users')
-      .doc(IdHelper.currentUid())
-      .set(params)
+    api: () =>
+      db('users')
+        .doc(IdHelper.currentUid())
+        .set(params)
   });
 
 export const register = params =>
@@ -157,18 +166,19 @@ export const register = params =>
     type: actionTypes.register,
     customPayload: params,
     loadingText: 'Registering...',
-    api: firebase
-      .auth()
-      .signInWithPhoneNumber(params.phoneNumber)
-      .then(r => {
-        confirmResult = r;
-        return r;
-      })
+    api: () =>
+      firebase
+        .auth()
+        .signInWithPhoneNumber(params.phoneNumber)
+        .then(r => {
+          confirmResult = r;
+          return r;
+        })
   });
 
 export const verifyPhoneNumber = verificationCode =>
   baseApi({
     type: actionTypes.verifyPhoneNumber,
-    api: confirmResult.confirm(verificationCode),
+    api: () => confirmResult.confirm(verificationCode),
     loadingText: 'Verifying...'
   });

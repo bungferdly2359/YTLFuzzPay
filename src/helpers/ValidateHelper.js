@@ -1,4 +1,5 @@
 import { AlertHelper } from './AlertHelper';
+import { FSApp } from '../modules/fs-foundation';
 
 const nameRegex = /^.{1,50}$/;
 const descriptionRegex = /^.{0,100}$/;
@@ -10,6 +11,9 @@ const bankRegex = /^[0-9]{5,20}$/;
 
 export const ValidateHelper = {
   isValidParams: ({ name, description, price, fullName, firstName, lastName, userName, phoneNumber, bankName, bankAccount }) => {
+    if (FSApp.getNativeProps('testUI')) {
+      return true;
+    }
     var error =
       (name != null && !nameRegex.test(name) && 'Invalid name') ||
       (description != null && !descriptionRegex.test(description) && 'Invalid description') ||

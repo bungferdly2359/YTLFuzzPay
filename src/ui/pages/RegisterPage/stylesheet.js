@@ -9,6 +9,10 @@ export default FSStyleSheet.create(props => ({
   full: {
     flex: 1
   },
+  input: {
+    marginTop: 25,
+    marginBottom: 50
+  },
   contentContainer: {
     padding: 25
   }
