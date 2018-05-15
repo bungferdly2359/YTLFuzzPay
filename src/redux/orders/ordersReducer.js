@@ -8,13 +8,13 @@ const initialState = (oldState = {}) => ({
 });
 
 export function ordersReducer(state = initialState(), action) {
-  const { type, requestType, payload } = action;
+  const { type, payload } = action;
 
-  switch (requestType) {
-    case apiActionTypes.successOf(apiActionTypes.getOrders):
+  switch (type) {
+    case apiActionTypes.getOrders:
       return { ...state, ...payload.response };
 
-    case apiActionTypes.successOf(apiActionTypes.updateOrderStatus):
+    case apiActionTypes.updateOrderStatus:
       return { ...state, dishes: FSArray.mapOrAdd(state.orders, o => o.oid == payload.customPayload.oid, m => ({ ...m, ...payload.customPayload })) };
 
     default:

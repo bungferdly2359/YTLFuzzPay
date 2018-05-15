@@ -9,23 +9,19 @@ const initialState = (oldState = {}) => ({
 });
 
 export function dishesReducer(state = initialState(), action) {
-  const { type, requestType, payload } = action;
+  const { type, payload } = action;
 
   switch (type) {
     case actionTypes.setCurrentDid:
       return { ...state, currentDid: payload };
-    default:
-      break;
-  }
 
-  switch (requestType) {
-    case apiActionTypes.successOf(apiActionTypes.getDishes):
+    case apiActionTypes.getDishes:
       return { ...state, dishes: (payload.response.docs || []).map(d => ({ did: d.id, ...d.data() })) };
 
-    case apiActionTypes.successOf(apiActionTypes.updateDish):
+    case apiActionTypes.updateDish:
       return { ...state, dishes: FSArray.mapOrAdd(state.dishes, m => m.did == payload.customPayload.did, () => payload.customPayload) };
 
-    case apiActionTypes.successOf(apiActionTypes.deleteDish):
+    case apiActionTypes.deleteDish:
       return { ...state, dishes: [...state.dishes.filter(m => m.did !== payload.customPayload)] };
 
     default:

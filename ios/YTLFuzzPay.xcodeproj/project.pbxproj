@@ -115,6 +115,11 @@
 		42664A9E20A94ADF00FDAA4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4255E1C220746C0900E8B85C /* GoogleService-Info.plist */; };
 		42664A9F20A94ADF00FDAA4F /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6D4B2073869A004DDCBE /* RootViewController.xib */; };
 		42664AA020A94ADF00FDAA4F /* ProximaNova-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6DDD2073B869004DDCBE /* ProximaNova-Regular.ttf */; };
+		42D2100D20AAB570001D6698 /* ShentonHouse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42D20FE320AAB570001D6698 /* ShentonHouse.gpx */; };
+		42D2100E20AAB570001D6698 /* ShentonHouse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42D20FE320AAB570001D6698 /* ShentonHouse.gpx */; };
+		42D2100F20AAB570001D6698 /* ShentonHouse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42D20FE320AAB570001D6698 /* ShentonHouse.gpx */; };
+		42D2101020AAB570001D6698 /* ShentonHouse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42D20FE320AAB570001D6698 /* ShentonHouse.gpx */; };
+		42D2101120AAB570001D6698 /* ShentonHouse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42D20FE320AAB570001D6698 /* ShentonHouse.gpx */; };
 		42EF6D2420738555004DDCBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		42EF6D2520738555004DDCBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		42EF6D2720738555004DDCBE /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -478,6 +483,7 @@
 		42664A7C20A9398100FDAA4F /* FuzzPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuzzPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42664AA720A94ADF00FDAA4F /* TestUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42664AA820A94AE000FDAA4F /* CustomerProd copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CustomerProd copy-Info.plist"; path = "/Users/lyse/Documents/Projects/YTLFuzzPay/reactnative/YTLFuzzPay/ios/CustomerProd copy-Info.plist"; sourceTree = "<absolute>"; };
+		42D20FE320AAB570001D6698 /* ShentonHouse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ShentonHouse.gpx; path = YTLFuzzPay/ShentonHouse.gpx; sourceTree = "<group>"; };
 		42EF6D3A20738555004DDCBE /* FuzzPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuzzPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42EF6D492073869A004DDCBE /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		42EF6D4A2073869A004DDCBE /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
@@ -703,6 +709,7 @@
 				4255E1C220746C0900E8B85C /* GoogleService-Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				42D20FE320AAB570001D6698 /* ShentonHouse.gpx */,
 			);
 			name = YTLFuzzPay;
 			sourceTree = "<group>";
@@ -1451,6 +1458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D2100D20AAB570001D6698 /* ShentonHouse.gpx in Resources */,
 				42EF6DE72073B869004DDCBE /* ProximaNova-CondensedSemibold.ttf in Resources */,
 				42EF6DF32073B869004DDCBE /* ProximaNova-Thin.ttf in Resources */,
 				42EF6DE12073B869004DDCBE /* ProximaNova-Black.ttf in Resources */,
@@ -1469,6 +1477,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D2100F20AAB570001D6698 /* ShentonHouse.gpx in Resources */,
 				42664A4020A9380600FDAA4F /* ProximaNova-CondensedSemibold.ttf in Resources */,
 				42664A4120A9380600FDAA4F /* ProximaNova-Thin.ttf in Resources */,
 				42664A4220A9380600FDAA4F /* ProximaNova-Black.ttf in Resources */,
@@ -1487,6 +1496,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D2101020AAB570001D6698 /* ShentonHouse.gpx in Resources */,
 				42664A6B20A9398100FDAA4F /* ProximaNova-CondensedSemibold.ttf in Resources */,
 				42664A6C20A9398100FDAA4F /* ProximaNova-Thin.ttf in Resources */,
 				42664A6D20A9398100FDAA4F /* ProximaNova-Black.ttf in Resources */,
@@ -1505,6 +1515,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D2101120AAB570001D6698 /* ShentonHouse.gpx in Resources */,
 				42664A9620A94ADF00FDAA4F /* ProximaNova-CondensedSemibold.ttf in Resources */,
 				42664A9720A94ADF00FDAA4F /* ProximaNova-Thin.ttf in Resources */,
 				42664A9820A94ADF00FDAA4F /* ProximaNova-Black.ttf in Resources */,
@@ -1523,6 +1534,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D2100E20AAB570001D6698 /* ShentonHouse.gpx in Resources */,
 				42EF6DE82073B869004DDCBE /* ProximaNova-CondensedSemibold.ttf in Resources */,
 				42EF6DF42073B869004DDCBE /* ProximaNova-Thin.ttf in Resources */,
 				42EF6DE22073B869004DDCBE /* ProximaNova-Black.ttf in Resources */,

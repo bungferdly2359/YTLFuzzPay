@@ -5,24 +5,27 @@ const initialState = () => ({
 });
 
 export function apiReducer(state = initialState(), action) {
-  const { type, payload } = action;
-  if (type.startsWith('api::request::')) {
-    const { response, customPayload, ...others } = payload;
-    const request = {
-      ...(state.requests.find(r => r.type === type) || {}),
-      type,
-      ...(others || {})
-    };
-
-    return {
-      ...state,
-      requests: [...state.requests.filter(r => r.type !== type), request]
-    };
-  } else if (type === actionTypes.clearError) {
-    return {
-      ...state,
-      requests: state.requests.map(r => (r.type === payload.requestType ? { ...r, errorMessage: null } : r))
-    };
+  const { type, requestType, payload } = action;
+  switch (type) {
+    case actionTypes.start:
+    case actionTypes.finish:
+    case actionTypes.error: {
+      const request = {
+        requestType,
+        ...(state.requests.find(r => r.requestType === requestType) || {}),
+        ...payload
+      };
+      return {
+        ...state,
+        requests: [...state.requests.filter(r => r.requestType !== requestType), request]
+      };
+    }
+    case actionTypes.clearError:
+      return {
+        ...state,
+        requests: state.requests.map(r => (r.requestType === payload.requestType ? { ...r, errorMessage: null } : r))
+      };
+    default:
+      return state;
   }
-  return state;
 }

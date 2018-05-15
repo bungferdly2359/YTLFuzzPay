@@ -7,7 +7,8 @@ export default FSStyleSheet.create(props => ({
     backgroundColor: colors.white
   },
   image: {
-    borderRadius: 2,
+    overflow: 'hidden',
+    borderRadius: 3,
     backgroundColor: colors.greyishWhite,
     marginRight: 17,
     width: 75,

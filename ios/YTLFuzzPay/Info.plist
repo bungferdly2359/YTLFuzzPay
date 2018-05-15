@@ -47,7 +47,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>This app wants to access camera</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>To get nearest hawkers</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app wants to access photo gallery</string>
 	<key>UIAppFonts</key>

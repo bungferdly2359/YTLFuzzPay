@@ -23,6 +23,17 @@ const getErrorMessage = r => {
   return null;
 };
 
+const getResponseData = r => {
+  if (!r) {
+    return null;
+  }
+  var response = r;
+  if (response.data) {
+    response = response.data;
+  }
+  return response;
+};
+
 export const setMockFetch = (mf = (props = {}) => {}) => {
   mockFetch = mf;
 };
@@ -35,35 +46,40 @@ export const defaultFetch = props => (dispatch, getState) => {
   const data = props.body;
   const url = props.url; //.startsWith('http') ? props.url : `${URLHelper.getCurrentBaseURL()}${props.url}`;
   const timeout = 10000;
-
+  const headers = props.headers || {};
   dispatch({
-    type,
-    requestType: actionTypes.loadingOf(type),
+    type: actionTypes.start,
+    requestType: type,
     payload: {
       loadingText,
       errorType: errorType || (loadingText && 'alert'),
-      errorMessage: null,
-      customPayload
+      errorMessage: null
     }
   });
 
   return ((api && api()) || axios.request({ url, method, headers, data, timeout }))
-    .then(response => {
-      if (getErrorMessage(response)) {
+    .then(resp => {
+      if (getErrorMessage(resp)) {
         throw response;
       }
+      let response = getResponseData(resp);
       console.log({
         result: 'success',
         props,
         response
       });
       dispatch({
+        type: actionTypes.finish,
+        requestType: type,
+        payload: {
+          loadingText: null
+        }
+      });
+      dispatch({
         type,
-        requestType: actionTypes.successOf(type),
         payload: {
           response,
-          customPayload,
-          loadingText: null
+          customPayload
         }
       });
       return response;
@@ -76,12 +92,11 @@ export const defaultFetch = props => (dispatch, getState) => {
         response
       });
       dispatch({
-        type,
-        requestType: actionTypes.failedOf(type),
+        type: actionTypes.error,
+        requestType: type,
         payload: {
-          errorMessage,
-          customPayload,
-          loadingText: null
+          loadingText: null,
+          errorMessage
         }
       });
       throw new Error(errorMessage);

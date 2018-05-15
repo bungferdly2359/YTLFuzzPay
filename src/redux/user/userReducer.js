@@ -17,26 +17,25 @@ const initialState = (oldState = {}) => ({
 });
 
 export function userReducer(state = initialState(), action) {
-  const { type, requestType, payload } = action;
+  const { type, payload } = action;
 
   switch (type) {
     case '@@redux/INIT':
       return state.version !== currentVersion ? initialState(state) : state;
+
     case actionTypes.updateData:
       return { ...state, ...payload };
-  }
 
-  switch (requestType) {
-    case apiActionTypes.successOf(apiActionTypes.getUser):
+    case apiActionTypes.getUser:
       return { ...state, ...payload.response.data() };
 
-    case apiActionTypes.successOf(apiActionTypes.updateUser):
+    case apiActionTypes.updateUser:
       return { ...state, ...payload.customPayload };
 
-    case apiActionTypes.successOf(apiActionTypes.register):
+    case apiActionTypes.register:
       return { ...state, ...payload.customPayload };
 
-    case apiActionTypes.successOf(apiActionTypes.verifyPhoneNumber): {
+    case apiActionTypes.verifyPhoneNumber: {
       const { refreshToken, uid } = ((payload || {}).response || {})._user || {};
       return {
         ...state,

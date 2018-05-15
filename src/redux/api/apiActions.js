@@ -1,6 +1,7 @@
 import baseApi from './baseApi';
 import firebase from 'react-native-firebase';
 import { IdHelper, OrderHelper, MerchantHelper } from '../../helpers';
+import { urls } from '../../constants';
 
 export const actionTypes = {
   register: 'api::request::register',
@@ -14,16 +15,17 @@ export const actionTypes = {
   getUser: 'api::request::getUser',
   updateUser: 'api::request::updateUser',
   verifyPhoneNumber: 'api::request::verifyPhoneNumber',
+  getGeocode: 'api::request::getGeocode',
   clearError: 'api::clearError',
-  loadingOf: x => `${x}::loading`,
-  successOf: x => `${x}::success`,
-  failedOf: x => `${x}::failed`
+  start: 'api::start',
+  finish: 'api::finish',
+  error: 'api::error'
 };
 
 let confirmResult = null;
 const db = name => firebase.firestore().collection(name);
 
-export const clearError = ({ requestType }) => ({
+export const clearError = requestType => ({
   type: actionTypes.clearError,
   payload: { requestType }
 });
@@ -181,4 +183,10 @@ export const verifyPhoneNumber = verificationCode =>
     type: actionTypes.verifyPhoneNumber,
     api: () => confirmResult.confirm(verificationCode),
     loadingText: 'Verifying...'
+  });
+
+export const getGeocode = (lat, long) =>
+  baseApi({
+    type: actionTypes.getGeocode,
+    url: urls.geocodeURL(lat, long)
   });

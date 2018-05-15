@@ -8,13 +8,13 @@ const initialState = (oldState = {}) => ({
 });
 
 export function merchantsReducer(state = initialState(), action) {
-  const { type, requestType, payload } = action;
+  const { type, payload } = action;
 
-  switch (requestType) {
-    case apiActionTypes.successOf(apiActionTypes.getMerchants):
+  switch (type) {
+    case apiActionTypes.getMerchants:
       return { ...state, merchants: (payload.response.docs || []).map(d => ({ mid: d.id, ...d.data() })) };
 
-    case apiActionTypes.successOf(apiActionTypes.updateMerchant):
+    case apiActionTypes.updateMerchant:
       return { ...state, merchants: [...state.merchants.filter(m => m.mid !== payload.customPayload.mid), payload.customPayload] };
 
     default:

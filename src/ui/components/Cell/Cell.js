@@ -8,8 +8,10 @@ export const Cell = ({ children, style, contentContainerStyle, onPress, disclosu
   return (
     <TouchableHighlight onPress={onPress}>
       <View style={[styles.container, style]}>
-        <View style={[styles.contentContainer, contentContainerStyle]}>{children}</View>
-        {disclosure && <Image source="icon_disclosure" style={styles.disclosure} />}
+        <View style={[styles.contentContainer, contentContainerStyle]}>
+          {children}
+          {disclosure && <Image source="icon_disclosure" style={styles.disclosure} />}
+        </View>
       </View>
     </TouchableHighlight>
   );
