@@ -11,13 +11,12 @@ import ProfilePage from './pages/ProfilePage';
 import MerchantPage from './pages/MerchantPage';
 import DishOptionPage from './pages/DishOptionPage';
 import DishPage from './pages/DishPage';
+import HawkersPage from './pages/HawkersPage';
 
 const mainTabNavigator = (config = {}) =>
   MainTabNavigator(
     {
-      Orders: { screen: OrdersPage },
-      Menu: { screen: MenuPage },
-      Accounts: { screen: ProfilePage }
+      Hawkers: { screen: HawkersPage }
     },
     {
       ...config

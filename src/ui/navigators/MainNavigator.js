@@ -1,12 +1,10 @@
 import { StackNavigator } from 'react-navigation';
-import { FSNavigationProps } from '../../modules/fs-foundation';
 
 const defaultConfig = {
   transitionConfig: () => ({
     screenInterpolator: props => {
-      const isReset = (FSNavigationProps.lastAction || {}).type == 'Navigation/RESET';
       const sceneIndex = props.scenes.indexOf(props.scene);
-      if (isReset && props.scene.isStale && sceneIndex < props.scenes.length - 1) {
+      if (props.scene.isStale && sceneIndex < props.scenes.length - 1) {
         return { opacity: 0 };
       }
       const { position, scene } = props;

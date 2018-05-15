@@ -3,7 +3,6 @@ import { colors, fonts } from '../../../constants';
 
 export default FSStyleSheet.create(props => ({
   container: {
-    height: 44 + props.statusBarHeight,
     justifyContent: 'center',
     paddingTop: props.statusBarHeight,
     backgroundColor: colors.white,
@@ -23,10 +22,15 @@ export default FSStyleSheet.create(props => ({
     left: 7,
     right: 7,
     top: props.statusBarHeight,
-    bottom: 0
+    height: props.navigationBarHeight
   },
   separator: {
     flex: 1
+  },
+  titleContainer: {
+    backgroundColor: colors.white,
+    height: props.navigationBarHeight,
+    justifyContent: 'center'
   },
   title: {
     fontFamily: fonts.proximaNova,

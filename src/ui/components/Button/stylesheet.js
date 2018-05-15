@@ -2,7 +2,8 @@ import { FSStyleSheet } from '../../../modules/fs-foundation';
 import { colors, fonts } from '../../../constants';
 
 export const gradientColors = {
-  primary: [colors.lightOrange, colors.orange]
+  primary: [colors.lightOrange, colors.orange],
+  sheet: [colors.lightOrange, colors.orange]
 };
 
 export default FSStyleSheet.create(props => ({
@@ -18,6 +19,12 @@ export default FSStyleSheet.create(props => ({
   barItemContainer: {
     padding: 8
   },
+  sheetContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 5
+  },
   primaryText: {
     fontFamily: fonts.proximaNova,
     fontWeight: '600',
@@ -29,6 +36,11 @@ export default FSStyleSheet.create(props => ({
     fontSize: 16,
     fontWeight: '600',
     color: '#383838'
+  },
+  sheetText: {
+    fontFamily: fonts.proximaNova,
+    fontSize: 14,
+    color: colors.white
   },
   doneText: {
     color: colors.orange

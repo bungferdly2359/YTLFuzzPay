@@ -14,11 +14,11 @@ const buildStyles = (types, suffix, def) => {
   return [styles[suffix], ...types.map(t => styles[t + capSuffix]), def];
 };
 
-export const Button = ({ type = 'primary', icon, text, style, onPress, textStyle, iconStyle, gradientStyle, numberOfLines = 1 }) => {
+export const Button = ({ type = 'primary', icon, text, style, onPress, textStyle, iconStyle, gradientStyle, numberOfLines = 1, disabled = false }) => {
   const types = type.split(' ').filter(t => t);
   const colors = FSArray.findMap(types, t => gradientColors[t]);
   return (
-    <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={buildStyles(types, 'container', style)}>
+    <TouchableOpacity activeOpacity={0.7} onPress={onPress} disabled={disabled} style={buildStyles(types, 'container', style)}>
       {colors && <LinearGradient colors={colors} style={buildStyles(types, 'gradient', gradientStyle)} />}
       {icon != null && <Image style={buildStyles(types, 'icon', iconStyle)} source={icon} />}
       {text != null && (

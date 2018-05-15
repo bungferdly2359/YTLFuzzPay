@@ -10,7 +10,7 @@ import customerNavigator from '../../src/ui/customerNavigator';
 
 import { setMockFetch } from '../../src/redux/api/baseApi';
 
-let customer = false;
+let customer = true;
 
 FSApp.setTestUIBundle(props => {
   props.addReducer('api', apiReducer);
@@ -24,6 +24,7 @@ FSApp.setTestUIBundle(props => {
   props.setNavigator(
     (customer ? customerNavigator : merchantNavigator)({
       // initialRouteName: 'Onboarding'
+      initialRouteName: 'MainTab'
     })
   );
 
