@@ -4,7 +4,35 @@ import { FSArray } from '../../modules/fs-foundation';
 
 const initialState = (oldState = {}) => ({
   currentMid: null,
-  merchants: []
+  merchants: [],
+  merchantsByHawkerId: {
+    VS5O1xddtexrf8qBqPgY: [
+      {
+        name: 'Chicky Fun',
+        number: '#01-01',
+        tags: 'halal'
+      },
+      {
+        name: 'Drinks & Beverages',
+        number: '#01-02',
+        tags: 'drinks, beverages'
+      },
+      {
+        name: 'Malay Stall',
+        number: '#01-03',
+        tags: 'no pork no lard'
+      },
+      {
+        name: 'Chinese Stall',
+        number: '#01-04'
+      },
+      {
+        name: 'India Stall',
+        number: '#01-05',
+        tags: 'halal, vegetarian'
+      }
+    ]
+  }
 });
 
 export function merchantsReducer(state = initialState(), action) {

@@ -3,7 +3,8 @@ import { makeRequest } from '../api';
 
 export const actionTypes = {
   getNearbyHawkers: 'hawkers::getNearbyHawkers',
-  searchHawkers: 'hawkers::searchHawkers'
+  searchHawkers: 'hawkers::searchHawkers',
+  setCurrentHawkerId: 'hawkers::setCurrentHawkerId'
 };
 
 export const getNearbyHawkers = (latitude, longitude) => {
@@ -33,3 +34,8 @@ export const searchHawkers = keyword => dispatch => {
   //   api: () => firebase.firestore().collection('hawkers').where('name', )
   // })
 };
+
+export const setCurrentHawkerId = hid => ({
+  type: actionTypes.setCurrentHawkerId,
+  payload: hid
+});

@@ -36,7 +36,7 @@ export default FSStyleSheet.create(props => ({
     fontFamily: fonts.proximaNova,
     fontSize: 16,
     fontWeight: '600',
-    color: '#383838'
+    color: colors.orange
   },
   sheetText: {
     fontFamily: fonts.proximaNova,

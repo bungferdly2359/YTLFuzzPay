@@ -16,6 +16,7 @@ export default FSStyleSheet.create(props => ({
     borderColor: 'rgb(234, 234, 234)'
   },
   disclosure: {
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginLeft: 10
   }
 }));

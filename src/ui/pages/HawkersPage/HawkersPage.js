@@ -4,15 +4,13 @@ import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox, Cell, SearchBar, LazyView } from '../../components';
 import { getCurrentLocation } from '../../../redux/user';
-import { getNearbyHawkers, searchHawkers } from '../../../redux/hawkers';
+import { getNearbyHawkers, searchHawkers, setCurrentHawkerId } from '../../../redux/hawkers';
 import { LocationHelper } from '../../../helpers';
-
-const empty = [];
 
 const mapStateToProps = state => ({
   currentLocation: state.user.currentLocation,
   hawkers: state.hawkers.hawkers,
-  searchedHawkers: empty
+  searchedHawkers: state.hawkers.searchedHawkers
 });
 
 class HawkersPage extends PureComponent {
@@ -31,7 +29,10 @@ class HawkersPage extends PureComponent {
     }
   }
 
-  onPressItem = item => {};
+  onPressItem = item => {
+    this.props.setCurrentHawkerId(item.hid);
+    this.props.navigation.navigate('Hawker');
+  };
 
   onToggleSearch = () => {
     this.setState({ searching: !this.state.searching });
@@ -59,7 +60,7 @@ class HawkersPage extends PureComponent {
         <NavBar title="Hawker Centres" />
         <SearchBar onToggleSearch={this.onToggleSearch} onSearch={this.onSearch} searching={searching} />
         <View style={styles.container}>
-          <LazyView state={[refreshing, hawkers.map(h => h.name)]}>
+          <LazyView state={[refreshing, hawkers.map(h => h.hid)]}>
             <FlatList
               style={styles.searchList}
               keyExtractor={(item, i) => i.toString()}
@@ -75,7 +76,7 @@ class HawkersPage extends PureComponent {
                 />
               }
               renderItem={({ item }) => (
-                <Cell disclosure onPress={this.onPressItem}>
+                <Cell disclosure onPress={this.onPressItem.bind(this, item)}>
                   <Image style={styles.image} resizeMode="cover" source={item.imageURL} />
                   <View style={styles.detailContainer}>
                     <Text style={styles.title}>{item.name}</Text>
@@ -95,7 +96,7 @@ class HawkersPage extends PureComponent {
               keyExtractor={(item, i) => i.toString()}
               data={searchedHawkers}
               renderItem={({ item }) => (
-                <Cell onPress={this.onPressItem}>
+                <Cell onPress={this.onPressItem.bind(this, item)}>
                   <View>
                     <Text style={styles.title}>{item.name}</Text>
                     <Text style={styles.location}>{item.address}</Text>
@@ -110,4 +111,4 @@ class HawkersPage extends PureComponent {
   }
 }
 
-export default connect(mapStateToProps, { getCurrentLocation, getNearbyHawkers, searchHawkers })(HawkersPage);
+export default connect(mapStateToProps, { getCurrentLocation, getNearbyHawkers, searchHawkers, setCurrentHawkerId })(HawkersPage);
