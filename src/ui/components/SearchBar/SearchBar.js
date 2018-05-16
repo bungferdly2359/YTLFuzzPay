@@ -7,7 +7,7 @@ export class SearchBar extends PureComponent {
   lastText = null;
 
   componentDidUpdate() {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    LayoutAnimation.configureNext({ ...LayoutAnimation.Presets.easeInEaseOut, duration: 200 });
   }
 
   onChangeText = text => {

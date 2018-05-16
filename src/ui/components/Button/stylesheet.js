@@ -20,6 +20,7 @@ export default FSStyleSheet.create(props => ({
     padding: 8
   },
   sheetContainer: {
+    overflow: 'hidden',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

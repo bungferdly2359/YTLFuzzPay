@@ -6,6 +6,10 @@ export default FSStyleSheet.create(props => ({
     flex: 1,
     backgroundColor: colors.white
   },
+  searchList: {
+    ...props.fullStyle,
+    backgroundColor: colors.white
+  },
   image: {
     overflow: 'hidden',
     borderRadius: 3,
@@ -22,6 +26,11 @@ export default FSStyleSheet.create(props => ({
     fontSize: 16,
     fontWeight: '600',
     color: '#383838'
+  },
+  header: {
+    borderRadius: 3,
+    marginHorizontal: 17,
+    marginTop: 10
   },
   location: {
     marginVertical: 4,

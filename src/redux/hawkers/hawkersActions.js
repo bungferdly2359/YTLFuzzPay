@@ -2,7 +2,8 @@ import firebase from 'react-native-firebase';
 import { makeRequest } from '../api';
 
 export const actionTypes = {
-  getNearbyHawkers: 'hawkers::getNearbyHawkers'
+  getNearbyHawkers: 'hawkers::getNearbyHawkers',
+  searchHawkers: 'hawkers::searchHawkers'
 };
 
 export const getNearbyHawkers = (latitude, longitude) => {
@@ -24,4 +25,11 @@ export const getNearbyHawkers = (latitude, longitude) => {
         .where('coords', '<', greaterGeopoint)
         .get()
   });
+};
+
+export const searchHawkers = keyword => dispatch => {
+  // return makeRequest({
+  //   type: actionTypes.searchHawkers,
+  //   api: () => firebase.firestore().collection('hawkers').where('name', )
+  // })
 };

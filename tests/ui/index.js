@@ -4,6 +4,7 @@ import { userReducer } from '../../src/redux/user';
 import { merchantsReducer } from '../../src/redux/merchants';
 import { dishesReducer } from '../../src/redux/dishes';
 import { ordersReducer } from '../../src/redux/orders';
+import { hawkersReducer } from '../../src/redux/hawkers';
 
 import merchantNavigator from '../../src/ui/merchantNavigator';
 import customerNavigator from '../../src/ui/customerNavigator';
@@ -15,6 +16,7 @@ let customer = true;
 FSApp.setTestUIBundle(props => {
   props.addReducer('api', apiReducer);
   props.addReducer('orders', ordersReducer);
+  props.addReducer('hawkers', hawkersReducer);
   props.addReducer('merchants', merchantsReducer);
   props.addReducer('dishes', dishesReducer);
   props.addReducer('user', userReducer);
