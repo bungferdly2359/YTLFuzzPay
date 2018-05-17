@@ -1,8 +1,8 @@
 export const actionTypes = {
-  setCurrentDid: 'dishes::setCurrentDid'
+  setCurrentDishId: 'dishes::setCurrentDishId'
 };
 
-export const setCurrentDid = did => ({
-  type: actionTypes.setCurrentDid,
+export const setCurrentDishId = did => ({
+  type: actionTypes.setCurrentDishId,
   payload: did
 });

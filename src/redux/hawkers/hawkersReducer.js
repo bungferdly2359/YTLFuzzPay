@@ -8,8 +8,8 @@ const initialState = (oldState = {}) => ({
   version: currentVersion,
   currentHawkerId: null,
   searchedHawkers: [],
-  nearbyHawkers: [],
-  hawkerByhawkerId: {}
+  nearbyHawkers: oldState.nearbyHawkers || [],
+  hawkerByhawkerId: oldState.hawkerByhawkerId || {}
 });
 
 export function hawkersReducer(state = initialState(), action) {

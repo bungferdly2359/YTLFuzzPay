@@ -5,12 +5,13 @@ import GridView from 'react-native-super-grid';
 import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox } from '../../components';
 import resources from '../../resources';
-import { getMerchants, getDishes } from '../../../redux/api';
+import { getDishes } from '../../../redux/api';
+import { getMyMerchant } from '../../../redux/merchants';
 import MerchantPage from '../MerchantPage';
-import { setCurrentDid } from '../../../redux/dishes';
+import { setCurrentDishId } from '../../../redux/dishes';
 
 const mapStateToProps = ({ merchants, dishes }) => ({
-  merchant: merchants.merchants.find(m => m.mid === merchants.currentMid) || merchants.merchants[0],
+  merchant: merchants.myMerchant,
   dishes: dishes.dishes
 });
 
@@ -22,12 +23,12 @@ class MenuPage extends PureComponent {
   };
 
   itemOnPress = item => {
-    this.props.setCurrentDid(item.did);
+    this.props.setCurrentDishId(item.did);
     this.props.navigation.navigate('Dish');
   };
 
   componentDidMount() {
-    this.props.getMerchants().then(() => this.props.merchant && this.props.getDishes(this.props.merchant.mid));
+    this.props.getMyMerchant().then(() => this.props.merchant && this.props.getDishes(this.props.merchant.mid));
   }
 
   render() {
@@ -63,7 +64,7 @@ class MenuPage extends PureComponent {
 }
 
 export default connect(mapStateToProps, {
-  setCurrentDid,
-  getMerchants,
+  setCurrentDishId,
+  getMyMerchant,
   getDishes
 })(MenuPage);

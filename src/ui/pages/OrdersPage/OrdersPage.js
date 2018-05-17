@@ -5,10 +5,10 @@ import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox, Section } from '../../components';
 import resources from '../../resources';
 import { getOrders, updateOrderStatus } from '../../../redux/api';
-import { MerchantHelper, OrderHelper } from '../../../helpers';
+import { OrderHelper } from '../../../helpers';
 
 const mapStateToProps = ({ merchants, orders }) => ({
-  merchant: MerchantHelper.currentMerchant(merchants),
+  merchant: merchants.myMerchant,
   orders: orders.orders
 });
 

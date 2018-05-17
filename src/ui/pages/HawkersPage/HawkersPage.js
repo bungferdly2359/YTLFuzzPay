@@ -35,6 +35,9 @@ class HawkersPage extends PureComponent {
   };
 
   onToggleSearch = () => {
+    if (this.state.searching) {
+      this.props.clearSearchedHawkers();
+    }
     this.setState({ searching: !this.state.searching });
   };
 

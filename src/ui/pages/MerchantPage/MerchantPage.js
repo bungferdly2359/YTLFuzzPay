@@ -3,13 +3,13 @@ import { Text, View, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
-import { updateMerchant } from '../../../redux/api';
+import { updateMyMerchant } from '../../../redux/merchants';
 import { Image, Button, NavBar, Input } from '../../components';
 import resources from '../../resources';
 import { ValidateHelper, AlertHelper, IdHelper } from '../../../helpers';
 
 const mapStateToProps = ({ merchants }) => ({
-  merchant: merchants.merchants.find(m => m.mid === merchants.currentMid) || merchants.merchants[0]
+  merchant: merchants.myMerchant
 });
 
 class MerchantPage extends Component {
@@ -17,7 +17,7 @@ class MerchantPage extends Component {
 
   update = () => {
     if (ValidateHelper.isValidParams(this.state)) {
-      this.props.updateMerchant(this.state).then(() => AlertHelper.showSuccess('Merchant Updated!'));
+      this.props.updateMyMerchant(this.state).then(() => AlertHelper.showSuccess('Merchant Updated!'));
     }
   };
 
@@ -40,5 +40,5 @@ class MerchantPage extends Component {
 }
 
 export default connect(mapStateToProps, {
-  updateMerchant
+  updateMyMerchant
 })(MerchantPage);

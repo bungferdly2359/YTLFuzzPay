@@ -3,7 +3,7 @@ import { actionTypes } from './';
 import { config } from '../../constants';
 
 const initialState = (oldState = {}) => ({
-  currentDid: null,
+  currentDishId: null,
   dishes: []
 });
 
@@ -11,8 +11,8 @@ export function dishesReducer(state = initialState(), action) {
   const { type, payload } = action;
 
   switch (type) {
-    case actionTypes.setCurrentDid:
-      return { ...state, currentDid: payload };
+    case actionTypes.setCurrentDishId:
+      return { ...state, currentDishId: payload };
 
     case apiActionTypes.getDishes:
       return { ...state, dishes: (payload.response.docs || []).map(d => ({ did: d.id, ...d.data() })) };

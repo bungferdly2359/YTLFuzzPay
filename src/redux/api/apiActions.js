@@ -1,6 +1,6 @@
 import baseApi from './baseApi';
 import firebase from 'react-native-firebase';
-import { IdHelper, OrderHelper, MerchantHelper } from '../../helpers';
+import { IdHelper, OrderHelper } from '../../helpers';
 import { urls } from '../../constants';
 
 export const actionTypes = {
@@ -10,8 +10,6 @@ export const actionTypes = {
   updateDish: 'api::request::updateDish',
   deleteDish: 'api::request::deleteDish',
   getDishes: 'api::request::getDishes',
-  updateMerchant: 'api::request::updateMerchant',
-  getMerchants: 'api::request::getMerchants',
   getUser: 'api::request::getUser',
   updateUser: 'api::request::updateUser',
   verifyPhoneNumber: 'api::request::verifyPhoneNumber',
@@ -121,26 +119,6 @@ export const deleteDish = did =>
       db('dishes')
         .doc(did)
         .delete()
-  });
-
-export const getMerchants = () =>
-  baseApi({
-    type: actionTypes.getMerchants,
-    api: () =>
-      db('merchants')
-        .where('uid', '==', IdHelper.currentUid())
-        .get()
-  });
-
-export const updateMerchant = ({ mid, ...params }) =>
-  baseApi({
-    type: actionTypes.updateMerchant,
-    customPayload: { mid, ...params },
-    loadingText: 'Updating...',
-    api: () =>
-      db('merchants')
-        .doc(mid)
-        .set(params)
   });
 
 export const getUser = () =>
