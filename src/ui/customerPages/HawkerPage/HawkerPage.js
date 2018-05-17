@@ -3,7 +3,7 @@ import { Text, View, FlatList, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox, Cell, SearchBar, LazyView } from '../../components';
-import { getMerchantsByHawkerId } from '../../../redux/merchants';
+import { getMerchantsByHawkerId, setCurrentMerchantId } from '../../../redux/merchants';
 import { getHawkerById } from '../../../redux/hawkers';
 
 const mapStateToProps = state => ({
@@ -21,7 +21,10 @@ class HawkerPage extends PureComponent {
     this.reloadData(true);
   }
 
-  onPressItem = item => {};
+  onPressItem = item => {
+    this.props.setCurrentMerchantId(item.mid);
+    this.props.navigation.navigate('Merchant');
+  };
 
   reloadData = silent => {
     const { hawker, merchants, hid } = this.props;
@@ -71,4 +74,4 @@ class HawkerPage extends PureComponent {
   }
 }
 
-export default connect(mapStateToProps, { getMerchantsByHawkerId, getHawkerById })(HawkerPage);
+export default connect(mapStateToProps, { getMerchantsByHawkerId, getHawkerById, setCurrentMerchantId })(HawkerPage);

@@ -13,7 +13,7 @@ export default FSStyleSheet.create(props => ({
     flexDirection: 'row',
     backgroundColor: colors.white,
     borderBottomWidth: 1,
-    borderColor: 'rgb(234, 234, 234)'
+    borderColor: colors.greyishLight
   },
   disclosure: {
     alignSelf: 'center',

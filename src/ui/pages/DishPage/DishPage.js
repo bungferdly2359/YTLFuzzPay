@@ -9,7 +9,7 @@ import resources from '../../resources';
 import { ValidateHelper, AlertHelper, IdHelper } from '../../../helpers';
 
 const mapStateToProps = ({ merchants, dishes }) => ({
-  merchant: merchants.merchants.myMerchant,
+  merchant: merchants.myMerchant,
   dish: dishes.dishes.find(d => d.did === dishes.currentDishId)
 });
 

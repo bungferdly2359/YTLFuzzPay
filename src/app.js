@@ -13,7 +13,7 @@ FSApp.setAppBundle('YTLFuzzPay', props => {
   props.addReducer('api', apiReducer);
   props.addReducer('orders', ordersReducer);
   props.addReducer('hawkers', hawkersReducer, true);
-  props.addReducer('merchants', merchantsReducer);
+  props.addReducer('merchants', merchantsReducer, true);
   props.addReducer('dishes', dishesReducer, true);
   props.addReducer('user', userReducer, true);
 

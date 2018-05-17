@@ -3,6 +3,7 @@ import { makeRequest } from '../api';
 import { IdHelper } from '../../helpers';
 
 export const actionTypes = {
+  setCurrentMerchantId: 'merchants::setCurrentMerchantId',
   updateMyMerchant: 'merchants::updateMyMerchant',
   getMyMerchant: 'merchants::getMyMerchant',
   getMerchantsByHawkerId: 'merchants::getMerchantsByHawkerId'
@@ -43,3 +44,8 @@ export const getMerchantsByHawkerId = hid =>
         .where('hid', '==', hid)
         .get()
   });
+
+export const setCurrentMerchantId = mid => ({
+  type: actionTypes.setCurrentMerchantId,
+  payload: mid
+});

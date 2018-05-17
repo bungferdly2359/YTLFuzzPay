@@ -24,7 +24,7 @@ export default FSStyleSheet.create(props => ({
     fontFamily: fonts.proximaNova,
     fontSize: 16,
     fontWeight: '600',
-    color: '#383838'
+    color: colors.greyishDark
   },
   infoContainer: {
     flexDirection: 'row',
@@ -34,7 +34,7 @@ export default FSStyleSheet.create(props => ({
   info: {
     fontFamily: fonts.proximaNova,
     fontSize: 14,
-    color: '#868686'
+    color: colors.greyish
   },
   active: {
     color: colors.green

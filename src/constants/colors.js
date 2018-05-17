@@ -4,8 +4,11 @@ export const colors = {
   red: '#ff445a',
   white: 'white',
   black: 'black',
-  greyishWhite: '#f2f2f2',
+  greyishDark: '#383838',
   greyishBrown: '#4a4a4a',
+  greyish: '#868686',
+  greyishLight: '#eaeaea',
+  greyishWhite: '#f2f2f2',
   green: '#109D58',
   transparent: 'transparent'
 };
