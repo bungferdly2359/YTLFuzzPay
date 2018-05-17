@@ -24,6 +24,7 @@ export default FSStyleSheet.create(props => ({
   title: {
     fontFamily: fonts.proximaNova,
     fontSize: 16,
+    marginBottom: 4,
     fontWeight: '600',
     color: '#383838'
   },
@@ -33,7 +34,6 @@ export default FSStyleSheet.create(props => ({
     marginTop: 10
   },
   location: {
-    marginVertical: 4,
     flexGrow: 1,
     fontFamily: fonts.proximaNova,
     fontSize: 16,
@@ -44,6 +44,7 @@ export default FSStyleSheet.create(props => ({
     alignItems: 'center'
   },
   distance: {
+    marginTop: 4,
     marginLeft: 3,
     fontFamily: fonts.proximaNova,
     fontSize: 14,

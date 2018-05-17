@@ -5,6 +5,14 @@ export const actionTypes = {
   getMerchantsByHawkerId: 'merchants::getMerchantsByHawkerId'
 };
 
-export const getMerchantsByHawkerId = hid => dispatch => {
-  return Promise.resolve();
-};
+export const getMerchantsByHawkerId = hid =>
+  makeRequest({
+    type: actionTypes.getMerchantsByHawkerId,
+    errorType: 'alert',
+    api: () =>
+      firebase
+        .firestore()
+        .collection('merchants')
+        .where('hid', '==', hid)
+        .get()
+  });

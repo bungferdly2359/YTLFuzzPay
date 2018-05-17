@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox, Cell, SearchBar, LazyView } from '../../components';
 import { getCurrentLocation } from '../../../redux/user';
-import { getNearbyHawkers, searchHawkers, setCurrentHawkerId } from '../../../redux/hawkers';
+import { getNearbyHawkers, searchHawkers, setCurrentHawkerId, clearSearchedHawkers } from '../../../redux/hawkers';
 import { LocationHelper } from '../../../helpers';
 
 const mapStateToProps = state => ({
   currentLocation: state.user.currentLocation,
-  hawkers: state.hawkers.hawkers,
+  hawkers: state.hawkers.nearbyHawkers,
   searchedHawkers: state.hawkers.searchedHawkers
 });
 
@@ -39,7 +39,7 @@ class HawkersPage extends PureComponent {
   };
 
   onSearch = text => {
-    this.props.searchHawkers(text);
+    text.length > 2 ? this.props.searchHawkers(text) : this.props.clearSearchedHawkers();
   };
 
   reloadData = () => {
@@ -53,43 +53,46 @@ class HawkersPage extends PureComponent {
 
   render() {
     const styles = stylesheet.styles();
-    const { currentLocation = {}, hawkers, searchedHawkers } = this.props;
+    const { currentLocation = {}, hawkers = [], searchedHawkers } = this.props;
     const { searching, refreshing } = this.state;
     return (
       <View style={styles.container}>
         <NavBar title="Hawker Centres" />
         <SearchBar onToggleSearch={this.onToggleSearch} onSearch={this.onSearch} searching={searching} />
         <View style={styles.container}>
-          <LazyView state={[refreshing, hawkers.map(h => h.hid)]}>
-            <FlatList
-              style={styles.searchList}
-              keyExtractor={(item, i) => i.toString()}
-              refreshing={refreshing}
-              onRefresh={this.reloadData}
-              data={hawkers}
-              ListHeaderComponent={
-                <Button
-                  style={styles.header}
-                  type="sheet"
-                  text={refreshing ? 'Reload Data...' : `Your Location : ${currentLocation.description || 'Unknown'}`}
-                  onPress={this.reloadData}
-                />
-              }
-              renderItem={({ item }) => (
-                <Cell disclosure onPress={this.onPressItem.bind(this, item)}>
-                  <Image style={styles.image} resizeMode="cover" source={item.imageURL} />
-                  <View style={styles.detailContainer}>
-                    <Text style={styles.title}>{item.name}</Text>
-                    <Text style={styles.location}>{item.address}</Text>
-                    <View style={styles.distanceContainer}>
-                      <Image source="icon_distance" />
-                      <Text style={styles.distance}>{LocationHelper.getDistance(currentLocation, item.coords).toFixed(2)}km away</Text>
+          <LazyView
+            state={[refreshing, hawkers.map(h => h.hid)]}
+            render={() => (
+              <FlatList
+                style={styles.searchList}
+                keyExtractor={(item, i) => i.toString()}
+                refreshing={refreshing}
+                onRefresh={this.reloadData}
+                data={hawkers}
+                ListHeaderComponent={
+                  <Button
+                    style={styles.header}
+                    type="sheet"
+                    text={refreshing ? 'Reload Data...' : `Your Location : ${currentLocation.description || 'Unknown'}`}
+                    onPress={this.reloadData}
+                  />
+                }
+                renderItem={({ item }) => (
+                  <Cell disclosure onPress={this.onPressItem.bind(this, item)}>
+                    <Image style={styles.image} resizeMode="cover" source={item.imageURL} />
+                    <View style={styles.detailContainer}>
+                      <Text style={styles.title}>{item.name}</Text>
+                      <Text style={styles.location}>{item.address}</Text>
+                      <View style={styles.distanceContainer}>
+                        <Image source="icon_distance" />
+                        <Text style={styles.distance}>{LocationHelper.getDistance(currentLocation, item.coords).toFixed(2)}km away</Text>
+                      </View>
                     </View>
-                  </View>
-                </Cell>
-              )}
-            />
-          </LazyView>
+                  </Cell>
+                )}
+              />
+            )}
+          />
           {searching && (
             <FlatList
               style={styles.searchList}
@@ -111,4 +114,4 @@ class HawkersPage extends PureComponent {
   }
 }
 
-export default connect(mapStateToProps, { getCurrentLocation, getNearbyHawkers, searchHawkers, setCurrentHawkerId })(HawkersPage);
+export default connect(mapStateToProps, { getCurrentLocation, getNearbyHawkers, searchHawkers, setCurrentHawkerId, clearSearchedHawkers })(HawkersPage);

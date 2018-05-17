@@ -1,6 +1,5 @@
 import { actionTypes as apiActionTypes } from '../api';
-import { config } from '../../constants';
-import { FSArray } from '../../modules/fs-foundation';
+import { actionTypes } from './';
 
 const initialState = (oldState = {}) => ({
   currentMid: null,
@@ -44,6 +43,12 @@ export function merchantsReducer(state = initialState(), action) {
 
     case apiActionTypes.updateMerchant:
       return { ...state, merchants: [...state.merchants.filter(m => m.mid !== payload.customPayload.mid), payload.customPayload] };
+
+    case actionTypes.getMerchantsByHawkerId: {
+      let merchants = (payload.response.docs || []).map(d => ({ mid: d.id, ...d.data() })).sort((a, b) => a.number > b.number);
+      let id = (merchants[0] || {}).hid;
+      return id ? { ...state, merchantsByHawkerId: { ...state.merchantsByHawkerId, [id]: merchants } } : state;
+    }
 
     default:
       return state;

@@ -14,10 +14,19 @@ import DishPage from './pages/DishPage';
 import HawkersPage from './pages/HawkersPage';
 import HawkerPage from './pages/HawkerPage';
 
+const hawkerNavigator = (config = {}) =>
+  MainNavigator(
+    {
+      HawkersMain: { screen: HawkersPage },
+      Hawker: { screen: HawkerPage }
+    },
+    config
+  );
+
 const mainTabNavigator = (config = {}) =>
   MainTabNavigator(
     {
-      Hawkers: { screen: HawkersPage }
+      Hawkers: { screen: hawkerNavigator(config.hawkersConfig) }
     },
     {
       ...config
@@ -31,8 +40,7 @@ const rootNavigator = (config = {}) =>
       Onboarding: { screen: OnboardingPage },
       Register: { screen: RegisterPage },
       Verify: { screen: VerifyPage },
-      MainTab: { screen: mainTabNavigator(config.mainTabConfig) },
-      Hawker: { screen: HawkerPage }
+      MainTab: { screen: mainTabNavigator(config.mainTabConfig) }
     },
     config
   );

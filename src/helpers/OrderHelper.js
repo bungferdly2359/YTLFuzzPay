@@ -1,5 +1,3 @@
-import { FSArray } from '../modules/fs-foundation';
-
 export const OrderHelper = {
   getOrdersInfo: (orders, customers, dishes) => {
     return orders.map(o => {

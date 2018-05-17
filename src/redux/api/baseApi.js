@@ -14,9 +14,7 @@ const getErrorMessage = r => {
   if (response.response) {
     response = response.response;
   }
-  if (response.data) {
-    response = response.data;
-  }
+  response = getResponseData(response);
   if (response.message) {
     return response.message;
   }
@@ -28,7 +26,7 @@ const getResponseData = r => {
     return null;
   }
   var response = r;
-  if (response.data) {
+  if (response.data && typeof response.data != 'function') {
     response = response.data;
   }
   return response;
@@ -39,7 +37,7 @@ export const setMockFetch = (mf = (props = {}) => {}) => {
 };
 
 export const defaultFetch = props => (dispatch, getState) => {
-  const { type, loadingText, errorType, api, customPayload } = props;
+  const { type, loadingText, errorType, api, customPayload, auth } = props;
 
   const state = getState();
   const method = props.method || (props.body ? 'POST' : 'GET');
@@ -47,6 +45,7 @@ export const defaultFetch = props => (dispatch, getState) => {
   const url = props.url; //.startsWith('http') ? props.url : `${URLHelper.getCurrentBaseURL()}${props.url}`;
   const timeout = 10000;
   const headers = props.headers || {};
+
   dispatch({
     type: actionTypes.start,
     requestType: type,
@@ -57,7 +56,7 @@ export const defaultFetch = props => (dispatch, getState) => {
     }
   });
 
-  return ((api && api()) || axios.request({ url, method, headers, data, timeout }))
+  return ((api && api()) || axios.request({ url, auth, method, headers, data, timeout }))
     .then(resp => {
       if (getErrorMessage(resp)) {
         throw response;
@@ -66,7 +65,7 @@ export const defaultFetch = props => (dispatch, getState) => {
       console.log({
         result: 'success',
         props,
-        response
+        resp
       });
       dispatch({
         type: actionTypes.finish,

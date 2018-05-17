@@ -28,11 +28,15 @@ export default FSStyleSheet.create(props => ({
   },
   infoContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
   info: {
     fontFamily: fonts.proximaNova,
     fontSize: 14,
     color: '#868686'
+  },
+  active: {
+    color: colors.green
   }
 }));

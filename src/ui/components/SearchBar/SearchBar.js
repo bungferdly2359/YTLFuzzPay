@@ -17,7 +17,7 @@ export class SearchBar extends PureComponent {
     }
     this.lastText = text;
     setTimeout(() => {
-      if (text.length > 2 && this.lastText === text) {
+      if (this.lastText === text) {
         this.props.onSearch(text);
       }
     }, 400);

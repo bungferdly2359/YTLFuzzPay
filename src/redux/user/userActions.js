@@ -1,5 +1,4 @@
 import { getGeocode } from '../api';
-import { FSArray } from '../../modules/fs-foundation';
 
 export const actionTypes = {
   updateData: 'user::updateData'
@@ -18,9 +17,8 @@ export const getCurrentLocation = () => dispatch =>
         dispatch(getGeocode(coords.latitude, coords.longitude))
           .then(geocode => {
             if (geocode) {
-              const findValueWithType = type =>
-                FSArray.findMap(geocode.results, item => FSArray.findMap(item.address_components, addr => ~addr.types.indexOf(type) && addr.long_name));
-              const address = FSArray.findMap(['route', 'neighborhood', 'political', 'locality'], findValueWithType);
+              const findValueWithType = type => geocode.results.findMap(item => item.address_components.findMap(addr => ~addr.types.indexOf(type) && addr.long_name));
+              const address = ['route', 'neighborhood', 'political', 'locality'].findMap(findValueWithType);
               const result = {
                 latitude: coords.latitude,
                 longitude: coords.longitude,

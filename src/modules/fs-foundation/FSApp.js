@@ -63,9 +63,9 @@ const FSAppProps = {
     appProps.services.push(service);
   },
 
-  addReducer: (key, reducer, options = { whitelist: false }) => {
+  addReducer: (key, reducer, persist = false) => {
     appProps.reducers[key] = reducer;
-    if (options.whitelist) {
+    if (persist) {
       appProps.whitelistReducerKeys.push(key);
     }
   },

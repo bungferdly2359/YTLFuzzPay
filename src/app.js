@@ -12,10 +12,10 @@ import { hawkersReducer } from './redux/hawkers';
 FSApp.setAppBundle('YTLFuzzPay', props => {
   props.addReducer('api', apiReducer);
   props.addReducer('orders', ordersReducer);
-  props.addReducer('hawkers', hawkersReducer, { whitelist: true });
+  props.addReducer('hawkers', hawkersReducer, true);
   props.addReducer('merchants', merchantsReducer);
-  props.addReducer('dishes', dishesReducer, { whitelist: true });
-  props.addReducer('user', userReducer, { whitelist: true });
+  props.addReducer('dishes', dishesReducer, true);
+  props.addReducer('user', userReducer, true);
 
   props.addService(RequestService);
 

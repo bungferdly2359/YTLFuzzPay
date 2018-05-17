@@ -19,6 +19,6 @@ export class LazyView extends Component {
   }
 
   render() {
-    return this.props.children;
+    return this.props.render ? this.props.render() : this.props.children;
   }
 }

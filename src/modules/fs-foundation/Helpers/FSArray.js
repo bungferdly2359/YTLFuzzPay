@@ -1,5 +1,4 @@
 const FSArray = {
-
   findMap: (arr, map) => {
     let result = null;
     arr.some(s => {
@@ -8,7 +7,7 @@ const FSArray = {
     });
     return result;
   },
-  
+
   mapOrAdd: (arr, some, map) => {
     let result = null;
     if (arr.some(some)) {
@@ -19,17 +18,13 @@ const FSArray = {
     return result;
   },
 
-  equal: (x, y, key) => (
-    x && y && x.length === y.length && x.every((xi, i) => FSArray.equalSingle(xi, y[i], key))
-  ),
-  
-  equalSingle: (x, y, key) => (
-    key != null ? x[key] === y[key] : x === y
-  ),
+  equal: (x, y, key) => x && y && x.length === y.length && x.every((xi, i) => FSArray.equalSingle(xi, y[i], key)),
+
+  equalSingle: (x, y, key) => (key != null ? x[key] === y[key] : x === y),
 
   toggle: (arr = [], x, key) => {
-    if (x == null) { 
-      return arr; 
+    if (x == null) {
+      return arr;
     }
     if (arr.some(a => FSArray.equalSingle(a, x, key))) {
       return arr.filter(a => !FSArray.equalSingle(a, x, key));
@@ -41,7 +36,7 @@ const FSArray = {
     const arrWithoutXS = arr.filter(a => xs.every(x => !FSArray.equalSingle(a, x, key)));
     if (xs.every(x => arr.some(a => FSArray.equalSingle(a, x, key)))) {
       return arrWithoutXS;
-    } 
+    }
     return [...arrWithoutXS, ...xs];
   },
 
@@ -59,6 +54,14 @@ const FSArray = {
     });
     return ret;
   }
+};
+
+Array.prototype.findMap = function(map) {
+  return FSArray.findMap(this, map);
+};
+
+Array.prototype.mapOrAdd = function(find, map) {
+  return FSArray.mapOrAdd(this, find, map);
 };
 
 export default FSArray;

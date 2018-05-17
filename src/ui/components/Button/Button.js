@@ -4,7 +4,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import { Image } from '../';
 import resources from '../../resources';
 import stylesheet, { gradientColors } from './stylesheet';
-import { FSArray } from '../../../modules/fs-foundation';
 
 //type = 'primary';
 
@@ -16,7 +15,7 @@ const buildStyles = (types, suffix, def) => {
 
 export const Button = ({ type = 'primary', icon, text, style, onPress, textStyle, iconStyle, gradientStyle, numberOfLines = 1, disabled = false }) => {
   const types = type.split(' ').filter(t => t);
-  const colors = FSArray.findMap(types, t => gradientColors[t]);
+  const colors = types.findMap(t => gradientColors[t]);
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={onPress} disabled={disabled} style={buildStyles(types, 'container', style)}>
       {colors && <LinearGradient colors={colors} style={buildStyles(types, 'gradient', gradientStyle)} />}
