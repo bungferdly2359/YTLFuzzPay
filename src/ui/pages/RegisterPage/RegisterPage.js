@@ -27,8 +27,9 @@ const RegisterPage = props => {
     <View style={styles.container}>
       <NavBar navigation={props.navigation} title="Registration" />
       <KeyboardAvoidingView style={styles.full} behavior="padding">
-        <ScrollView style={styles.full} contentContainerStyle={styles.contentContainer}>
+        <ScrollView keyboardShouldPersistTaps="handled" keyboardDismissMode="interactive" style={styles.full} contentContainerStyle={styles.contentContainer}>
           <Input
+            autoFocus
             style={styles.input}
             prefix="+65"
             title="Mobile Number"

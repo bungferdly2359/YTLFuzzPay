@@ -98,6 +98,8 @@ class HawkersPage extends PureComponent {
           />
           {searching && (
             <FlatList
+              keyboardShouldPersistTaps="handled"
+              keyboardDismissMode="interactive"
               style={styles.searchList}
               keyExtractor={(item, i) => i.toString()}
               data={searchedHawkers}

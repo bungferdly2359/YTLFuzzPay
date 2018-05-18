@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
-import { Text, View, FlatList, TouchableHighlight } from 'react-native';
+import { Text, View, FlatList, TouchableHighlight, Linking, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox, Cell, SearchBar, LazyView } from '../../components';
 import { getMerchantsByHawkerId, setCurrentMerchantId } from '../../../redux/merchants';
 import { getHawkerById } from '../../../redux/hawkers';
+import { LocationHelper } from '../../../helpers';
 
 const mapStateToProps = state => ({
   hid: state.hawkers.currentHawkerId,
@@ -40,13 +41,35 @@ class HawkerPage extends PureComponent {
       .catch(() => this.setState({ refreshing: false }));
   };
 
+  gotoLocation = () => {
+    const { hawker = {}, merchants = [] } = this.props;
+    Alert.alert(null, 'Open link in google maps?', [
+      {
+        text: 'Cancel',
+        style: 'cancel'
+      },
+      {
+        text: 'OK',
+        onPress: () => {
+          if (hawker.mapsURL) {
+            Linking.openURL(hawker.mapsURL);
+          } else {
+            const lat = LocationHelper.getLatitude(hawker.coords);
+            const long = LocationHelper.getLongitude(hawker.coords);
+            Linking.openURL(`https://www.google.com/maps/?q=${hawker.name}+${lat},${long}`);
+          }
+        }
+      }
+    ]);
+  };
+
   render() {
     const styles = stylesheet.styles();
     const { hawker = {}, merchants = [] } = this.props;
     const { refreshing } = this.state;
     return (
       <View style={styles.container}>
-        <NavBar title={hawker.name} navigation={this.props.navigation} />
+        <NavBar title={hawker.name} navigation={this.props.navigation} rightButtons={hawker.coords ? [{ icon: 'icon_location', onPress: this.gotoLocation }] : null} />
         <FlatList
           keyExtractor={(item, i) => i.toString()}
           refreshing={refreshing}

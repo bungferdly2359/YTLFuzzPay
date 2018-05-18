@@ -11,7 +11,7 @@ export class NavBar extends PureComponent {
       <View style={[styles.container, style]}>
         <View style={styles.titleContainer}>{title && <Text style={styles.title}>{title}</Text>}</View>
         <View style={styles.buttonsContainer}>
-          {navigation && <Button style={styles.button} type="barItem" text="Back" onPress={() => navigation.goBack()} />}
+          {navigation && <Button style={styles.button} type="barItem" icon="icon_back" onPress={() => navigation.goBack()} />}
           {leftButtons && leftButtons.map(({ type = '', ...ops }, i) => <Button style={styles.button} key={i} type={`barItem ${type}`} {...ops} />)}
           <View style={styles.separator} />
           {rightButtons && rightButtons.map(({ type = '', ...ops }, i) => <Button style={styles.button} key={i} type={`barItem ${type}`} {...ops} />)}

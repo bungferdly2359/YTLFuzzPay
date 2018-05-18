@@ -28,8 +28,8 @@ const VerifyPage = props => {
     <View style={styles.container}>
       <NavBar navigation={props.navigation} title="Verify Phone Number" />
       <KeyboardAvoidingView style={styles.full} behavior="padding">
-        <ScrollView style={styles.full} contentContainerStyle={styles.contentContainer}>
-          <Input style={styles.input} keyboardType="phone-pad" title="Verification Code" placeholder="123123" onChangeText={value => (state.code = value)} />
+        <ScrollView keyboardShouldPersistTaps="handled" keyboardDismissMode="interactive" style={styles.full} contentContainerStyle={styles.contentContainer}>
+          <Input autoFocus style={styles.input} keyboardType="phone-pad" title="Verification Code" placeholder="123123" onChangeText={value => (state.code = value)} />
           <Button text="Verify" onPress={verify} />
         </ScrollView>
       </KeyboardAvoidingView>

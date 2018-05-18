@@ -55,7 +55,7 @@ class MerchantPage extends PureComponent {
                 <Image style={styles.image} source={item.imageURL} resizeMode={item.resizeMode} />
                 <Text style={styles.name}>{item.name}</Text>
                 {item.description && <Text style={styles.info}>{item.description}</Text>}
-                <Text style={styles.info}>{item.available ? `S$ ${item.price}` : 'unavailable'}</Text>
+                <Text style={styles.info}>{item.available ? `S$ ${item.price}` : 'Unavailable'}</Text>
               </View>
             </TouchableHighlight>
           )}

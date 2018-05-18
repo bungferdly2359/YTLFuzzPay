@@ -38,6 +38,9 @@ export default FSStyleSheet.create(props => ({
     fontWeight: '600',
     color: colors.orange
   },
+  barItemIcon: {
+    tintColor: colors.orange
+  },
   sheetText: {
     fontFamily: fonts.proximaNova,
     fontSize: 14,

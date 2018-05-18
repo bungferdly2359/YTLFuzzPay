@@ -31,7 +31,7 @@ export function dishesReducer(state = initialState(), action) {
       return { ...state, dishes: [...state.dishes.filter(m => m.did !== payload.customPayload)] };
 
     case actionTypes.getDishesByMerchantId: {
-      let dishes = (payload.response.docs || []).map(d => ({ did: d.id, ...d.data() })).sort((a, b) => a.number > b.number);
+      let dishes = (payload.response.docs || []).map(d => ({ did: d.id, ...d.data() })).sort((a, b) => a.name > b.name);
       let id = (dishes[0] || {}).mid;
       return id ? { ...state, dishesByMerchantId: { ...state.dishesByMerchantId, [id]: dishes } } : state;
     }
