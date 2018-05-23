@@ -25,7 +25,10 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>fb2115763605331660</string>
 				<string>com.googleusercontent.apps.721775440052-h0bjalbvr972o1rpebh47g7de6sjhrji</string>
+				<string>com.googleusercontent.apps.721775440052-801l278fib3mgjcn8h0p5ijd3joa0148</string>
+				<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			</array>
 		</dict>
 	</array>
@@ -71,5 +74,16 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>FacebookAppID</key>
+	<string>2115763605331660</string>
+	<key>FacebookDisplayName</key>
+	<string>FuzzPayDev</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 </dict>
 </plist>

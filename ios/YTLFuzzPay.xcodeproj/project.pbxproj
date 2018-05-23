@@ -12,7 +12,7 @@
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
-		065D7AB093D83F68098192F9 /* libPods-YTLFuzzPayProd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7390253400BB6BFE65E25B /* libPods-YTLFuzzPayProd.a */; };
+		0845F40034101D6C817FC0C6 /* libPods-CustomerStaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38940B6FD272CD8E7BF156DA /* libPods-CustomerStaging.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -22,6 +22,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		216804A98610466B848A6097 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3097E26BDA954DC396143C6A /* libBVLinearGradient.a */; };
+		2B9B1B99FBCB43488BDCEB03 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B954931C8A4E37A3EC1D6C /* libz.tbd */; };
 		4255E1C320746C0900E8B85C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4255E1C220746C0900E8B85C /* GoogleService-Info.plist */; };
 		4255E1C420746C0900E8B85C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4255E1C220746C0900E8B85C /* GoogleService-Info.plist */; };
 		4255E1C720746C8900E8B85C /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4255E1C120746BB900E8B85C /* libRNFirebase.a */; };
@@ -43,7 +44,6 @@
 		42664A3B20A9380600FDAA4F /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2014F94A9D9743548566E675 /* libRNFetchBlob.a */; };
 		42664A3C20A9380600FDAA4F /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3097E26BDA954DC396143C6A /* libBVLinearGradient.a */; };
 		42664A3D20A9380600FDAA4F /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC6FF621BC44463ACE1AD3B /* libRNFirebase.a */; };
-		42664A3E20A9380600FDAA4F /* libPods-YTLFuzzPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1151A586619B9EFACE6C70F8 /* libPods-YTLFuzzPay.a */; };
 		42664A4020A9380600FDAA4F /* ProximaNova-CondensedSemibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6DDC2073B869004DDCBE /* ProximaNova-CondensedSemibold.ttf */; };
 		42664A4120A9380600FDAA4F /* ProximaNova-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6DE02073B869004DDCBE /* ProximaNova-Thin.ttf */; };
 		42664A4220A9380600FDAA4F /* ProximaNova-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6DDA2073B869004DDCBE /* ProximaNova-Black.ttf */; };
@@ -73,7 +73,6 @@
 		42664A6620A9398100FDAA4F /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2014F94A9D9743548566E675 /* libRNFetchBlob.a */; };
 		42664A6720A9398100FDAA4F /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3097E26BDA954DC396143C6A /* libBVLinearGradient.a */; };
 		42664A6820A9398100FDAA4F /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC6FF621BC44463ACE1AD3B /* libRNFirebase.a */; };
-		42664A6920A9398100FDAA4F /* libPods-YTLFuzzPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1151A586619B9EFACE6C70F8 /* libPods-YTLFuzzPay.a */; };
 		42664A6B20A9398100FDAA4F /* ProximaNova-CondensedSemibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6DDC2073B869004DDCBE /* ProximaNova-CondensedSemibold.ttf */; };
 		42664A6C20A9398100FDAA4F /* ProximaNova-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6DE02073B869004DDCBE /* ProximaNova-Thin.ttf */; };
 		42664A6D20A9398100FDAA4F /* ProximaNova-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6DDA2073B869004DDCBE /* ProximaNova-Black.ttf */; };
@@ -103,7 +102,6 @@
 		42664A9120A94ADF00FDAA4F /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2014F94A9D9743548566E675 /* libRNFetchBlob.a */; };
 		42664A9220A94ADF00FDAA4F /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3097E26BDA954DC396143C6A /* libBVLinearGradient.a */; };
 		42664A9320A94ADF00FDAA4F /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC6FF621BC44463ACE1AD3B /* libRNFirebase.a */; };
-		42664A9420A94ADF00FDAA4F /* libPods-YTLFuzzPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1151A586619B9EFACE6C70F8 /* libPods-YTLFuzzPay.a */; };
 		42664A9620A94ADF00FDAA4F /* ProximaNova-CondensedSemibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6DDC2073B869004DDCBE /* ProximaNova-CondensedSemibold.ttf */; };
 		42664A9720A94ADF00FDAA4F /* ProximaNova-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6DE02073B869004DDCBE /* ProximaNova-Thin.ttf */; };
 		42664A9820A94ADF00FDAA4F /* ProximaNova-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6DDA2073B869004DDCBE /* ProximaNova-Black.ttf */; };
@@ -115,6 +113,26 @@
 		42664A9E20A94ADF00FDAA4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4255E1C220746C0900E8B85C /* GoogleService-Info.plist */; };
 		42664A9F20A94ADF00FDAA4F /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6D4B2073869A004DDCBE /* RootViewController.xib */; };
 		42664AA020A94ADF00FDAA4F /* ProximaNova-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42EF6DDD2073B869004DDCBE /* ProximaNova-Regular.ttf */; };
+		4294650220B556A700542AED /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4294650120B5545E00542AED /* libRCTFBSDK.a */; };
+		4294650320B5577B00542AED /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 429464FC20B5545E00542AED /* libRNGoogleSignin.a */; };
+		4294655720B55EFA00542AED /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4294650120B5545E00542AED /* libRCTFBSDK.a */; };
+		4294655820B55F3500542AED /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 429464FC20B5545E00542AED /* libRNGoogleSignin.a */; };
+		4294655920B55F6A00542AED /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4294650120B5545E00542AED /* libRCTFBSDK.a */; };
+		4294655A20B55F6E00542AED /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 429464FC20B5545E00542AED /* libRNGoogleSignin.a */; };
+		4294655B20B55F7E00542AED /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4294650120B5545E00542AED /* libRCTFBSDK.a */; };
+		4294655C20B55F8100542AED /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 429464FC20B5545E00542AED /* libRNGoogleSignin.a */; };
+		4294656E20B5900400542AED /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE22389AF104E189E0AD026 /* SafariServices.framework */; };
+		4294659A20B5900A00542AED /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B954931C8A4E37A3EC1D6C /* libz.tbd */; };
+		4294659B20B5901000542AED /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037246AFDC7A4EBA8ED9A661 /* AddressBook.framework */; };
+		4294659C20B5902400542AED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496AC4E10C8A475FB96AD533 /* SystemConfiguration.framework */; };
+		4294659D20B5903700542AED /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE22389AF104E189E0AD026 /* SafariServices.framework */; };
+		4294659E20B5903F00542AED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496AC4E10C8A475FB96AD533 /* SystemConfiguration.framework */; };
+		4294659F20B5904400542AED /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037246AFDC7A4EBA8ED9A661 /* AddressBook.framework */; };
+		429465A020B5904900542AED /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B954931C8A4E37A3EC1D6C /* libz.tbd */; };
+		429465A120B5905000542AED /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE22389AF104E189E0AD026 /* SafariServices.framework */; };
+		429465A220B5905500542AED /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037246AFDC7A4EBA8ED9A661 /* AddressBook.framework */; };
+		429465A320B5905900542AED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496AC4E10C8A475FB96AD533 /* SystemConfiguration.framework */; };
+		429465A420B5905D00542AED /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B954931C8A4E37A3EC1D6C /* libz.tbd */; };
 		42D2100D20AAB570001D6698 /* ShentonHouse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42D20FE320AAB570001D6698 /* ShentonHouse.gpx */; };
 		42D2100E20AAB570001D6698 /* ShentonHouse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42D20FE320AAB570001D6698 /* ShentonHouse.gpx */; };
 		42D2100F20AAB570001D6698 /* ShentonHouse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42D20FE320AAB570001D6698 /* ShentonHouse.gpx */; };
@@ -159,9 +177,13 @@
 		43F08DD28CC4494B841F8C7F /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2014F94A9D9743548566E675 /* libRNFetchBlob.a */; };
 		50A9A59C805E4E63BFEFF5FD /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC6FF621BC44463ACE1AD3B /* libRNFirebase.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		72DB707C0AC44E16B54F1AB5 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A7AC6840F8414D92909A80 /* libRNGoogleSignin.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		9832CB524B2A453F9B3F7F0E /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11CE49D0A49C443B89EC4C47 /* libRCTFBSDK.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		FB3904A7066C8397379DE8B1 /* libPods-YTLFuzzPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1151A586619B9EFACE6C70F8 /* libPods-YTLFuzzPay.a */; };
+		C005534758BC491BA3C8E401 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037246AFDC7A4EBA8ED9A661 /* AddressBook.framework */; };
+		E03AA175CC574D0BB197FFF0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496AC4E10C8A475FB96AD533 /* SystemConfiguration.framework */; };
+		F4F412E51FDB4B718F3F8343 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE22389AF104E189E0AD026 /* SafariServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -340,6 +362,20 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNFirebase;
 		};
+		429464FB20B5545E00542AED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75660D261491445A8D59C69A /* RNGoogleSignin.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9FD355121D3E4A2900D06170;
+			remoteInfo = RNGoogleSignin;
+		};
+		4294650020B5545E00542AED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 437FF95B9DBC4717BD1BBFD5 /* RCTFBSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9350E0F11CE3B0920041D815;
+			remoteInfo = RCTFBSDK;
+		};
 		42EF6CF82073829D004DDCBE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -461,8 +497,10 @@
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
-		0B7390253400BB6BFE65E25B /* libPods-YTLFuzzPayProd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YTLFuzzPayProd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1151A586619B9EFACE6C70F8 /* libPods-YTLFuzzPay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YTLFuzzPay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		037246AFDC7A4EBA8ED9A661 /* AddressBook.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		05A7AC6840F8414D92909A80 /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = "<group>"; };
+		0DF99492F781AB8D3A0582BB /* Pods-MerchantProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MerchantProd.release.xcconfig"; path = "Pods/Target Support Files/Pods-MerchantProd/Pods-MerchantProd.release.xcconfig"; sourceTree = "<group>"; };
+		11CE49D0A49C443B89EC4C47 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
 		12C2A1D1A98546AEAD542465 /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/react-native-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -475,14 +513,17 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = YTLFuzzPay/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		2014F94A9D9743548566E675 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
+		23941F25B60D3B7A2416E14A /* Pods-CustomerStaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerStaging.release.xcconfig"; path = "Pods/Target Support Files/Pods-CustomerStaging/Pods-CustomerStaging.release.xcconfig"; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DE22389AF104E189E0AD026 /* SafariServices.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		3097E26BDA954DC396143C6A /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
-		31B031C88DE6100EB202A9C8 /* Pods-YTLFuzzPayTestUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTLFuzzPayTestUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YTLFuzzPayTestUI/Pods-YTLFuzzPayTestUI.debug.xcconfig"; sourceTree = "<group>"; };
+		35B954931C8A4E37A3EC1D6C /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		38940B6FD272CD8E7BF156DA /* libPods-CustomerStaging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CustomerStaging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		38D375171CD1C78B37225CAC /* Pods-MerchantProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MerchantProd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MerchantProd/Pods-MerchantProd.debug.xcconfig"; sourceTree = "<group>"; };
 		4255E1C220746C0900E8B85C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "YTLFuzzPay/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42664A5120A9380600FDAA4F /* CStaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CStaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42664A7C20A9398100FDAA4F /* FuzzPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuzzPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42664AA720A94ADF00FDAA4F /* TestUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		42664AA820A94AE000FDAA4F /* CustomerProd copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CustomerProd copy-Info.plist"; path = "/Users/lyse/Documents/Projects/YTLFuzzPay/reactnative/YTLFuzzPay/ios/CustomerProd copy-Info.plist"; sourceTree = "<absolute>"; };
 		42D20FE320AAB570001D6698 /* ShentonHouse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ShentonHouse.gpx; path = YTLFuzzPay/ShentonHouse.gpx; sourceTree = "<group>"; };
 		42EF6D3A20738555004DDCBE /* FuzzPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuzzPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42EF6D492073869A004DDCBE /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -495,19 +536,23 @@
 		42EF6DDD2073B869004DDCBE /* ProximaNova-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.ttf"; sourceTree = "<group>"; };
 		42EF6DDF2073B869004DDCBE /* ProximaNova-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.ttf"; sourceTree = "<group>"; };
 		42EF6DE02073B869004DDCBE /* ProximaNova-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Thin.ttf"; sourceTree = "<group>"; };
+		437FF95B9DBC4717BD1BBFD5 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
+		496AC4E10C8A475FB96AD533 /* SystemConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		49FB85E2D3344D9595A1BEBE /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
-		542E0A266792B38763F9EF47 /* Pods-YTLFuzzPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTLFuzzPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay.release.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		75660D261491445A8D59C69A /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		AA98CDA7C1A88ABB2103782E /* Pods-YTLFuzzPayProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTLFuzzPayProd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YTLFuzzPayProd/Pods-YTLFuzzPayProd.debug.xcconfig"; sourceTree = "<group>"; };
+		A28F4545CC1480FE8ED99DDE /* Pods-CustomerStaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerStaging.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CustomerStaging/Pods-CustomerStaging.debug.xcconfig"; sourceTree = "<group>"; };
+		A9D814086C6184AE80DEB912 /* Pods-CustomerProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerProd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CustomerProd/Pods-CustomerProd.debug.xcconfig"; sourceTree = "<group>"; };
 		ACC6FF621BC44463ACE1AD3B /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		B141776C3869F11266AFCF68 /* Pods-YTLFuzzPayTestUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTLFuzzPayTestUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTLFuzzPayTestUI/Pods-YTLFuzzPayTestUI.release.xcconfig"; sourceTree = "<group>"; };
 		C2AA1681FDDC45BAA3A95184 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
-		C9B11BEEA6C7A8EDAD6B69DF /* Pods-YTLFuzzPayProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTLFuzzPayProd.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTLFuzzPayProd/Pods-YTLFuzzPayProd.release.xcconfig"; sourceTree = "<group>"; };
-		D2FC6F8AFC4D731C3FBEE26B /* libPods-YTLFuzzPayTestUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YTLFuzzPayTestUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F51EF235DFDBCF193474212A /* Pods-YTLFuzzPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTLFuzzPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay.debug.xcconfig"; sourceTree = "<group>"; };
+		CA5EA3523685B614D3930731 /* Pods-TestUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestUI/Pods-TestUI.release.xcconfig"; sourceTree = "<group>"; };
+		CB3AC79FA8CF332E3CD57D19 /* Pods-MerchantStaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MerchantStaging.release.xcconfig"; path = "Pods/Target Support Files/Pods-MerchantStaging/Pods-MerchantStaging.release.xcconfig"; sourceTree = "<group>"; };
+		D192CA2768204F7828A60AB3 /* Pods-CustomerProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerProd.release.xcconfig"; path = "Pods/Target Support Files/Pods-CustomerProd/Pods-CustomerProd.release.xcconfig"; sourceTree = "<group>"; };
+		DC3281DE5D99F6296B38970F /* Pods-MerchantStaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MerchantStaging.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MerchantStaging/Pods-MerchantStaging.debug.xcconfig"; sourceTree = "<group>"; };
+		FFB24016FA8326F060DF2E77 /* Pods-TestUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestUI/Pods-TestUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -531,7 +576,12 @@
 				43F08DD28CC4494B841F8C7F /* libRNFetchBlob.a in Frameworks */,
 				216804A98610466B848A6097 /* libBVLinearGradient.a in Frameworks */,
 				50A9A59C805E4E63BFEFF5FD /* libRNFirebase.a in Frameworks */,
-				FB3904A7066C8397379DE8B1 /* libPods-YTLFuzzPay.a in Frameworks */,
+				9832CB524B2A453F9B3F7F0E /* libRCTFBSDK.a in Frameworks */,
+				72DB707C0AC44E16B54F1AB5 /* libRNGoogleSignin.a in Frameworks */,
+				2B9B1B99FBCB43488BDCEB03 /* libz.tbd in Frameworks */,
+				F4F412E51FDB4B718F3F8343 /* SafariServices.framework in Frameworks */,
+				E03AA175CC574D0BB197FFF0 /* SystemConfiguration.framework in Frameworks */,
+				C005534758BC491BA3C8E401 /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +589,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429465A020B5904900542AED /* libz.tbd in Frameworks */,
+				4294659F20B5904400542AED /* AddressBook.framework in Frameworks */,
+				4294659E20B5903F00542AED /* SystemConfiguration.framework in Frameworks */,
+				4294659D20B5903700542AED /* SafariServices.framework in Frameworks */,
+				4294650320B5577B00542AED /* libRNGoogleSignin.a in Frameworks */,
+				4294650220B556A700542AED /* libRCTFBSDK.a in Frameworks */,
 				42664A2F20A9380600FDAA4F /* libRCTBlob.a in Frameworks */,
 				42664A3020A9380600FDAA4F /* libRCTAnimation.a in Frameworks */,
 				42664A3120A9380600FDAA4F /* libReact.a in Frameworks */,
@@ -555,7 +611,7 @@
 				42664A3B20A9380600FDAA4F /* libRNFetchBlob.a in Frameworks */,
 				42664A3C20A9380600FDAA4F /* libBVLinearGradient.a in Frameworks */,
 				42664A3D20A9380600FDAA4F /* libRNFirebase.a in Frameworks */,
-				42664A3E20A9380600FDAA4F /* libPods-YTLFuzzPay.a in Frameworks */,
+				0845F40034101D6C817FC0C6 /* libPods-CustomerStaging.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +619,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429465A420B5905D00542AED /* libz.tbd in Frameworks */,
+				429465A320B5905900542AED /* SystemConfiguration.framework in Frameworks */,
+				429465A220B5905500542AED /* AddressBook.framework in Frameworks */,
+				429465A120B5905000542AED /* SafariServices.framework in Frameworks */,
+				4294655A20B55F6E00542AED /* libRNGoogleSignin.a in Frameworks */,
+				4294655920B55F6A00542AED /* libRCTFBSDK.a in Frameworks */,
 				42664A5A20A9398100FDAA4F /* libRCTBlob.a in Frameworks */,
 				42664A5B20A9398100FDAA4F /* libRCTAnimation.a in Frameworks */,
 				42664A5C20A9398100FDAA4F /* libReact.a in Frameworks */,
@@ -579,7 +641,6 @@
 				42664A6620A9398100FDAA4F /* libRNFetchBlob.a in Frameworks */,
 				42664A6720A9398100FDAA4F /* libBVLinearGradient.a in Frameworks */,
 				42664A6820A9398100FDAA4F /* libRNFirebase.a in Frameworks */,
-				42664A6920A9398100FDAA4F /* libPods-YTLFuzzPay.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +648,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4294655C20B55F8100542AED /* libRNGoogleSignin.a in Frameworks */,
+				4294655B20B55F7E00542AED /* libRCTFBSDK.a in Frameworks */,
 				42664A8520A94ADF00FDAA4F /* libRCTBlob.a in Frameworks */,
 				42664A8620A94ADF00FDAA4F /* libRCTAnimation.a in Frameworks */,
 				42664A8720A94ADF00FDAA4F /* libReact.a in Frameworks */,
@@ -603,7 +666,6 @@
 				42664A9120A94ADF00FDAA4F /* libRNFetchBlob.a in Frameworks */,
 				42664A9220A94ADF00FDAA4F /* libBVLinearGradient.a in Frameworks */,
 				42664A9320A94ADF00FDAA4F /* libRNFirebase.a in Frameworks */,
-				42664A9420A94ADF00FDAA4F /* libPods-YTLFuzzPay.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,9 +673,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4255E1C720746C8900E8B85C /* libRNFirebase.a in Frameworks */,
-				42EF6DD62073ADEB004DDCBE /* libBVLinearGradient.a in Frameworks */,
-				42EF6D9A20738F03004DDCBE /* libRNFetchBlob.a in Frameworks */,
+				4294659A20B5900A00542AED /* libz.tbd in Frameworks */,
+				4294659C20B5902400542AED /* SystemConfiguration.framework in Frameworks */,
+				4294659B20B5901000542AED /* AddressBook.framework in Frameworks */,
+				4294656E20B5900400542AED /* SafariServices.framework in Frameworks */,
 				42EF6D2720738555004DDCBE /* libRCTBlob.a in Frameworks */,
 				42EF6D2820738555004DDCBE /* libRCTAnimation.a in Frameworks */,
 				42EF6D2920738555004DDCBE /* libReact.a in Frameworks */,
@@ -627,7 +690,11 @@
 				42EF6D3020738555004DDCBE /* libRCTText.a in Frameworks */,
 				42EF6D3120738555004DDCBE /* libRCTVibration.a in Frameworks */,
 				42EF6D3220738555004DDCBE /* libRCTWebSocket.a in Frameworks */,
-				065D7AB093D83F68098192F9 /* libPods-YTLFuzzPayProd.a in Frameworks */,
+				42EF6D9A20738F03004DDCBE /* libRNFetchBlob.a in Frameworks */,
+				42EF6DD62073ADEB004DDCBE /* libBVLinearGradient.a in Frameworks */,
+				4255E1C720746C8900E8B85C /* libRNFirebase.a in Frameworks */,
+				4294655720B55EFA00542AED /* libRCTFBSDK.a in Frameworks */,
+				4294655820B55F3500542AED /* libRNGoogleSignin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,6 +741,23 @@
 				00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		104D1C30C24E91F7C7D32162 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9D814086C6184AE80DEB912 /* Pods-CustomerProd.debug.xcconfig */,
+				D192CA2768204F7828A60AB3 /* Pods-CustomerProd.release.xcconfig */,
+				A28F4545CC1480FE8ED99DDE /* Pods-CustomerStaging.debug.xcconfig */,
+				23941F25B60D3B7A2416E14A /* Pods-CustomerStaging.release.xcconfig */,
+				38D375171CD1C78B37225CAC /* Pods-MerchantProd.debug.xcconfig */,
+				0DF99492F781AB8D3A0582BB /* Pods-MerchantProd.release.xcconfig */,
+				DC3281DE5D99F6296B38970F /* Pods-MerchantStaging.debug.xcconfig */,
+				CB3AC79FA8CF332E3CD57D19 /* Pods-MerchantStaging.release.xcconfig */,
+				FFB24016FA8326F060DF2E77 /* Pods-TestUI.debug.xcconfig */,
+				CA5EA3523685B614D3930731 /* Pods-TestUI.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		139105B71AF99BAD00B5F7CC /* Products */ = {
@@ -741,9 +825,11 @@
 			isa = PBXGroup;
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				1151A586619B9EFACE6C70F8 /* libPods-YTLFuzzPay.a */,
-				0B7390253400BB6BFE65E25B /* libPods-YTLFuzzPayProd.a */,
-				D2FC6F8AFC4D731C3FBEE26B /* libPods-YTLFuzzPayTestUI.a */,
+				35B954931C8A4E37A3EC1D6C /* libz.tbd */,
+				2DE22389AF104E189E0AD026 /* SafariServices.framework */,
+				496AC4E10C8A475FB96AD533 /* SystemConfiguration.framework */,
+				037246AFDC7A4EBA8ED9A661 /* AddressBook.framework */,
+				38940B6FD272CD8E7BF156DA /* libPods-CustomerStaging.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -752,6 +838,22 @@
 			isa = PBXGroup;
 			children = (
 				4255E1C120746BB900E8B85C /* libRNFirebase.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		429464F820B5545E00542AED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				429464FC20B5545E00542AED /* libRNGoogleSignin.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		429464FD20B5545E00542AED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4294650120B5545E00542AED /* libRCTFBSDK.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -799,6 +901,8 @@
 				2014F94A9D9743548566E675 /* libRNFetchBlob.a */,
 				3097E26BDA954DC396143C6A /* libBVLinearGradient.a */,
 				ACC6FF621BC44463ACE1AD3B /* libRNFirebase.a */,
+				11CE49D0A49C443B89EC4C47 /* libRCTFBSDK.a */,
+				05A7AC6840F8414D92909A80 /* libRNGoogleSignin.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -877,6 +981,8 @@
 				12C2A1D1A98546AEAD542465 /* RNFetchBlob.xcodeproj */,
 				C2AA1681FDDC45BAA3A95184 /* BVLinearGradient.xcodeproj */,
 				49FB85E2D3344D9595A1BEBE /* RNFirebase.xcodeproj */,
+				437FF95B9DBC4717BD1BBFD5 /* RCTFBSDK.xcodeproj */,
+				75660D261491445A8D59C69A /* RNGoogleSignin.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -898,8 +1004,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				42EF6D6E20738EDD004DDCBE /* Recovered References */,
-				EDF9761535CB8811DAADB8C8 /* Pods */,
-				42664AA820A94AE000FDAA4F /* CustomerProd copy-Info.plist */,
+				104D1C30C24E91F7C7D32162 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -927,19 +1032,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EDF9761535CB8811DAADB8C8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F51EF235DFDBCF193474212A /* Pods-YTLFuzzPay.debug.xcconfig */,
-				542E0A266792B38763F9EF47 /* Pods-YTLFuzzPay.release.xcconfig */,
-				AA98CDA7C1A88ABB2103782E /* Pods-YTLFuzzPayProd.debug.xcconfig */,
-				C9B11BEEA6C7A8EDAD6B69DF /* Pods-YTLFuzzPayProd.release.xcconfig */,
-				31B031C88DE6100EB202A9C8 /* Pods-YTLFuzzPayTestUI.debug.xcconfig */,
-				B141776C3869F11266AFCF68 /* Pods-YTLFuzzPayTestUI.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -947,13 +1039,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MerchantStaging" */;
 			buildPhases = (
-				70D68B09D7E00E1B9B619F86 /* [CP] Check Pods Manifest.lock */,
+				C7DF461593B6E4F94D4E1BF4 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				FD04C05DA3A9C0A943597081 /* [CP] Embed Pods Frameworks */,
-				543257390B6BA481A075C399 /* [CP] Copy Pods Resources */,
+				D5CD84369CBDCEB98AF60334 /* [CP] Embed Pods Frameworks */,
+				82AC124AC6618E0136777B34 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -968,13 +1060,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42664A4E20A9380600FDAA4F /* Build configuration list for PBXNativeTarget "CustomerStaging" */;
 			buildPhases = (
-				42664A2920A9380600FDAA4F /* [CP] Check Pods Manifest.lock */,
+				6CB2583FAB3F1AB518E7795B /* [CP] Check Pods Manifest.lock */,
 				42664A2A20A9380600FDAA4F /* Sources */,
 				42664A2E20A9380600FDAA4F /* Frameworks */,
 				42664A3F20A9380600FDAA4F /* Resources */,
 				42664A4B20A9380600FDAA4F /* Bundle React Native code and images */,
-				42664A4C20A9380600FDAA4F /* [CP] Embed Pods Frameworks */,
-				42664A4D20A9380600FDAA4F /* [CP] Copy Pods Resources */,
+				B867BC902F49B68BE76EC96B /* [CP] Embed Pods Frameworks */,
+				941294BFAF8436A0F23CF777 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -989,13 +1081,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42664A7920A9398100FDAA4F /* Build configuration list for PBXNativeTarget "CustomerProd" */;
 			buildPhases = (
-				42664A5420A9398100FDAA4F /* [CP] Check Pods Manifest.lock */,
+				37102251E1FAF8301B0E2100 /* [CP] Check Pods Manifest.lock */,
 				42664A5520A9398100FDAA4F /* Sources */,
 				42664A5920A9398100FDAA4F /* Frameworks */,
 				42664A6A20A9398100FDAA4F /* Resources */,
 				42664A7620A9398100FDAA4F /* Bundle React Native code and images */,
-				42664A7720A9398100FDAA4F /* [CP] Embed Pods Frameworks */,
-				42664A7820A9398100FDAA4F /* [CP] Copy Pods Resources */,
+				CA5C7CF6AD1C7F61850A10EF /* [CP] Embed Pods Frameworks */,
+				B131875F98BDD79FFA4D8906 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1010,13 +1102,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42664AA420A94ADF00FDAA4F /* Build configuration list for PBXNativeTarget "TestUI" */;
 			buildPhases = (
-				42664A7F20A94ADF00FDAA4F /* [CP] Check Pods Manifest.lock */,
+				AF6E7CE493BC920753C72E36 /* [CP] Check Pods Manifest.lock */,
 				42664A8020A94ADF00FDAA4F /* Sources */,
 				42664A8420A94ADF00FDAA4F /* Frameworks */,
 				42664A9520A94ADF00FDAA4F /* Resources */,
 				42664AA120A94ADF00FDAA4F /* Bundle React Native code and images */,
-				42664AA220A94ADF00FDAA4F /* [CP] Embed Pods Frameworks */,
-				42664AA320A94ADF00FDAA4F /* [CP] Copy Pods Resources */,
+				6BA75423259EB2856E8AB7DD /* [CP] Embed Pods Frameworks */,
+				C90090D703A23AD85279B231 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1031,13 +1123,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42EF6D3720738555004DDCBE /* Build configuration list for PBXNativeTarget "MerchantProd" */;
 			buildPhases = (
-				AF683C86B4CB4823FF0937BB /* [CP] Check Pods Manifest.lock */,
+				5BB760EBE1745A21896F0618 /* [CP] Check Pods Manifest.lock */,
 				42EF6D2320738555004DDCBE /* Sources */,
 				42EF6D2620738555004DDCBE /* Frameworks */,
 				42EF6D3320738555004DDCBE /* Resources */,
 				42EF6D3620738555004DDCBE /* Bundle React Native code and images */,
-				96B173D8541477C12E5904D0 /* [CP] Embed Pods Frameworks */,
-				E657E0E7C224C7F48E8256A1 /* [CP] Copy Pods Resources */,
+				E9A690C47E2F4063C193D3CC /* [CP] Embed Pods Frameworks */,
+				5BF558B29F429BFE6B131F1F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1108,6 +1200,10 @@
 					ProjectRef = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
 				},
 				{
+					ProductGroup = 429464FD20B5545E00542AED /* Products */;
+					ProjectRef = 437FF95B9DBC4717BD1BBFD5 /* RCTFBSDK.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
 					ProjectRef = 00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */;
 				},
@@ -1150,6 +1246,10 @@
 				{
 					ProductGroup = 4255E1BD20746BB900E8B85C /* Products */;
 					ProjectRef = 49FB85E2D3344D9595A1BEBE /* RNFirebase.xcodeproj */;
+				},
+				{
+					ProductGroup = 429464F820B5545E00542AED /* Products */;
+					ProjectRef = 75660D261491445A8D59C69A /* RNGoogleSignin.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1337,6 +1437,20 @@
 			fileType = archive.ar;
 			path = libRNFirebase.a;
 			remoteRef = 4255E1C020746BB900E8B85C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		429464FC20B5545E00542AED /* libRNGoogleSignin.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGoogleSignin.a;
+			remoteRef = 429464FB20B5545E00542AED /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4294650120B5545E00542AED /* libRCTFBSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTFBSDK.a;
+			remoteRef = 4294650020B5545E00542AED /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		42EF6CF92073829D004DDCBE /* libjsinspector.a */ = {
@@ -1566,7 +1680,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		42664A2920A9380600FDAA4F /* [CP] Check Pods Manifest.lock */ = {
+		37102251E1FAF8301B0E2100 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1577,7 +1691,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YTLFuzzPay-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CustomerProd-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1598,61 +1712,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		42664A4C20A9380600FDAA4F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		42664A4D20A9380600FDAA4F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
-				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		42664A5420A9398100FDAA4F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YTLFuzzPay-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		42664A7620A9398100FDAA4F /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1666,61 +1725,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		42664A7720A9398100FDAA4F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		42664A7820A9398100FDAA4F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
-				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		42664A7F20A94ADF00FDAA4F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YTLFuzzPay-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		42664AA120A94ADF00FDAA4F /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1736,43 +1740,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		42664AA220A94ADF00FDAA4F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		42664AA320A94ADF00FDAA4F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
-				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		42EF6D3620738555004DDCBE /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1787,29 +1754,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		543257390B6BA481A075C399 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
-				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		70D68B09D7E00E1B9B619F86 /* [CP] Check Pods Manifest.lock */ = {
+		5BB760EBE1745A21896F0618 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1820,14 +1765,42 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YTLFuzzPay-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MerchantProd-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		96B173D8541477C12E5904D0 /* [CP] Embed Pods Frameworks */ = {
+		5BF558B29F429BFE6B131F1F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MerchantProd/Pods-MerchantProd-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
+				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MerchantProd/Pods-MerchantProd-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BA75423259EB2856E8AB7DD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1839,10 +1812,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPayProd/Pods-YTLFuzzPayProd-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestUI/Pods-TestUI-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AF683C86B4CB4823FF0937BB /* [CP] Check Pods Manifest.lock */ = {
+		6CB2583FAB3F1AB518E7795B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1853,36 +1826,116 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YTLFuzzPayProd-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CustomerStaging-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E657E0E7C224C7F48E8256A1 /* [CP] Copy Pods Resources */ = {
+		82AC124AC6618E0136777B34 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPayProd/Pods-YTLFuzzPayProd-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MerchantStaging/Pods-MerchantStaging-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
 				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPayProd/Pods-YTLFuzzPayProd-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MerchantStaging/Pods-MerchantStaging-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FD04C05DA3A9C0A943597081 /* [CP] Embed Pods Frameworks */ = {
+		941294BFAF8436A0F23CF777 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CustomerStaging/Pods-CustomerStaging-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
+				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CustomerStaging/Pods-CustomerStaging-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF6E7CE493BC920753C72E36 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B131875F98BDD79FFA4D8906 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CustomerProd/Pods-CustomerProd-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
+				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CustomerProd/Pods-CustomerProd-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B867BC902F49B68BE76EC96B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1894,7 +1947,98 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YTLFuzzPay/Pods-YTLFuzzPay-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CustomerStaging/Pods-CustomerStaging-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7DF461593B6E4F94D4E1BF4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MerchantStaging-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C90090D703A23AD85279B231 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TestUI/Pods-TestUI-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
+				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestUI/Pods-TestUI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA5C7CF6AD1C7F61850A10EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CustomerProd/Pods-CustomerProd-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5CD84369CBDCEB98AF60334 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MerchantStaging/Pods-MerchantStaging-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9A690C47E2F4063C193D3CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MerchantProd/Pods-MerchantProd-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1967,7 +2111,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F51EF235DFDBCF193474212A /* Pods-YTLFuzzPay.debug.xcconfig */;
+			baseConfigurationReference = DC3281DE5D99F6296B38970F /* Pods-MerchantStaging.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1990,6 +2134,8 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1998,6 +2144,8 @@
 					"\"$(SRCROOT)/Staging\"",
 					"\"$(SRCROOT)/Staging\"",
 					"\"$(SRCROOT)/Staging\"",
+					"\"$(SRCROOT)/MStaging\"",
+					"\"$(SRCROOT)/MStaging\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2014,7 +2162,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 542E0A266792B38763F9EF47 /* Pods-YTLFuzzPay.release.xcconfig */;
+			baseConfigurationReference = CB3AC79FA8CF332E3CD57D19 /* Pods-MerchantStaging.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2036,6 +2184,8 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2044,6 +2194,8 @@
 					"\"$(SRCROOT)/Staging\"",
 					"\"$(SRCROOT)/Staging\"",
 					"\"$(SRCROOT)/Staging\"",
+					"\"$(SRCROOT)/MStaging\"",
+					"\"$(SRCROOT)/MStaging\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2059,7 +2211,7 @@
 		};
 		42664A4F20A9380600FDAA4F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F51EF235DFDBCF193474212A /* Pods-YTLFuzzPay.debug.xcconfig */;
+			baseConfigurationReference = A28F4545CC1480FE8ED99DDE /* Pods-CustomerStaging.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2080,6 +2232,8 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2104,7 +2258,7 @@
 		};
 		42664A5020A9380600FDAA4F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 542E0A266792B38763F9EF47 /* Pods-YTLFuzzPay.release.xcconfig */;
+			baseConfigurationReference = 23941F25B60D3B7A2416E14A /* Pods-CustomerStaging.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2124,6 +2278,8 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2147,7 +2303,7 @@
 		};
 		42664A7A20A9398100FDAA4F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F51EF235DFDBCF193474212A /* Pods-YTLFuzzPay.debug.xcconfig */;
+			baseConfigurationReference = A9D814086C6184AE80DEB912 /* Pods-CustomerProd.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2169,6 +2325,8 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2183,7 +2341,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yewteelab.fuzzpay.customer.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yewteelab.fuzzpay.customer;
 				PRODUCT_NAME = FuzzPay;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2193,7 +2351,7 @@
 		};
 		42664A7B20A9398100FDAA4F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 542E0A266792B38763F9EF47 /* Pods-YTLFuzzPay.release.xcconfig */;
+			baseConfigurationReference = D192CA2768204F7828A60AB3 /* Pods-CustomerProd.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2214,6 +2372,8 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2228,7 +2388,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yewteelab.fuzzpay.customer.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yewteelab.fuzzpay.customer;
 				PRODUCT_NAME = FuzzPay;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2237,7 +2397,7 @@
 		};
 		42664AA520A94ADF00FDAA4F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F51EF235DFDBCF193474212A /* Pods-YTLFuzzPay.debug.xcconfig */;
+			baseConfigurationReference = FFB24016FA8326F060DF2E77 /* Pods-TestUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2258,6 +2418,8 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2282,7 +2444,7 @@
 		};
 		42664AA620A94ADF00FDAA4F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 542E0A266792B38763F9EF47 /* Pods-YTLFuzzPay.release.xcconfig */;
+			baseConfigurationReference = CA5EA3523685B614D3930731 /* Pods-TestUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2302,6 +2464,8 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2325,7 +2489,7 @@
 		};
 		42EF6D3820738555004DDCBE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA98CDA7C1A88ABB2103782E /* Pods-YTLFuzzPayProd.debug.xcconfig */;
+			baseConfigurationReference = 38D375171CD1C78B37225CAC /* Pods-MerchantProd.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2343,6 +2507,8 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2361,7 +2527,7 @@
 		};
 		42EF6D3920738555004DDCBE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9B11BEEA6C7A8EDAD6B69DF /* Pods-YTLFuzzPayProd.release.xcconfig */;
+			baseConfigurationReference = 0DF99492F781AB8D3A0582BB /* Pods-MerchantProd.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2377,6 +2543,8 @@
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

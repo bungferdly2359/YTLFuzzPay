@@ -13,6 +13,8 @@
 #import <React/RCTRootView.h>
 #import <Firebase.h>
 #import "RootViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <RNGoogleSignin/RNGoogleSignin.h>
 
 #ifdef TESTUI
 BOOL testUI = true;
@@ -55,6 +57,7 @@ BOOL merchant = false;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   [FIRApp configure];
+  [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
   
   NSURL *jsCodeLocation;
 
@@ -79,6 +82,23 @@ BOOL merchant = false;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  id src = options[UIApplicationOpenURLOptionsSourceApplicationKey];
+  id ann = options[UIApplicationOpenURLOptionsAnnotationKey];
+  return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:src annotation:ann]
+         || [RNGoogleSignin application:application openURL:url sourceApplication:src annotation:ann];
+}
+
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)src annotation:(id)ann {
+  return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:src annotation:ann]
+         || [RNGoogleSignin application:application openURL:url sourceApplication:src annotation:ann];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
 }
 
 @end

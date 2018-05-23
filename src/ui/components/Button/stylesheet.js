@@ -2,8 +2,7 @@ import { FSStyleSheet } from '../../../modules/fs-foundation';
 import { colors, fonts } from '../../../constants';
 
 export const gradientColors = {
-  primary: [colors.lightOrange, colors.orange],
-  sheet: [colors.lightOrange, colors.orange]
+  gradient: [colors.lightOrange, colors.orange]
 };
 
 export default FSStyleSheet.create(props => ({

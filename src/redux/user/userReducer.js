@@ -9,7 +9,7 @@ const initialState = (oldState = {}) => ({
   isRegistered: oldState.isRegistered || false,
   refreshToken: null,
   uid: null,
-  fullName: null,
+  name: null,
   userName: null,
   phoneNumber: null,
   bankName: null,
@@ -43,6 +43,13 @@ export function userReducer(state = initialState(), action) {
         refreshToken,
         uid
       };
+    }
+
+    case actionTypes.signInWithFacebook:
+    case actionTypes.signInWithGoogle: {
+      const { refreshToken, email, displayName, uid, photoURL } = payload.response.user._user;
+      const { email: email2 } = (payload.response.additionalUserInfo || {}).profile || {};
+      return { ...state, isRegistered: true, refreshToken, email: email || email2, displayName, uid, photoURL };
     }
 
     default:

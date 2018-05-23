@@ -23,7 +23,10 @@ export default FSStyleSheet.create(props => ({
     marginBottom: 35
   },
   register: {
-    marginBottom: 30
+    marginBottom: 10
+  },
+  fbButton: {
+    backgroundColor: '#4469B0'
   },
   login: {
     fontFamily: fonts.proximaNova,
@@ -32,5 +35,13 @@ export default FSStyleSheet.create(props => ({
     textAlign: 'center',
     color: colors.greyishBrown,
     marginBottom: 15
+  },
+  fbButton: {
+    marginBottom: 10,
+    backgroundColor: '#4469B0'
+  },
+  googleButton: {
+    marginBottom: 10,
+    backgroundColor: '#DB4C3F'
   }
 }));

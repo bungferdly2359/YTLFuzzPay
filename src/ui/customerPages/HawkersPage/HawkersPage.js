@@ -75,7 +75,7 @@ class HawkersPage extends PureComponent {
                 ListHeaderComponent={
                   <Button
                     style={styles.header}
-                    type="sheet"
+                    type="sheet gradient"
                     text={refreshing ? 'Reload Data...' : `Your Location : ${currentLocation.description || 'Unknown'}`}
                     onPress={this.reloadData}
                   />

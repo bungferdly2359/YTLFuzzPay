@@ -6,6 +6,9 @@ def common_pods
     pod 'Firebase/Firestore'
     pod 'Firebase/Storage'
     pod 'RNImageCropPicker', :path => '../node_modules/react-native-image-crop-picker'
+    pod 'FBSDKLoginKit'
+    pod 'FBSDKShareKit'
+    pod 'GoogleSignIn'
 end
 
 rn_path = '../node_modules/react-native'
