@@ -9,7 +9,7 @@ const emailRegex = /^\S{1,50}@\S{1,30}\.\S{2,10}$/;
 const bankRegex = /^[0-9]{5,20}$/;
 
 export const ValidateHelper = {
-  isValidParams: ({ name, description, price, fullName, firstName, lastName, userName, phoneNumber, bankName, bankAccount }) => {
+  isValidParams: ({ name, description, price, fullName, firstName, lastName, userName, phoneNumber, bankName, bankAccount, email }) => {
     var error =
       (name != null && !nameRegex.test(name) && 'Invalid name') ||
       (description != null && !descriptionRegex.test(description) && 'Invalid description') ||
@@ -21,6 +21,7 @@ export const ValidateHelper = {
       (phoneNumber != null && !phoneRegex.test(phoneNumber) && 'Invalid phone number') ||
       (bankName != null && !nameRegex.test(bankName) && 'Invalid bank name') ||
       (bankAccount != null && !bankRegex.test(bankAccount) && 'Invalid bank account') ||
+      (email != null && !emailRegex.test(email) && 'Invalid email') ||
       null;
     if (error) {
       AlertHelper.showError(error);

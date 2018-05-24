@@ -17,6 +17,7 @@ const mapStateToProps = ({ merchants, dishes }) => ({
 const addMenu = { imageURL: 'icon_newdish', resizeMode: 'center' };
 
 class MenuPage extends PureComponent {
+
   static navigationOptions = {
     tabBarIcon: 'icon_menu'
   };

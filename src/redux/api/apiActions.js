@@ -4,6 +4,8 @@ import { IdHelper, OrderHelper, MerchantHelper } from '../../helpers';
 
 export const actionTypes = {
   register: 'api::request::register',
+  login: 'api::request::login',
+  logout: 'api::request::logout',
   updateOrderStatus: 'api::request::updateOrderStatus',
   getOrders: 'api::request::getOrders',
   updateDish: 'api::request::updateDish',
@@ -38,10 +40,10 @@ export const getImageURLPromise = iid =>
 export const uploadImagePromise = (iid, imagePath) =>
   imagePath
     ? firebase
-        .storage()
-        .ref()
-        .child(iid)
-        .putFile(imagePath)
+      .storage()
+      .ref()
+      .child(iid)
+      .putFile(imagePath)
     : Promise.resolve({});
 
 export const getOrders = mid => (dispatch, getState) =>
@@ -124,15 +126,22 @@ export const getMerchants = () =>
       .get()
   });
 
-export const updateMerchant = ({ mid, ...params }) =>
-  baseApi({
+export const updateMerchant = ({ mid, imagePath, ...params }) => {
+  const customPayload = { mid, ...params };
+  return baseApi({
     type: actionTypes.updateMerchant,
-    customPayload: { mid, ...params },
+    customPayload,
     loadingText: 'Updating...',
-    api: db('merchants')
-      .doc(mid)
-      .set(params)
+    api: uploadImagePromise(IdHelper.merchantId(mid), imagePath).then(({ downloadURL }) => {
+      const imageURL = downloadURL || params.imageURL;
+      customPayload.imageURL = imageURL;
+      return db('merchants')
+        .doc(mid)
+        .set({ ...params, imageURL });
+    })
   });
+};
+
 
 export const getUser = () =>
   baseApi({
@@ -159,7 +168,35 @@ export const register = params =>
     loadingText: 'Registering...',
     api: firebase
       .auth()
-      .signInWithPhoneNumber(params.phoneNumber)
+      .createUserAndRetrieveDataWithEmailAndPassword(params.email, params.password)
+      .then(r => {
+        confirmResult = r;
+        return r;
+      })
+  });
+
+export const logout = params =>
+  baseApi({
+    type: actionTypes.logout,
+    customPayload: params,
+    loadingText: 'Signing out...',
+    api: firebase
+      .auth()
+      .signOut()
+      .then(r => {
+        confirmResult = r;
+        return r;
+      })
+  });
+
+export const login = params =>
+  baseApi({
+    type: actionTypes.login,
+    customPayload: params,
+    loadingText: 'Signing in...',
+    api: firebase
+      .auth()
+      .signInAndRetrieveDataWithEmailAndPassword(params.email, params.password)
       .then(r => {
         confirmResult = r;
         return r;

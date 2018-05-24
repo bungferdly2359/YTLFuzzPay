@@ -2,7 +2,7 @@ import React from 'react';
 import { TextInput } from 'react-native';
 import stylesheet from './stylesheet';
 
-export default ({ value, inputStyle, keyboardType = 'default', onChangeText, editable = true, onEndEditing, onBlur, onFocus, returnKeyType, placeholder }) => {
+export default ({ value, inputStyle, keyboardType = 'default', onChangeText, editable = true, onEndEditing, onBlur, onFocus, returnKeyType, placeholder, secureTextEntry }) => {
   const styles = stylesheet.styles();
 
   return (
@@ -18,6 +18,7 @@ export default ({ value, inputStyle, keyboardType = 'default', onChangeText, edi
       keyboardType={keyboardType}
       onEndEditing={onEndEditing}
       returnKeyType={returnKeyType}
+      secureTextEntry={secureTextEntry}
     />
   );
 };

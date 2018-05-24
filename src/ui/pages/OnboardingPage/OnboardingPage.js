@@ -15,7 +15,7 @@ export default props => {
         and make the future possible today.
       </Text>
       <Button style={styles.register} type="primary" text="Register" onPress={() => props.navigation.navigate('Register')} />
-      {/* <Text style={styles.login}>Already have an account? Login</Text> */}
+      <Text style={styles.login} onPress={() => props.navigation.navigate('Login')}>Already have an account? Login</Text>
     </View>
   );
 };
