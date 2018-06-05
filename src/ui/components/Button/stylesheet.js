@@ -10,7 +10,7 @@ export default FSStyleSheet.create(props => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 55,
+    height: 45,
     paddingHorizontal: 15,
     overflow: 'hidden',
     borderRadius: 3

@@ -1,3 +1,4 @@
 export const fonts = {
-  proximaNova: 'Proxima Nova'
+  proximaNova: 'Proxima Nova Alt',
+  proximaNovaBold: 'ProximaNovaA-Bold'
 };

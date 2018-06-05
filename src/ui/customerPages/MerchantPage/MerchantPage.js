@@ -23,7 +23,7 @@ class MerchantPage extends PureComponent {
 
   onPressItem = item => {
     this.props.setCurrentDishId(item.did);
-    this.props.navigation.navigate('Dish');
+    this.props.navigation.navigate('DishOrder');
   };
 
   reloadData = silent => {

@@ -8,6 +8,7 @@ import VerifyPage from './pages/VerifyPage';
 import HawkersPage from './customerPages/HawkersPage';
 import HawkerPage from './customerPages/HawkerPage';
 import MerchantPage from './customerPages/MerchantPage';
+import DishOrderPage from './customerPages/DishOrderPage';
 
 const hawkerNavigator = (config = {}) =>
   MainNavigator(
@@ -36,7 +37,8 @@ const rootNavigator = (config = {}) =>
       Onboarding: { screen: OnboardingPage },
       Register: { screen: RegisterPage },
       Verify: { screen: VerifyPage },
-      MainTab: { screen: mainTabNavigator(config.mainTabConfig) }
+      MainTab: { screen: mainTabNavigator(config.mainTabConfig) },
+      DishOrder: { screen: DishOrderPage }
     },
     config
   );

@@ -5,7 +5,7 @@ const currentVersion = 1;
 const initialState = (oldState = {}) => ({
   version: currentVersion,
   currentMerchantId: null,
-  myMerchant: [],
+  myMerchant: {},
   merchantsByHawkerId: {}
 });
 

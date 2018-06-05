@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 export class LazyView extends Component {
+  state = {
+    shouldReloadChildren: false
+  };
+
   isEqual = (a, b) => {
     if (Array.isArray(a) && Array.isArray(b)) {
       if (a.length !== b.length) {
@@ -14,11 +18,16 @@ export class LazyView extends Component {
     return true;
   };
 
-  shouldComponentUpdate(nextProps) {
-    return nextProps.state && !this.isEqual(nextProps.state, this.props.state);
+  reRender() {
+    this.setState({ shouldReloadChildren: true });
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.shouldReloadChildren || (nextProps.state ? !this.isEqual(nextProps.state, this.props.state) : false);
   }
 
   render() {
+    this.state.shouldReloadChildren = false;
     return this.props.render ? this.props.render() : this.props.children;
   }
 }

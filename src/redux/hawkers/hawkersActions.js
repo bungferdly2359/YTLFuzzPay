@@ -25,8 +25,8 @@ export const getNearbyHawkers = (latitude, longitude) => {
       firebase
         .firestore()
         .collection('hawkers')
-        .where('coords', '>', lesserGeopoint)
-        .where('coords', '<', greaterGeopoint)
+        // .where('coords', '>', lesserGeopoint)
+        // .where('coords', '<', greaterGeopoint)
         .get()
   });
 };

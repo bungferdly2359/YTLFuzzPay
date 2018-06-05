@@ -64,4 +64,8 @@ Array.prototype.mapOrAdd = function(find, map) {
   return FSArray.mapOrAdd(this, find, map);
 };
 
+Array.prototype.toggle = function(x, key) {
+  return FSArray.toggle(this, x, key);
+};
+
 export default FSArray;
