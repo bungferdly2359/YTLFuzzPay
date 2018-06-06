@@ -20,7 +20,6 @@ export default FSStyleSheet.create(props => ({
     marginHorizontal: props.outerSpaceHorizontal + 15,
     padding: 25,
     paddingTop: 0,
-    minHeight: 450,
     maxHeight: props.deviceHeight * 0.8
   },
   header: {

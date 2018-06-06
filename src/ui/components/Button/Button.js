@@ -13,7 +13,7 @@ const buildStyles = (types, suffix, def) => {
   return [styles[suffix], ...types.map(t => styles[t + capSuffix]), def];
 };
 
-export const Button = ({ type = 'primary', icon, text, style, onPress, textStyle, iconStyle, gradientStyle, numberOfLines = 1, disabled = false }) => {
+export const Button = ({ type = 'primary', icon, text, style, onPress, textStyle, iconStyle, gradientStyle, numberOfLines = 1, disabled = false, children }) => {
   const types = type.split(' ').filter(t => t);
   const colors = types.findMap(t => gradientColors[t]);
   return (
@@ -25,6 +25,7 @@ export const Button = ({ type = 'primary', icon, text, style, onPress, textStyle
           {text}
         </Text>
       )}
+      {children}
     </TouchableOpacity>
   );
 };

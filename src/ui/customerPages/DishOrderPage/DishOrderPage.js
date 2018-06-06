@@ -3,9 +3,8 @@ import { Text, View, FlatList, TouchableHighlight, Linking, Alert, ScrollView, K
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox, Cell, SearchBar, LazyView, PopupView, InputText } from '../../components';
-import { getMerchantsByHawkerId, setCurrentMerchantId } from '../../../redux/merchants';
-import { getHawkerById } from '../../../redux/hawkers';
-import { LocationHelper, MoneyHelper, IdHelper } from '../../../helpers';
+import { addItemToCart } from '../../../redux/orders';
+import { MoneyHelper } from '../../../helpers';
 
 const mapStateToProps = state => ({
   dish: state.dishes.dishesByMerchantId[state.merchants.currentMerchantId || 'Jjpbp81522998395'].find(d => d.did == (state.dishes.currentDishId || 'Jjpbp8152300046'))
@@ -46,7 +45,7 @@ class DishOrderPage extends Component {
   };
 
   showAdditionalInfo = () => {
-    Alert.alert('Additional Request', "You may ask something that isn't covered by extra. Please note that your request may not be fulfilled if it cost more money.", [
+    Alert.alert('Additional Request', "You may ask something that isn't described in the menu. Please note that your request may not be fulfilled if it cost additional money.", [
       { text: 'Got It', style: 'cancel' }
     ]);
   };
@@ -66,15 +65,16 @@ class DishOrderPage extends Component {
     if (additional.length > 0) {
       params.additional = additional;
     }
-    Keyboard.dismiss();
+    this.props.addItemToCart(params);
+    this.props.navigation.goBack();
   };
 
   render() {
     const styles = stylesheet.styles();
-    const { dish = {} } = this.props;
+    const { dish = {}, navigation } = this.props;
     const { refreshing } = this.state;
     return (
-      <PopupView title={dish.name}>
+      <PopupView title={dish.name} navigation={navigation}>
         <Text style={[styles.text, styles.title]}>Price</Text>
         <View style={styles.contentContainer}>
           <Text style={[styles.text, styles.price]}>{MoneyHelper.display(dish.price)}</Text>
@@ -111,4 +111,4 @@ class DishOrderPage extends Component {
   }
 }
 
-export default connect(mapStateToProps, { getMerchantsByHawkerId, getHawkerById, setCurrentMerchantId })(DishOrderPage);
+export default connect(mapStateToProps, { addItemToCart })(DishOrderPage);

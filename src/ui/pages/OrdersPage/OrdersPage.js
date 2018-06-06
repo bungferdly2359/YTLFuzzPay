@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox, Section } from '../../components';
 import resources from '../../resources';
-import { getOrders, updateOrderStatus } from '../../../redux/api';
+import { getOrders, updateOrderStatus } from '../../../redux/orders';
 import { OrderHelper } from '../../../helpers';
 
 const mapStateToProps = ({ merchants, orders }) => ({

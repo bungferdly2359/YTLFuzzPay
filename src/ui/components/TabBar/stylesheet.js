@@ -30,5 +30,22 @@ export default FSStyleSheet.create(props => ({
   },
   iconSelected: {
     tintColor: colors.red
+  },
+  unread: {
+    position: 'absolute',
+    left: '50%',
+    marginLeft: 7,
+    backgroundColor: colors.red,
+    alignItems: 'center',
+    justifyContent: 'center',
+    minWidth: 18,
+    minHeight: 18,
+    borderRadius: 9,
+    top: 2
+  },
+  unreadText: {
+    fontFamily: fonts.proximaNova,
+    fontSize: 12,
+    color: colors.white
   }
 }));

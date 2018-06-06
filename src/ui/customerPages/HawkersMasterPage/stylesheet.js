@@ -29,6 +29,7 @@ export default FSStyleSheet.create(props => ({
     color: '#383838'
   },
   header: {
+    borderRadius: 3,
     marginHorizontal: 17,
     marginTop: 10
   },

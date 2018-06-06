@@ -4,7 +4,7 @@ import { Button, Image } from '../';
 import resources from '../../resources';
 import stylesheet from './stylesheet';
 
-export const PopupView = ({ title = '', titleStyle, image, imageStyle, onClose, children, style }) => {
+export const PopupView = ({ title = '', titleStyle, image, imageStyle, children, style, navigation }) => {
   const styles = stylesheet.styles();
   return (
     <ScrollView keyboardShouldPersistTaps="handled" style={styles.scrollContainer} contentContainerStyle={styles.scrollContainer} alwaysBounceVertical={false}>
@@ -12,7 +12,7 @@ export const PopupView = ({ title = '', titleStyle, image, imageStyle, onClose, 
         <View style={[styles.container, style]}>
           <View style={styles.header}>
             {title.length > 0 && <Text style={[styles.title, titleStyle]}>{title}</Text>}
-            <Button style={styles.closeButton} iconStyle={styles.closeImage} onPress={onClose} icon="icon_close" />
+            <Button style={styles.closeButton} iconStyle={styles.closeImage} onPress={() => navigation.goBack()} icon="icon_close" />
           </View>
           {children}
         </View>
