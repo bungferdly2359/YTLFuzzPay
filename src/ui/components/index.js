@@ -1,6 +1,7 @@
 export * from './Button';
 export * from './Cell';
 export * from './CheckBox';
+export * from './FlatList';
 export * from './Input';
 export * from './Image';
 export * from './LazyView';

@@ -40,10 +40,14 @@ class MainTabBar extends Component {
       <TabBar
         selectedIndex={navigationState.index}
         onSelectIndex={i => this.onSelectIndex(i)}
-        tabs={navigationState.routes.map(r => ({
-          text: getLabel({ route: r }),
-          icon: renderIcon({ route: r })
-        }))}
+        tabs={navigationState.routes.map(r => {
+          let text = getLabel({ route: r });
+          let icon = renderIcon({ route: r });
+          if (typeof icon == 'object') {
+            return { text, ...icon };
+          }
+          return { text, icon };
+        })}
       />
     );
   }

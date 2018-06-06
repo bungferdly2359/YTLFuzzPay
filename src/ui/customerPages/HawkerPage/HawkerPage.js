@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
-import { Text, View, FlatList, TouchableHighlight, Linking, Alert } from 'react-native';
+import { Text, View, TouchableHighlight, Linking, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
-import { Image, Button, NavBar, Input, CheckBox, Cell, SearchBar, LazyView } from '../../components';
+import { Image, Button, NavBar, Input, CheckBox, Cell, SearchBar, LazyView, FlatList } from '../../components';
 import { getMerchantsByHawkerId, setCurrentMerchantId } from '../../../redux/merchants';
 import { getHawkerById } from '../../../redux/hawkers';
 import { LocationHelper } from '../../../helpers';
@@ -29,7 +29,7 @@ class HawkerPage extends PureComponent {
 
   reloadData = silent => {
     const { hawker, merchants, hid } = this.props;
-    if (!silent || merchants == null) {
+    if (!silent || merchants == null || merchants.length == 0) {
       this.setState({ refreshing: true });
     }
     if (!hawker) {
@@ -71,7 +71,7 @@ class HawkerPage extends PureComponent {
       <View style={styles.container}>
         <NavBar title={hawker.name} navigation={this.props.navigation} rightButtons={hawker.coords ? [{ icon: 'icon_location', onPress: this.gotoLocation }] : null} />
         <FlatList
-          keyExtractor={(item, i) => i.toString()}
+          emptyText="No store available"
           refreshing={refreshing}
           onRefresh={this.reloadData}
           data={merchants}

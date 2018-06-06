@@ -45,27 +45,14 @@ class DishOrderPage extends Component {
   };
 
   showAdditionalInfo = () => {
-    Alert.alert('Additional Request', "You may ask something that isn't described in the menu. Please note that your request may not be fulfilled if it cost additional money.", [
+    Alert.alert('Notes', "You may ask something that isn't described in the menu. Please note that your request may not be fulfilled if it cost additional money.", [
       { text: 'Got It', style: 'cancel' }
     ]);
   };
 
   addToCart = () => {
     const { dish = {} } = this.props;
-    const { options = [] } = dish;
-    const { optionIndexes, additional, totalPrice } = this.state;
-    let params = {
-      did: dish.did,
-      name: dish.name,
-      total: totalPrice
-    };
-    if (optionIndexes.length > 0) {
-      params.options = optionIndexes.map(i => options[i].name).join(', ');
-    }
-    if (additional.length > 0) {
-      params.additional = additional;
-    }
-    this.props.addItemToCart(params);
+    this.props.addItemToCart({ dish, ...this.state });
     this.props.navigation.goBack();
   };
 
@@ -93,7 +80,7 @@ class DishOrderPage extends Component {
           </View>
         )}
         <View style={styles.horizontal}>
-          <Text style={[styles.text, styles.title]}>Additional Request</Text>
+          <Text style={[styles.text, styles.title]}>Notes</Text>
           <Button icon="icon_info" style={styles.infoButton} iconStyle={styles.infoIcon} onPress={this.showAdditionalInfo} />
         </View>
         <View style={[styles.contentContainer, styles.additionalContainer]}>

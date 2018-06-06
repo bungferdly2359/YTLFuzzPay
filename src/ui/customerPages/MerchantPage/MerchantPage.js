@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
-import { Text, View, KeyboardAvoidingView, FlatList, TouchableHighlight } from 'react-native';
+import { Text, View, KeyboardAvoidingView, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
-import GridView from '../../../modules/react-native-super-grid';
 import stylesheet from './stylesheet';
-import { Image, Button, NavBar, Input, CheckBox } from '../../components';
+import { Image, Button, NavBar, Input, CheckBox, FlatList } from '../../components';
 import resources from '../../resources';
 import { setCurrentDishId, getDishesByMerchantId } from '../../../redux/dishes';
 
@@ -28,7 +27,7 @@ class MerchantPage extends PureComponent {
 
   reloadData = silent => {
     const { merchant, dishes } = this.props;
-    if (!silent || dishes == null) {
+    if (!silent || dishes == null || dishes.length == 0) {
       this.setState({ refreshing: true });
     }
     this.props
@@ -44,11 +43,13 @@ class MerchantPage extends PureComponent {
     return (
       <View style={styles.container}>
         <NavBar title={merchant.name} navigation={this.props.navigation} />
-        <GridView
+        <FlatList
+          type="grid"
+          emptyText="Empty store"
           refreshing={refreshing}
           onRefresh={this.reloadData}
           spacing={10}
-          items={dishes}
+          data={dishes}
           renderItem={item => (
             <TouchableHighlight onPress={this.onPressItem.bind(this, item)} style={styles.touchable}>
               <View style={styles.itemContainer}>

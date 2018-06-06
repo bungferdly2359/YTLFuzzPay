@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
-import { Text, View, FlatList, TouchableHighlight, RefreshControl } from 'react-native';
+import { Text, View, TouchableHighlight, RefreshControl } from 'react-native';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
-import { Image, Button, NavBar, Input, CheckBox, Cell, SearchBar, LazyView } from '../../components';
+import { Image, Button, NavBar, Input, CheckBox, Cell, SearchBar, LazyView, FlatList } from '../../components';
 import { getCurrentLocation } from '../../../redux/user';
 import { getNearbyHawkers, searchHawkers, setCurrentHawkerId, clearSearchedHawkers } from '../../../redux/hawkers';
 import { LocationHelper } from '../../../helpers';
@@ -57,7 +57,7 @@ class HawkersPage extends PureComponent {
   render() {
     const styles = stylesheet.styles();
     const { currentLocation = {}, hawkers = [], searchedHawkers } = this.props;
-    const { searching, refreshing } = this.state;
+    const { searching, refreshing, error } = this.state;
     return (
       <View style={styles.container}>
         <NavBar title="Hawker Centres" />
@@ -68,7 +68,7 @@ class HawkersPage extends PureComponent {
             render={() => (
               <FlatList
                 style={styles.searchList}
-                keyExtractor={(item, i) => i.toString()}
+                emptyText="No hawker near you :("
                 refreshing={refreshing}
                 onRefresh={this.reloadData}
                 data={hawkers}
@@ -98,10 +98,7 @@ class HawkersPage extends PureComponent {
           />
           {searching && (
             <FlatList
-              keyboardShouldPersistTaps="handled"
-              keyboardDismissMode="interactive"
               style={styles.searchList}
-              keyExtractor={(item, i) => i.toString()}
               data={searchedHawkers}
               renderItem={({ item }) => (
                 <Cell onPress={this.onPressItem.bind(this, item)}>
