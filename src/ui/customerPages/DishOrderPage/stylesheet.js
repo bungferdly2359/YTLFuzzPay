@@ -2,44 +2,58 @@ import { FSStyleSheet } from '../../../modules/fs-foundation';
 import { colors, fonts } from '../../../constants';
 
 export default FSStyleSheet.create(props => ({
+  container: {
+    padding: 0
+  },
+  contentContainer: {
+    padding: 20
+  },
+  image: {
+    height: 180,
+    margin: -20,
+    backgroundColor: colors.greyishLight,
+    marginBottom: 10
+  },
   text: {
     fontFamily: fonts.proximaNova,
+    color: colors.greyishDark,
     fontSize: 16
   },
   title: {
     fontFamily: fonts.proximaNovaBold,
-    marginVertical: 5
-  },
-  contentContainer: {
-    borderRadius: 3,
-    marginBottom: 10,
-    backgroundColor: colors.greyishWhite,
-    padding: 10
-  },
-  extraContainer: {
-    height: 130
-  },
-  extraItemContainer: {
+    fontSize: 22,
+    marginVertical: 5,
     marginBottom: 10
   },
-  additionalContainer: {
-    height: 70
+  description: {
+    fontSize: 15,
+    color: colors.greyish,
+    marginBottom: 20
   },
-  cartContainer: {
-    marginTop: 10
+  content2Container: {
+    padding: 10
   },
-  price: {
-    color: colors.greyishDark,
-    textAlign: 'right'
-  },
-  horizontal: {
+  priceContainer: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 15
   },
-  extraName: {
+  priceTitle: {
+    fontFamily: fonts.proximaNovaBold
+  },
+  priceSeparator: {
     flex: 1,
-    marginHorizontal: 8,
-    color: colors.greyishDark
+    height: 1,
+    backgroundColor: colors.greyishLight,
+    marginHorizontal: 10
+  },
+  checkbox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1
+  },
+  checkboxTitle: {
+    marginLeft: 8
   },
   infoButton: {
     margin: -10
@@ -49,24 +63,24 @@ export default FSStyleSheet.create(props => ({
     height: 20
   },
   inputText: {
-    flex: 1,
-    marginVertical: -7
+    height: 68,
+    backgroundColor: colors.greyishWhite,
+    borderRadius: 3,
+    padding: 10
   },
-  checkbox: {
+  totalContainer: {
+    justifyContent: 'space-between',
     flexDirection: 'row',
+    shadowRadius: 3,
+    shadowOpacity: 0.1,
+    shadowColor: colors.black,
+    backgroundColor: colors.white,
+    paddingHorizontal: 30,
     alignItems: 'center',
-    flex: 1
+    height: 44
   },
   cartButton: {
-    flex: 1,
-    marginRight: 20
-  },
-  totalTitle: {
-    fontSize: 13,
-    color: colors.greyishBrown
-  },
-  totalPrice: {
-    fontFamily: fonts.proximaNovaBold,
-    marginRight: 10
+    borderRadius: 0,
+    marginBottom: -1
   }
 }));

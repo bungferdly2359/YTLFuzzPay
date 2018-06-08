@@ -61,38 +61,42 @@ class DishOrderPage extends Component {
     const { dish = {}, navigation } = this.props;
     const { refreshing } = this.state;
     return (
-      <PopupView title={dish.name} navigation={navigation}>
-        <Text style={[styles.text, styles.title]}>Price</Text>
-        <View style={styles.contentContainer}>
-          <Text style={[styles.text, styles.price]}>{MoneyHelper.display(dish.price)}</Text>
-        </View>
-        {(dish.options || []).length > 0 && (
-          <View>
-            <Text style={[styles.text, styles.title]}>Extra</Text>
-            <ScrollView keyboardShouldPersistTaps="handled" style={[styles.contentContainer, styles.extraContainer]}>
-              {dish.options.map((e, i) => (
-                <View key={i} style={styles.horizontal}>
-                  <CheckBox style={styles.checkbox} textStyle={[styles.text, styles.extraName]} onChangeValue={() => this.toggleOptionIndex(i)} text={e.name} />
-                  <Text style={[styles.text, styles.price]}>{MoneyHelper.display(e.price)}</Text>
+      <PopupView style={styles.container} navigation={navigation}>
+        <ScrollView contentContainerStyle={styles.contentContainer}>
+          <Image resizeMode="cover" source={dish.imageURL} style={styles.image} />
+          <Text style={[styles.text, styles.title]}>{dish.name}</Text>
+          {dish.description && <Text style={[styles.text, styles.description]}>{dish.description}</Text>}
+          <View style={styles.content2Container}>
+            <View style={styles.priceContainer}>
+              <Text style={[styles.text, styles.priceTitle]}>Price</Text>
+              <View style={styles.priceSeparator} />
+              <Text style={styles.text}>{MoneyHelper.display(dish.price)}</Text>
+            </View>
+            {(dish.options || []).length > 0 && (
+              <View style={styles.priceContainer}>
+                <Text style={[styles.text, styles.priceTitle]}>Extra</Text>
+              </View>
+            )}
+            {(dish.options || []).length > 0 &&
+              dish.options.map((e, i) => (
+                <View key={i} style={styles.priceContainer}>
+                  <CheckBox style={styles.checkbox} textStyle={[styles.text, styles.checkboxTitle]} onChangeValue={() => this.toggleOptionIndex(i)} text={e.name} />
+                  <View style={styles.priceSeparator} />
+                  <Text style={styles.text}>{MoneyHelper.display(e.price)}</Text>
                 </View>
               ))}
-            </ScrollView>
+            <View style={styles.priceContainer}>
+              <Text style={[styles.text, styles.priceTitle]}>Notes</Text>
+              <Button icon="icon_info" style={styles.infoButton} iconStyle={styles.infoIcon} onPress={this.showAdditionalInfo} />
+            </View>
+            <InputText inputStyle={styles.inputText} multiline keyboardDismissMode="interactive" onChangeText={t => (this.state.additional = t)} />
           </View>
-        )}
-        <View style={styles.horizontal}>
-          <Text style={[styles.text, styles.title]}>Notes</Text>
-          <Button icon="icon_info" style={styles.infoButton} iconStyle={styles.infoIcon} onPress={this.showAdditionalInfo} />
+        </ScrollView>
+        <View style={styles.totalContainer}>
+          <Text style={[styles.text, styles.priceTitle]}>Total</Text>
+          <LazyView ref={r => (this.totalView = r)} render={() => <Text style={[styles.text, styles.priceTitle]}>{MoneyHelper.display(this.state.totalPrice)}</Text>} />
         </View>
-        <View style={[styles.contentContainer, styles.additionalContainer]}>
-          <InputText inputStyle={styles.inputText} multiline keyboardDismissMode="interactive" onChangeText={t => (this.state.additional = t)} />
-        </View>
-        <View style={[styles.horizontal, styles.cartContainer]}>
-          <Button style={styles.cartButton} type="primary gradient" text="Add to Cart" onPress={this.addToCart} />
-          <View>
-            <Text style={[styles.text, styles.totalTitle]}>Total</Text>
-            <LazyView ref={r => (this.totalView = r)} render={() => <Text style={[styles.text, styles.totalPrice]}>{MoneyHelper.display(this.state.totalPrice)}</Text>} />
-          </View>
-        </View>
+        <Button style={styles.cartButton} type="primary gradient" text="Add to Cart" onPress={this.addToCart} />
       </PopupView>
     );
   }

@@ -10,11 +10,13 @@ export const PopupView = ({ title = '', titleStyle, image, imageStyle, children,
     <ScrollView keyboardShouldPersistTaps="handled" style={styles.scrollContainer} contentContainerStyle={styles.scrollContainer} alwaysBounceVertical={false}>
       <KeyboardAvoidingView style={styles.keyboard} behavior="padding">
         <View style={[styles.container, style]}>
-          <View style={styles.header}>
-            {title.length > 0 && <Text style={[styles.title, titleStyle]}>{title}</Text>}
-            <Button style={styles.closeButton} iconStyle={styles.closeImage} onPress={() => navigation.goBack()} icon="icon_close" />
-          </View>
+          {title.length > 0 && (
+            <View style={styles.header}>
+              <Text style={[styles.title, titleStyle]}>{title}</Text>
+            </View>
+          )}
           {children}
+          <Button style={styles.closeButton} iconStyle={styles.closeImage} onPress={() => navigation.goBack()} icon="icon_close" />
         </View>
       </KeyboardAvoidingView>
     </ScrollView>

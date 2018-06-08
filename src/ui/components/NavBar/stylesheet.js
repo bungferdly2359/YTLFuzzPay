@@ -33,9 +33,8 @@ export default FSStyleSheet.create(props => ({
     justifyContent: 'center'
   },
   title: {
-    fontFamily: fonts.proximaNova,
+    fontFamily: fonts.proximaNovaBold,
     fontSize: 16,
-    fontWeight: '600',
     textAlign: 'center',
     color: '#383838'
   }

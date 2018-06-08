@@ -22,15 +22,38 @@ export default FSStyleSheet.create(props => ({
     backgroundColor: colors.greyishWhite
   },
   name: {
-    fontFamily: fonts.proximaNova,
+    fontFamily: fonts.proximaNovaBold,
     fontSize: 16,
-    fontWeight: '600',
     color: colors.greyishDark
   },
   info: {
     fontFamily: fonts.proximaNova,
     fontSize: 14,
-    fontWeight: 'normal',
+    color: colors.greyish
+  },
+  headerContainer: {
+    marginTop: -10,
+    marginBottom: 10
+  },
+  header: {
+    height: 180
+  },
+  sectionContainer: {
+    marginHorizontal: 15,
+    marginBottom: 10,
+    padding: 4,
+    borderRadius: 3,
+    alignItems: 'center',
+    backgroundColor: colors.greyish
+  },
+  sectionText: {
+    fontFamily: fonts.proximaNova,
+    color: colors.white,
+    fontSize: 14
+  },
+  location: {
+    fontSize: 12,
+    fontFamily: fonts.proximaNova,
     color: colors.greyish
   }
 }));

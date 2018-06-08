@@ -20,8 +20,8 @@ export class CheckBox extends Component {
   };
 
   render() {
-    const { style, text, textStyle } = this.props;
     const { value } = this.state;
-    return <Button type="none" icon={value ? 'icon_checkbox1' : 'icon_checkbox0'} text={text} style={style} textStyle={textStyle} onPress={() => this.toggleIndex()} />;
+    const styles = stylesheet.styles();
+    return <Button type="none" icon={value ? 'icon_checkbox1' : 'icon_checkbox0'} {...this.props} iconStyle={styles.icon} onPress={() => this.toggleIndex()} />;
   }
 }

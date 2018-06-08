@@ -15,7 +15,7 @@ export default FSStyleSheet.create(props => ({
   },
   container: {
     backgroundColor: colors.white,
-    borderRadius: 4,
+    borderRadius: 3,
     overflow: 'hidden',
     marginHorizontal: props.outerSpaceHorizontal + 15,
     padding: 25,
@@ -23,24 +23,33 @@ export default FSStyleSheet.create(props => ({
     maxHeight: props.deviceHeight * 0.8
   },
   header: {
+    height: 50,
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     marginHorizontal: -25,
     zIndex: 100
   },
   closeButton: {
-    width: 44,
-    height: 44,
+    position: 'absolute',
+    right: 10,
+    top: 10,
+    width: 30,
+    height: 30,
+    backgroundColor: '#FFFC',
+    borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center'
   },
+  closeImage: {
+    tintColor: colors.black,
+    width: 15,
+    height: 15
+  },
   title: {
     flex: 1,
-    marginLeft: 44,
-    alignSelf: 'center',
-    fontFamily: fonts.proximaNova,
+    marginHorizontal: 44,
+    fontFamily: fonts.proximaNovaBold,
     textAlign: 'center',
-    fontWeight: '600',
     fontSize: 16,
     color: colors.darkGray
   }

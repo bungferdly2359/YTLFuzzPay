@@ -42,7 +42,16 @@ class MerchantPage extends PureComponent {
     const styles = stylesheet.styles();
     return (
       <View style={styles.container}>
-        <NavBar title={merchant.name} navigation={this.props.navigation} />
+        <NavBar
+          title={
+            <Text>
+              {merchant.name}
+              {'\n'}
+              <Text style={styles.location}>{merchant.number}</Text>
+            </Text>
+          }
+          navigation={this.props.navigation}
+        />
         <FlatList
           type="grid"
           emptyText="Empty store"
@@ -50,12 +59,21 @@ class MerchantPage extends PureComponent {
           onRefresh={this.reloadData}
           spacing={10}
           data={dishes}
+          ListHeaderComponent={
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionText}>Menu</Text>
+            </View>
+          }
           renderItem={item => (
             <TouchableHighlight onPress={this.onPressItem.bind(this, item)} style={styles.touchable}>
               <View style={styles.itemContainer}>
                 <Image style={styles.image} source={item.imageURL} resizeMode={item.resizeMode} />
                 <Text style={styles.name}>{item.name}</Text>
-                {item.description && <Text style={styles.info}>{item.description}</Text>}
+                {item.description && (
+                  <Text style={styles.info} numberOfLines={1}>
+                    {item.description}
+                  </Text>
+                )}
                 <Text style={styles.info}>{item.available ? `S$ ${item.price}` : 'Unavailable'}</Text>
               </View>
             </TouchableHighlight>
