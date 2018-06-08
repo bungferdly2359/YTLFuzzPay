@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox, Cell, SearchBar, LazyView, PopupView, InputText } from '../../components';
 import { addItemToCart } from '../../../redux/orders';
-import { MoneyHelper } from '../../../helpers';
+import { MoneyHelper, StateHelper } from '../../../helpers';
 
 const mapStateToProps = state => ({
-  dish: state.dishes.dishesByMerchantId[state.merchants.currentMerchantId || 'Jjpbp81522998395'].find(d => d.did == (state.dishes.currentDishId || 'Jjpbp8152300046'))
+  hawker: StateHelper.getCurrentHawker(state),
+  merchant: StateHelper.getCurrentMerchant(state),
+  dish: StateHelper.getCurrentDish(state)
 });
 
 class DishOrderPage extends Component {
@@ -51,8 +53,8 @@ class DishOrderPage extends Component {
   };
 
   addToCart = () => {
-    const { dish = {} } = this.props;
-    this.props.addItemToCart({ dish, ...this.state });
+    const { dish = {}, hawker = {}, merchant = {} } = this.props;
+    this.props.addItemToCart({ dish, hawker, merchant, ...this.state });
     this.props.navigation.goBack();
   };
 

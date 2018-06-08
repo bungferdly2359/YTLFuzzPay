@@ -6,6 +6,7 @@ export const actionTypes = {
   getOrders: 'orders::getOrders',
   updateOrderStatus: 'orders::updateOrderStatus',
   addItemToCart: 'orders::addItemToCart',
+  removeItemFromCart: 'orders::removeItemFromCart',
   updateCart: 'orders::updateCart'
 };
 
@@ -57,4 +58,9 @@ export const addItemToCart = item => ({
 export const updateCart = cart => ({
   type: actionTypes.updateCart,
   payload: cart
+});
+
+export const removeItemFromCart = item => ({
+  type: actionTypes.removeItemFromCart,
+  payload: item
 });

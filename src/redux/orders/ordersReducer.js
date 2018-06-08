@@ -20,6 +20,9 @@ export function ordersReducer(state = initialState(), action) {
     case actionTypes.addItemToCart:
       return { ...state, cart: [...state.cart, payload] };
 
+    case actionTypes.removeItemFromCart:
+      return { ...state, cart: state.cart.filter(i => i !== payload) };
+
     case actionTypes.updateCart:
       return { ...state, cart: payload };
 

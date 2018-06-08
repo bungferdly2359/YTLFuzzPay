@@ -5,11 +5,11 @@ import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox, Cell, SearchBar, LazyView, FlatList } from '../../components';
 import { getMerchantsByHawkerId, setCurrentMerchantId } from '../../../redux/merchants';
 import { getHawkerById } from '../../../redux/hawkers';
-import { LocationHelper } from '../../../helpers';
+import { LocationHelper, StateHelper } from '../../../helpers';
 
 const mapStateToProps = state => ({
   hid: state.hawkers.currentHawkerId,
-  hawker: state.hawkers.nearbyHawkers.find(h => h.hid === state.hawkers.currentHawkerId) || state.hawkers.hawkerByhawkerId[state.hawkers.currentHawkerId],
+  hawker: StateHelper.getCurrentHawker(state),
   merchants: state.merchants.merchantsByHawkerId[state.hawkers.currentHawkerId]
 });
 

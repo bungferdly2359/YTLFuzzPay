@@ -5,9 +5,10 @@ import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox, FlatList } from '../../components';
 import resources from '../../resources';
 import { setCurrentDishId, getDishesByMerchantId } from '../../../redux/dishes';
+import { StateHelper } from '../../../helpers';
 
 const mapStateToProps = state => ({
-  merchant: state.merchants.merchantsByHawkerId[state.hawkers.currentHawkerId].find(m => m.mid === state.merchants.currentMerchantId),
+  merchant: StateHelper.getCurrentMerchant(state),
   dishes: state.dishes.dishesByMerchantId[state.merchants.currentMerchantId]
 });
 

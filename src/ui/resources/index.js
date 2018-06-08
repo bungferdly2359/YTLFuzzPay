@@ -15,6 +15,7 @@ FSResources.setResources({
   icon_newdish: require('./images/icon_newdish.png'),
   icon_orders: require('./images/icon_orders.png'),
   icon_search: require('./images/icon_search.png'),
+  icon_trash: require('./images/icon_trash.png'),
   image_edit: require('./images/image_edit.png'),
   image_onboarding: require('../../../ios/YTLFuzzPay/Resources/Images/AppSplash.png')
 });

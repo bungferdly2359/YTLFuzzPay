@@ -4,9 +4,9 @@ const defaultConfig = {
   transitionConfig: () => ({
     screenInterpolator: props => {
       const sceneIndex = props.scenes.indexOf(props.scene);
-      if (props.scene.isStale && sceneIndex < props.scenes.length - 1) {
-        return { opacity: 0 };
-      }
+      // if (props.scene.isStale && sceneIndex < props.scenes.length - 1) {
+      //   return { opacity: 0.5 };
+      // }
       const { position, scene } = props;
       const { index } = scene;
       const scale = position.interpolate({

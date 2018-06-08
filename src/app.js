@@ -11,7 +11,7 @@ import { hawkersReducer } from './redux/hawkers';
 
 FSApp.setAppBundle('YTLFuzzPay', props => {
   props.addReducer('api', apiReducer);
-  props.addReducer('orders', ordersReducer);
+  props.addReducer('orders', ordersReducer, true);
   props.addReducer('hawkers', hawkersReducer, true);
   props.addReducer('merchants', merchantsReducer, true);
   props.addReducer('dishes', dishesReducer, true);
