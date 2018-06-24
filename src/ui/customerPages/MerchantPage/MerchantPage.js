@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react';
-import { Text, View, KeyboardAvoidingView, TouchableHighlight } from 'react-native';
+import { Text, View, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
-import { Image, Button, NavBar, Input, CheckBox, FlatList } from '../../components';
-import resources from '../../resources';
+import { Image, NavBar, FlatList } from '../../components';
 import { setCurrentDishId, getDishesByMerchantId } from '../../../redux/dishes';
-import { StateHelper } from '../../../helpers';
+import { StateHelper, AlertHelper } from '../../../helpers';
 
 const mapStateToProps = state => ({
   merchant: StateHelper.getCurrentMerchant(state),
@@ -22,8 +21,12 @@ class MerchantPage extends PureComponent {
   }
 
   onPressItem = item => {
-    this.props.setCurrentDishId(item.did);
-    this.props.navigation.navigate('DishOrder');
+    if (this.props.merchant.online) {
+      this.props.setCurrentDishId(item.did);
+      this.props.navigation.navigate('DishOrder');
+    } else {
+      AlertHelper.showError('Cannot order a dish when the merchant is offline');
+    }
   };
 
   reloadData = silent => {
@@ -85,7 +88,10 @@ class MerchantPage extends PureComponent {
   }
 }
 
-export default connect(mapStateToProps, {
-  setCurrentDishId,
-  getDishesByMerchantId
-})(MerchantPage);
+export default connect(
+  mapStateToProps,
+  {
+    setCurrentDishId,
+    getDishesByMerchantId
+  }
+)(MerchantPage);

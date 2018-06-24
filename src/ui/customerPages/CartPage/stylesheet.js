@@ -58,11 +58,14 @@ export default FSStyleSheet.create(props => ({
     backgroundColor: colors.white,
     paddingHorizontal: 30,
     alignItems: 'center',
-    height: 44
+    height: 60
   },
   total: {
     fontFamily: fonts.proximaNovaBold,
     color: colors.greyishDark,
     fontSize: 16
+  },
+  totalPrice: {
+    fontSize: 24
   }
 }));

@@ -61,7 +61,6 @@ class DishOrderPage extends Component {
   render() {
     const styles = stylesheet.styles();
     const { dish = {}, navigation } = this.props;
-    const { refreshing } = this.state;
     return (
       <PopupView style={styles.container} navigation={navigation}>
         <ScrollView contentContainerStyle={styles.contentContainer}>
@@ -91,7 +90,7 @@ class DishOrderPage extends Component {
               <Text style={[styles.text, styles.priceTitle]}>Notes</Text>
               <Button icon="icon_info" style={styles.infoButton} iconStyle={styles.infoIcon} onPress={this.showAdditionalInfo} />
             </View>
-            <InputText inputStyle={styles.inputText} multiline keyboardDismissMode="interactive" onChangeText={t => (this.state.additional = t)} />
+            <InputText inputStyle={styles.inputText} multiline keyboardDismissMode="interactive" onChangeText={t => (this.state.additional = t)} autogrow />
           </View>
         </ScrollView>
         <View style={styles.totalContainer}>
@@ -104,4 +103,7 @@ class DishOrderPage extends Component {
   }
 }
 
-export default connect(mapStateToProps, { addItemToCart })(DishOrderPage);
+export default connect(
+  mapStateToProps,
+  { addItemToCart }
+)(DishOrderPage);

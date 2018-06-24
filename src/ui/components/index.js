@@ -7,6 +7,7 @@ export * from './Image';
 export * from './LazyView';
 export * from './NavBar';
 export * from './PopupView';
+export * from './RadioButton';
 export * from './SearchBar';
 export * from './Section';
 export * from './TabBar';

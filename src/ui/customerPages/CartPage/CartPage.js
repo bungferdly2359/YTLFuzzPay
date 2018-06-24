@@ -45,11 +45,11 @@ class CartPage extends PureComponent {
   };
 
   render() {
-    const { items } = this.props;
+    const { items, navigation } = this.props;
     const styles = stylesheet.styles();
     return (
       <View style={styles.container}>
-        <NavBar title="Shopping Cart" rightButtons={items.length > 0 ? [{ text: 'Checkout' }] : null} />
+        <NavBar title="Shopping Cart" rightButtons={items.length > 0 ? [{ text: 'Checkout', onPress: () => navigation.navigate('Checkout') }] : null} />
         <FlatList
           emptyText="Your cart is empty"
           data={items}
@@ -85,7 +85,7 @@ class CartPage extends PureComponent {
         {items.length > 0 && (
           <View style={styles.totalContainer}>
             <Text style={styles.total}>Total</Text>
-            <Text style={styles.total}>{MoneyHelper.display(items.reduce((x, y) => x + y.totalPrice, 0))}</Text>
+            <Text style={[styles.total, styles.totalPrice]}>{MoneyHelper.display(items.reduce((x, y) => x + y.totalPrice, 0))}</Text>
           </View>
         )}
       </View>
@@ -93,4 +93,7 @@ class CartPage extends PureComponent {
   }
 }
 
-export default connect(mapStateToProps, { removeItemFromCart, setCurrentHawkerId, setCurrentMerchantId })(CartPage);
+export default connect(
+  mapStateToProps,
+  { removeItemFromCart, setCurrentHawkerId, setCurrentMerchantId }
+)(CartPage);

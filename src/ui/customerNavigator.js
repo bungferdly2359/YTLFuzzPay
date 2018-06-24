@@ -10,6 +10,7 @@ import HawkerPage from './customerPages/HawkerPage';
 import MerchantPage from './customerPages/MerchantPage';
 import DishOrderPage from './customerPages/DishOrderPage';
 import CartPage from './customerPages/CartPage';
+import CheckoutPage from './customerPages/CheckoutPage';
 
 const hawkerNavigator = (config = {}) =>
   MainNavigator(
@@ -24,7 +25,8 @@ const hawkerNavigator = (config = {}) =>
 const cartNavigator = (config = {}) =>
   MainNavigator(
     {
-      CartMain: { screen: CartPage }
+      CartMain: { screen: CartPage },
+      Checkout: { screen: CheckoutPage }
     },
     config
   );

@@ -22,10 +22,9 @@ export default FSStyleSheet.create(props => ({
     flex: 1
   },
   title: {
-    fontFamily: fonts.proximaNova,
+    fontFamily: fonts.proximaNovaBold,
     fontSize: 16,
     marginBottom: 4,
-    fontWeight: '600',
     color: '#383838'
   },
   header: {

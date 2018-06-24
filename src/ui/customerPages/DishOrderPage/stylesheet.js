@@ -63,7 +63,6 @@ export default FSStyleSheet.create(props => ({
     height: 20
   },
   inputText: {
-    height: 68,
     backgroundColor: colors.greyishWhite,
     borderRadius: 3,
     padding: 10

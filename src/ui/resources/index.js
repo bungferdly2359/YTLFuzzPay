@@ -14,6 +14,7 @@ FSResources.setResources({
   icon_menu: require('./images/icon_menu.png'),
   icon_newdish: require('./images/icon_newdish.png'),
   icon_orders: require('./images/icon_orders.png'),
+  icon_radiobutton1: require('./images/icon_radiobutton1.png'),
   icon_search: require('./images/icon_search.png'),
   icon_trash: require('./images/icon_trash.png'),
   image_edit: require('./images/image_edit.png'),
