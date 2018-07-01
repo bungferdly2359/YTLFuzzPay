@@ -4,14 +4,10 @@ import { IdHelper, OrderHelper } from '../../helpers';
 import { urls } from '../../constants';
 
 export const actionTypes = {
-  register: 'api::request::register',
   updateOrderStatus: 'api::request::updateOrderStatus',
   updateDish: 'api::request::updateDish',
   deleteDish: 'api::request::deleteDish',
   getDishes: 'api::request::getDishes',
-  getUser: 'api::request::getUser',
-  updateUser: 'api::request::updateUser',
-  verifyPhoneNumber: 'api::request::verifyPhoneNumber',
   getGeocode: 'api::request::getGeocode',
   clearError: 'api::clearError',
   start: 'api::start',
@@ -19,7 +15,6 @@ export const actionTypes = {
   error: 'api::error'
 };
 
-let confirmResult = null;
 const db = name => firebase.firestore().collection(name);
 
 export const clearError = requestType => ({
@@ -78,48 +73,6 @@ export const deleteDish = did =>
       db('dishes')
         .doc(did)
         .delete()
-  });
-
-export const getUser = () =>
-  baseApi({
-    type: actionTypes.getUser,
-    api: () =>
-      db('users')
-        .doc(IdHelper.currentUid())
-        .get()
-  });
-
-export const updateUser = params =>
-  baseApi({
-    type: actionTypes.updateUser,
-    customPayload: params,
-    loadingText: 'Updating...',
-    api: () =>
-      db('users')
-        .doc(IdHelper.currentUid())
-        .set(params)
-  });
-
-export const register = params =>
-  baseApi({
-    type: actionTypes.register,
-    customPayload: params,
-    loadingText: 'Registering...',
-    api: () =>
-      firebase
-        .auth()
-        .signInWithPhoneNumber(params.phoneNumber)
-        .then(r => {
-          confirmResult = r;
-          return r;
-        })
-  });
-
-export const verifyPhoneNumber = verificationCode =>
-  baseApi({
-    type: actionTypes.verifyPhoneNumber,
-    api: () => confirmResult.confirm(verificationCode),
-    loadingText: 'Verifying...'
   });
 
 export const getGeocode = (lat, long) =>

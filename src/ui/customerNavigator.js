@@ -14,6 +14,9 @@ import CheckoutPage from './customerPages/CheckoutPage';
 import OrdersPage from './customerPages/OrdersPage/OrdersPage';
 import OrderDetailsPage from './customerPages/OrderDetailsPage';
 import ProfilePage from './customerPages/ProfilePage';
+import ProfileEditPage from './customerPages/ProfileEditPage';
+import AboutPage from './pages/AboutPage';
+import PrivacyPage from './pages/PrivacyPage';
 
 const hawkerNavigator = (config = {}) =>
   MainNavigator(
@@ -43,13 +46,24 @@ const ordersNavigator = (config = {}) =>
     config
   );
 
+const profileNavigator = (config = {}) =>
+  MainNavigator(
+    {
+      ProfileMain: { screen: ProfilePage },
+      ProfileEdit: { screen: ProfileEditPage },
+      About: { screen: AboutPage },
+      Privacy: { screen: PrivacyPage }
+    },
+    config
+  );
+
 const mainTabNavigator = (config = {}) =>
   MainTabNavigator(
     {
       Hawkers: { screen: hawkerNavigator(config.hawkersConfig) },
       Cart: { screen: cartNavigator(config.cartConfig) },
       Orders: { screen: ordersNavigator(config.ordersConfig) },
-      Profile: { screen: ProfilePage }
+      Profile: { screen: profileNavigator(config.profileConfig) }
     },
     {
       ...config

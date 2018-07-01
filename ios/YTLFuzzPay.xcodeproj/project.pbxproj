@@ -21,6 +21,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		1C2BEDC8580A46F1EA2DB199 /* libPods-MerchantProd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A19AB3D54D0D1801E3EDA2 /* libPods-MerchantProd.a */; };
 		216804A98610466B848A6097 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3097E26BDA954DC396143C6A /* libBVLinearGradient.a */; };
 		2B9B1B99FBCB43488BDCEB03 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B954931C8A4E37A3EC1D6C /* libz.tbd */; };
 		4255E1C320746C0900E8B85C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4255E1C220746C0900E8B85C /* GoogleService-Info.plist */; };
@@ -177,13 +178,16 @@
 		43F08DD28CC4494B841F8C7F /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2014F94A9D9743548566E675 /* libRNFetchBlob.a */; };
 		50A9A59C805E4E63BFEFF5FD /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC6FF621BC44463ACE1AD3B /* libRNFirebase.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		6DFAD5522F5B0579D77F0B3F /* libPods-CustomerProd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 203443068902ABE2E15BAF4C /* libPods-CustomerProd.a */; };
 		72DB707C0AC44E16B54F1AB5 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A7AC6840F8414D92909A80 /* libRNGoogleSignin.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		9832CB524B2A453F9B3F7F0E /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11CE49D0A49C443B89EC4C47 /* libRCTFBSDK.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C005534758BC491BA3C8E401 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037246AFDC7A4EBA8ED9A661 /* AddressBook.framework */; };
+		DA0BDEBF8CFB1C3D596C5C1E /* libPods-TestUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B466DF186B6B6D723D4EBA /* libPods-TestUI.a */; };
 		E03AA175CC574D0BB197FFF0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496AC4E10C8A475FB96AD533 /* SystemConfiguration.framework */; };
 		F4F412E51FDB4B718F3F8343 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE22389AF104E189E0AD026 /* SafariServices.framework */; };
+		FD00ABF9D08112B0381676D9 /* libPods-MerchantStaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F70D7DA8A35AB5DA9A0BD2 /* libPods-MerchantStaging.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -513,7 +517,10 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = YTLFuzzPay/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		2014F94A9D9743548566E675 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
+		203443068902ABE2E15BAF4C /* libPods-CustomerProd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CustomerProd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F70D7DA8A35AB5DA9A0BD2 /* libPods-MerchantStaging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MerchantStaging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23941F25B60D3B7A2416E14A /* Pods-CustomerStaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerStaging.release.xcconfig"; path = "Pods/Target Support Files/Pods-CustomerStaging/Pods-CustomerStaging.release.xcconfig"; sourceTree = "<group>"; };
+		28A19AB3D54D0D1801E3EDA2 /* libPods-MerchantProd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MerchantProd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE22389AF104E189E0AD026 /* SafariServices.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		3097E26BDA954DC396143C6A /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
@@ -543,6 +550,7 @@
 		75660D261491445A8D59C69A /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		85B466DF186B6B6D723D4EBA /* libPods-TestUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28F4545CC1480FE8ED99DDE /* Pods-CustomerStaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerStaging.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CustomerStaging/Pods-CustomerStaging.debug.xcconfig"; sourceTree = "<group>"; };
 		A9D814086C6184AE80DEB912 /* Pods-CustomerProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerProd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CustomerProd/Pods-CustomerProd.debug.xcconfig"; sourceTree = "<group>"; };
 		ACC6FF621BC44463ACE1AD3B /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
@@ -582,6 +590,7 @@
 				F4F412E51FDB4B718F3F8343 /* SafariServices.framework in Frameworks */,
 				E03AA175CC574D0BB197FFF0 /* SystemConfiguration.framework in Frameworks */,
 				C005534758BC491BA3C8E401 /* AddressBook.framework in Frameworks */,
+				FD00ABF9D08112B0381676D9 /* libPods-MerchantStaging.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +650,7 @@
 				42664A6620A9398100FDAA4F /* libRNFetchBlob.a in Frameworks */,
 				42664A6720A9398100FDAA4F /* libBVLinearGradient.a in Frameworks */,
 				42664A6820A9398100FDAA4F /* libRNFirebase.a in Frameworks */,
+				6DFAD5522F5B0579D77F0B3F /* libPods-CustomerProd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +676,7 @@
 				42664A9120A94ADF00FDAA4F /* libRNFetchBlob.a in Frameworks */,
 				42664A9220A94ADF00FDAA4F /* libBVLinearGradient.a in Frameworks */,
 				42664A9320A94ADF00FDAA4F /* libRNFirebase.a in Frameworks */,
+				DA0BDEBF8CFB1C3D596C5C1E /* libPods-TestUI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,6 +706,7 @@
 				4255E1C720746C8900E8B85C /* libRNFirebase.a in Frameworks */,
 				4294655720B55EFA00542AED /* libRCTFBSDK.a in Frameworks */,
 				4294655820B55F3500542AED /* libRNGoogleSignin.a in Frameworks */,
+				1C2BEDC8580A46F1EA2DB199 /* libPods-MerchantProd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,6 +842,10 @@
 				496AC4E10C8A475FB96AD533 /* SystemConfiguration.framework */,
 				037246AFDC7A4EBA8ED9A661 /* AddressBook.framework */,
 				38940B6FD272CD8E7BF156DA /* libPods-CustomerStaging.a */,
+				203443068902ABE2E15BAF4C /* libPods-CustomerProd.a */,
+				28A19AB3D54D0D1801E3EDA2 /* libPods-MerchantProd.a */,
+				21F70D7DA8A35AB5DA9A0BD2 /* libPods-MerchantStaging.a */,
+				85B466DF186B6B6D723D4EBA /* libPods-TestUI.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -25,9 +25,9 @@ class CartPage extends PureComponent {
     const { hawker } = item;
     this.props.setCurrentHawkerId(hawker.hid);
     this.props.navigation.dispatch(
-      NavigationActions.reset({
-        index: 1,
-        actions: [this.props.navigation.navigate('HawkersMain'), this.props.navigation.navigate('Hawker')]
+      NavigationActions.navigate({
+        routeName: 'Hawkers',
+        action: NavigationActions.reset({ index: 1, actions: [this.props.navigation.navigate('HawkersMain'), this.props.navigation.navigate('Hawker')] })
       })
     );
   };
@@ -37,9 +37,9 @@ class CartPage extends PureComponent {
     this.props.setCurrentHawkerId(hawker.hid);
     this.props.setCurrentMerchantId(merchant.mid);
     this.props.navigation.dispatch(
-      NavigationActions.reset({
-        index: 1,
-        actions: [this.props.navigation.navigate('HawkersMain'), this.props.navigation.navigate('Merchant')]
+      NavigationActions.navigate({
+        routeName: 'Hawkers',
+        action: NavigationActions.reset({ index: 1, actions: [this.props.navigation.navigate('HawkersMain'), this.props.navigation.navigate('Merchant')] })
       })
     );
   };

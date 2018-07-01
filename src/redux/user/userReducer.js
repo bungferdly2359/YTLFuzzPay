@@ -26,16 +26,16 @@ export function userReducer(state = initialState(), action) {
     case actionTypes.updateData:
       return { ...state, ...payload };
 
-    case apiActionTypes.getUser:
+    case actionTypes.getUser:
       return { ...state, ...payload.response.data() };
 
-    case apiActionTypes.updateUser:
+    case actionTypes.updateUser:
       return { ...state, ...payload.customPayload };
 
-    case apiActionTypes.register:
+    case actionTypes.register:
       return { ...state, ...payload.customPayload };
 
-    case apiActionTypes.verifyPhoneNumber: {
+    case actionTypes.verifyPhoneNumber: {
       const { refreshToken, uid } = ((payload || {}).response || {})._user || {};
       return {
         ...state,
@@ -51,6 +51,9 @@ export function userReducer(state = initialState(), action) {
       const { email: email2 } = (payload.response.additionalUserInfo || {}).profile || {};
       return { ...state, isRegistered: true, refreshToken, email: email || email2, displayName, uid, photoURL };
     }
+
+    case actionTypes.logout:
+      return initialState();
 
     default:
       return state;

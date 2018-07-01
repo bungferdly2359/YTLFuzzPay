@@ -1,12 +1,18 @@
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import { GoogleSignin } from 'react-native-google-signin';
 import firebase from 'react-native-firebase';
-import { getGeocode, makeRequest } from '../api';
+import { getGeocode, makeRequest, uploadImagePromise } from '../api';
+import { IdHelper } from '../../helpers';
 
 export const actionTypes = {
   updateData: 'user::updateData',
   signInWithFacebook: 'user::signInWithFacebook',
-  signInWithGoogle: 'user::signInWithGoogle'
+  signInWithGoogle: 'user::signInWithGoogle',
+  getUser: 'user::getUser',
+  updateUser: 'user::updateUser',
+  register: 'user::register',
+  verifyPhoneNumber: 'user::verifyPhoneNumber',
+  logout: 'user::logout'
 };
 
 export const updateData = data => ({
@@ -75,4 +81,65 @@ export const signInWithGoogle = () =>
           const credential = firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken);
           return firebase.auth().signInAndRetrieveDataWithCredential(credential);
         })
+  });
+
+export const getUser = () =>
+  makeRequest({
+    type: actionTypes.getUser,
+    api: () =>
+      firebase
+        .firestore()
+        .collection('users')
+        .doc(IdHelper.currentUid())
+        .get()
+  });
+
+export const updateUser = ({ photoPath, ...params }) => {
+  const customPayload = { ...params };
+  return makeRequest({
+    type: actionTypes.updateUser,
+    customPayload,
+    loadingText: 'Updating...',
+    api: () =>
+      uploadImagePromise(IdHelper.userIid(), photoPath).then(({ downloadURL }) => {
+        if (downloadURL) {
+          customPayload.photoURL = downloadURL;
+        }
+        return firebase
+          .firestore()
+          .collection('users')
+          .doc(IdHelper.currentUid())
+          .set(customPayload, { merge: true });
+      })
+  });
+};
+
+let confirmResult = null;
+export const register = params =>
+  makeRequest({
+    type: actionTypes.register,
+    customPayload: params,
+    loadingText: 'Registering...',
+    api: () =>
+      firebase
+        .auth()
+        .signInWithPhoneNumber(params.phoneNumber)
+        .then(r => {
+          confirmResult = r;
+          return r;
+        })
+  });
+
+export const verifyPhoneNumber = verificationCode =>
+  makeRequest({
+    type: actionTypes.verifyPhoneNumber,
+    api: () => confirmResult.confirm(verificationCode),
+    loadingText: 'Verifying...'
+  });
+
+export const logout = () =>
+  makeRequest({
+    type: actionTypes.logout,
+    loadingText: 'Signing out...',
+    api: () => firebase.auth().signOut()
   });

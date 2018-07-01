@@ -17,9 +17,9 @@ class OrderDetailsPage extends PureComponent {
   gotoHawker = () => {
     this.props.setCurrentHawkerId(this.props.currentOrder.hid);
     this.props.navigation.dispatch(
-      NavigationActions.reset({
-        index: 1,
-        actions: [this.props.navigation.navigate('HawkersMain'), this.props.navigation.navigate('Hawker')]
+      NavigationActions.navigate({
+        routeName: 'Hawkers',
+        action: NavigationActions.reset({ index: 1, actions: [this.props.navigation.navigate('HawkersMain'), this.props.navigation.navigate('Hawker')] })
       })
     );
   };
@@ -28,9 +28,9 @@ class OrderDetailsPage extends PureComponent {
     this.props.setCurrentHawkerId(this.props.currentOrder.hid);
     this.props.setCurrentMerchantId(this.props.currentOrder.mid);
     this.props.navigation.dispatch(
-      NavigationActions.reset({
-        index: 1,
-        actions: [this.props.navigation.navigate('HawkersMain'), this.props.navigation.navigate('Merchant')]
+      NavigationActions.navigate({
+        routeName: 'Hawkers',
+        action: NavigationActions.reset({ index: 1, actions: [this.props.navigation.navigate('HawkersMain'), this.props.navigation.navigate('Merchant')] })
       })
     );
   };

@@ -7,5 +7,6 @@ firebase.auth().onAuthStateChanged(u => (uid = (firebase.auth().currentUser || {
 export const IdHelper = {
   createId: () => `${uid.substring(0, 6)}${moment().unix()}`,
   dishIid: did => `dishes/${did}.jpg`,
+  userIid: () => `users/${uid}.jpg`,
   currentUid: () => uid
 };
