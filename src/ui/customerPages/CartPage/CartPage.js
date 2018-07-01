@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 import { NavBar, Cell, Image, FlatList, Button } from '../../components';
 import stylesheet from './stylesheet';
-import { MoneyHelper } from '../../../helpers';
+import { MoneyHelper, OrderHelper } from '../../../helpers';
 import { removeItemFromCart } from '../../../redux/orders';
 import { setCurrentHawkerId } from '../../../redux/hawkers';
 import { setCurrentMerchantId } from '../../../redux/merchants';
@@ -54,9 +54,7 @@ class CartPage extends PureComponent {
           emptyText="Your cart is empty"
           data={items}
           renderItem={({ item }) => {
-            let { hawker = {}, merchant = {}, dish = {}, totalPrice = 0, additional = '', optionIndexes = [] } = item;
-            let extra = optionIndexes.length > 0 ? `Extra : ${optionIndexes.map(i => dish.options[i].name).join(', ')}` : null;
-            let addition = additional.length > 0 ? `Notes : ${additional}` : null;
+            let { hawker = {}, merchant = {}, dish = {}, totalPrice = 0 } = item;
             return (
               <Cell contentContainerStyle={styles.cell}>
                 <Text style={styles.directory}>
@@ -72,11 +70,10 @@ class CartPage extends PureComponent {
                   <Image style={styles.image} resizeMode="cover" source={dish.imageURL} />
                   <View style={styles.detailContainer}>
                     <Text style={styles.title}>{dish.name}</Text>
-                    {extra && <Text style={styles.info}>{extra}</Text>}
-                    {addition && <Text style={styles.info}>{addition}</Text>}
+                    <Text style={styles.info}>{OrderHelper.getCartItemDescription(item)}</Text>}
                   </View>
                   <Text style={styles.title}>{MoneyHelper.display(totalPrice)}</Text>
-                  <Button type="none" icon="icon_trash" iconStyle={styles.trashIcon} onPress={() => this.props.removeItemFromCart(item)} />
+                  <Button type="plain" icon="icon_trash" iconStyle={styles.trashIcon} onPress={() => this.props.removeItemFromCart(item)} />
                 </View>
               </Cell>
             );

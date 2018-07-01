@@ -12,7 +12,7 @@ export function ordersReducer(state = initialState(), action) {
 
   switch (type) {
     case actionTypes.getOrders:
-      return { ...state, ...payload.response };
+      return { ...state, orders: (payload.response.docs || []).map(d => ({ oid: d.id, ...d.data() })).sort((a, b) => a.oid < b.oid) };
 
     case actionTypes.updateOrderStatus:
       return { ...state, dishes: state.orders.mapOrAdd(o => o.oid == payload.customPayload.oid, m => ({ ...m, ...payload.customPayload })) };
@@ -25,6 +25,9 @@ export function ordersReducer(state = initialState(), action) {
 
     case actionTypes.updateCart:
       return { ...state, cart: payload };
+
+    case actionTypes.makeOrder:
+      return { ...state, cart: [] };
 
     default:
       return state;

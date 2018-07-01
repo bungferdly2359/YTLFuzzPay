@@ -82,7 +82,7 @@ class HawkerPage extends PureComponent {
               <View style={styles.detailContainer}>
                 <View style={styles.infoContainer}>
                   <Text style={styles.title}>{item.name}</Text>
-                  {item.online && <Text style={[styles.info, styles.active]}>active</Text>}
+                  {item.online && <Text style={[styles.info, styles.active]}>online</Text>}
                 </View>
                 <View style={styles.infoContainer}>
                   <Text style={styles.info}>{item.number}</Text>
@@ -97,4 +97,7 @@ class HawkerPage extends PureComponent {
   }
 }
 
-export default connect(mapStateToProps, { getMerchantsByHawkerId, getHawkerById, setCurrentMerchantId })(HawkerPage);
+export default connect(
+  mapStateToProps,
+  { getMerchantsByHawkerId, getHawkerById, setCurrentMerchantId }
+)(HawkerPage);

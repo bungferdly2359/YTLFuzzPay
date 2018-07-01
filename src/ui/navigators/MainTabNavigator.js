@@ -24,12 +24,16 @@ class MainTabBar extends Component {
       if (getCurrentRoute(nav).key !== firstRoute.key) {
         back();
       } else {
-        const onPress = this.props.getOnPress({ route: this.props.navigationState.routes[i] });
-        if (onPress) {
+        const icon = this.props.renderIcon({ route: this.props.navigationState.routes[i] });
+        if (icon.onPress) {
           onPress();
         }
       }
     } else {
+      const { onPress } = this.props.renderIcon({ route: this.props.navigationState.routes[i] });
+      if (onPress) {
+        onPress();
+      }
       jumpToIndex(i);
     }
   };
@@ -53,7 +57,10 @@ class MainTabBar extends Component {
   }
 }
 
-const MainTabBarWithRedux = connect(mapStateToProps, NavigationActions)(MainTabBar);
+const MainTabBarWithRedux = connect(
+  mapStateToProps,
+  NavigationActions
+)(MainTabBar);
 
 const configBuilder = config => ({
   tabBarComponent: MainTabBarWithRedux,

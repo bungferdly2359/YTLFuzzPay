@@ -50,5 +50,8 @@ export default FSStyleSheet.create(props => ({
   },
   radioButtonText: {
     marginLeft: 8
+  },
+  infoIcon: {
+    marginLeft: 8
   }
 }));

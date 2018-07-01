@@ -1,51 +1,62 @@
 import firebase from 'react-native-firebase';
 import { makeRequest } from '../api';
-import { OrderHelper } from '../../helpers';
+import { OrderHelper, IdHelper } from '../../helpers';
 
 export const actionTypes = {
   getOrders: 'orders::getOrders',
   updateOrderStatus: 'orders::updateOrderStatus',
   addItemToCart: 'orders::addItemToCart',
   removeItemFromCart: 'orders::removeItemFromCart',
+  makeOrder: 'orders::makeOrder',
   updateCart: 'orders::updateCart'
 };
 
 export const getOrders = mid => (dispatch, getState) =>
-  baseApi({
+  makeRequest({
     type: actionTypes.getOrders,
     api: () =>
-      db('orders')
+      firebase
+        .firestore()
+        .collection('orders')
         .where('mid', '==', mid)
         .get()
-        .then(resp => {
-          const oldCustomers = getState().orders.customers;
-          const orders = (resp.docs || []).map(d => ({ oid: d.id, ...d.data() }));
-          const newCustomerUids = orders.filter(o => oldCustomers.every(c => c.uid != o.uid)).map(o => o.uid);
-          const amid = mid;
-          return Promise.all(
-            newCustomerUids.map(uid =>
-              db('users')
-                .doc(uid)
-                .get()
-            )
-          ).then(resp => {
-            const dishes = getState().dishes.dishes;
-            const newCustomers = resp.map(r => ({ uid: r.id, ...r.data() }));
-            const customers = [...oldCustomers, ...newCustomers];
-            return {
-              orders: OrderHelper.getOrdersInfo(orders, customers, dishes),
-              customers
-            };
-          });
-        })
   })(dispatch, getState);
 
+export const getOrdersAsCustomer = () =>
+  makeRequest({
+    type: actionTypes.getOrders,
+    api: () =>
+      firebase
+        .firestore()
+        .collection('orders')
+        .where('uid', '==', IdHelper.currentUid())
+        .limit(10)
+        .get()
+  });
+
+export const makeOrder = items =>
+  makeRequest({
+    type: actionTypes.makeOrder,
+    loadingText: 'Ordering...',
+    api: () => {
+      const db = firebase.firestore();
+      const batch = db.batch();
+      items.forEach(({ oid, ...item }) => {
+        const ref = db.collection('orders').doc(oid);
+        batch.set(ref, item);
+      });
+      return batch.commit();
+    }
+  });
+
 export const updateOrderStatus = (oid, status) =>
-  baseApi({
+  makeRequest({
     type: actionTypes.updateOrderStatus,
     customPayload: { status },
     api: () =>
-      db('orders')
+      firebase
+        .firestore()
+        .collection('orders')
         .doc(oid)
         .set({ status }, { merge: true })
   });
