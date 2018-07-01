@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox, Section, FlatList, Cell } from '../../components';
 import resources from '../../resources';
-import { updateOrderStatus, getOrdersAsCustomer } from '../../../redux/orders';
+import { updateOrderStatus, getOrdersAsCustomer, setCurrentOrderId } from '../../../redux/orders';
 import { OrderHelper } from '../../../helpers';
 
 const mapStateToProps = ({ orders }) => ({
@@ -47,6 +47,11 @@ class OrdersPage extends PureComponent {
       .catch(() => this.setState({ refreshing: false }));
   };
 
+  gotoOrderDetails = item => {
+    this.props.setCurrentOrderId(item.oid);
+    this.props.navigation.navigate('OrderDetails');
+  };
+
   render() {
     const styles = stylesheet.styles();
     const { orders } = this.props;
@@ -63,7 +68,7 @@ class OrdersPage extends PureComponent {
             const { createdDate, dishName, status, queueNumber } = item;
             const showQN = queueNumber != null && status < OrderHelper.orderStatus.completed;
             return (
-              <Cell disclosure>
+              <Cell disclosure onPress={this.gotoOrderDetails.bind(this, item)}>
                 <View style={styles.cellContainer}>
                   <View style={styles.dishContainer}>
                     <Text style={styles.date}>{moment(createdDate).format('DD/MM/YY')}</Text>
@@ -86,6 +91,7 @@ export default connect(
   mapStateToProps,
   {
     getOrdersAsCustomer,
+    setCurrentOrderId,
     updateOrderStatus
   }
 )(OrdersPage);

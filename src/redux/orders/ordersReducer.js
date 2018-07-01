@@ -4,6 +4,7 @@ import { config } from '../../constants';
 const initialState = (oldState = {}) => ({
   cart: [],
   orders: [],
+  currentOrderId: null,
   customers: []
 });
 
@@ -15,7 +16,7 @@ export function ordersReducer(state = initialState(), action) {
       return { ...state, orders: (payload.response.docs || []).map(d => ({ oid: d.id, ...d.data() })).sort((a, b) => a.oid < b.oid) };
 
     case actionTypes.updateOrderStatus:
-      return { ...state, dishes: state.orders.mapOrAdd(o => o.oid == payload.customPayload.oid, m => ({ ...m, ...payload.customPayload })) };
+      return { ...state, orders: state.orders.map(o => (o.oid == payload.customPayload.oid ? { ...o, ...payload.customPayload } : o)) };
 
     case actionTypes.addItemToCart:
       return { ...state, cart: [...state.cart, payload] };
@@ -28,6 +29,9 @@ export function ordersReducer(state = initialState(), action) {
 
     case actionTypes.makeOrder:
       return { ...state, cart: [] };
+
+    case actionTypes.setCurrentOrderId:
+      return { ...state, currentOrderId: payload };
 
     default:
       return state;

@@ -36,8 +36,9 @@ export const OrderHelper = {
     preparing: 1,
     collecting: 2,
     completed: 3,
-    failed: 4
+    cancelled: 4
   },
-  orderStatusDisplay: ['Pending', 'Preparing', 'Collecting', 'Completed', 'Failed'],
-  orderStatusColor: [colors.lightOrange, colors.lightOrange, colors.lightOrange, colors.green, colors.red]
+  orderStatusDisplay: ['Pending', 'Preparing', 'Collecting', 'Completed', 'Cancelled'],
+  orderStatusColor: [colors.lightOrange, colors.lightOrange, colors.lightOrange, colors.green, colors.red],
+  paymentMethod: ['Cash']
 };

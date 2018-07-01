@@ -8,7 +8,8 @@ export const actionTypes = {
   addItemToCart: 'orders::addItemToCart',
   removeItemFromCart: 'orders::removeItemFromCart',
   makeOrder: 'orders::makeOrder',
-  updateCart: 'orders::updateCart'
+  updateCart: 'orders::updateCart',
+  setCurrentOrderId: 'orders::setCurrentOrderId'
 };
 
 export const getOrders = mid => (dispatch, getState) =>
@@ -52,7 +53,8 @@ export const makeOrder = items =>
 export const updateOrderStatus = (oid, status) =>
   makeRequest({
     type: actionTypes.updateOrderStatus,
-    customPayload: { status },
+    loadingText: 'Updating...',
+    customPayload: { oid, status },
     api: () =>
       firebase
         .firestore()
@@ -74,4 +76,9 @@ export const updateCart = cart => ({
 export const removeItemFromCart = item => ({
   type: actionTypes.removeItemFromCart,
   payload: item
+});
+
+export const setCurrentOrderId = oid => ({
+  type: actionTypes.setCurrentOrderId,
+  payload: oid
 });
