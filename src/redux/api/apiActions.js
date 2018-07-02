@@ -4,6 +4,12 @@ import { IdHelper, OrderHelper } from '../../helpers';
 import { urls } from '../../constants';
 
 export const actionTypes = {
+<<<<<<< HEAD
+=======
+  register: 'api::request::register',
+  login: 'api::request::login',
+  logout: 'api::request::logout',
+>>>>>>> 192b751347e3f377244e4ad21e50690772557c32
   updateOrderStatus: 'api::request::updateOrderStatus',
   updateDish: 'api::request::updateDish',
   deleteDish: 'api::request::deleteDish',
@@ -32,10 +38,10 @@ export const getImageURLPromise = iid =>
 export const uploadImagePromise = (iid, imagePath) =>
   imagePath
     ? firebase
-        .storage()
-        .ref()
-        .child(iid)
-        .putFile(imagePath)
+      .storage()
+      .ref()
+      .child(iid)
+      .putFile(imagePath)
     : Promise.resolve({});
 
 export const getDishes = mid =>

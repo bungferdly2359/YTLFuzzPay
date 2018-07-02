@@ -25,6 +25,7 @@ export const ValidateHelper = {
       (phoneNumber != null && !phoneRegex.test(phoneNumber) && 'Invalid phone number') ||
       (bankName != null && !nameRegex.test(bankName) && 'Invalid bank name') ||
       (bankAccount != null && !bankRegex.test(bankAccount) && 'Invalid bank account') ||
+      (email != null && !emailRegex.test(email) && 'Invalid email') ||
       null;
     if (error) {
       AlertHelper.showError(error);

@@ -8,5 +8,6 @@ export const IdHelper = {
   createId: () => `${uid.substring(0, 6)}${moment().unix()}`,
   dishIid: did => `dishes/${did}.jpg`,
   userIid: () => `users/${uid}.jpg`,
+  merchantId: mid => `merchants/${mid}.jpg`,
   currentUid: () => uid
 };

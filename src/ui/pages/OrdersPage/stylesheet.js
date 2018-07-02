@@ -38,13 +38,15 @@ export default FSStyleSheet.create(props => ({
   },
   menuContainer: {
     flex: 1,
-    marginVertical: 12
   },
   dishName: {
     fontFamily: fonts.proximaNova,
     fontSize: 16,
     fontWeight: '600',
     color: '#383838'
+  },
+  dishContainer: {
+    marginVertical: 12
   },
   dishDetail: {
     marginTop: 7,

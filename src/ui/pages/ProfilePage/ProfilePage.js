@@ -3,7 +3,7 @@ import { Text, View, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
-import { updateUser, getUser } from '../../../redux/api';
+import { updateUser, getUser, logout } from '../../../redux/api';
 import { Image, Button, NavBar, Input } from '../../components';
 import resources from '../../resources';
 import { ValidateHelper, AlertHelper } from '../../../helpers';
@@ -22,8 +22,8 @@ class ProfilePage extends Component {
   }
 
   update = () => {
-    const { fullName, bankName, bankAccount, userName } = this.state;
-    const params = { fullName, bankName, bankAccount, userName };
+    const { fullName, bankName, bankAccount } = this.state;
+    const params = { fullName, bankName, bankAccount };
     if (ValidateHelper.isValidParams(params)) {
       this.props.updateUser(params).then(() => AlertHelper.showSuccess('Profile Updated!'));
     }
@@ -31,15 +31,24 @@ class ProfilePage extends Component {
 
   render() {
     const styles = stylesheet.styles();
-    const { fullName, phoneNumber, bankName, bankAccount, userName } = { ...this.props.user, ...this.state };
+    const { fullName, phoneNumber, bankName, bankAccount } = { ...this.props.user, ...this.state };
     return (
       <View style={styles.container}>
-        <NavBar title="Profile" />
+        <NavBar title="Profile" rightButtons={[{
+          text: 'Sign Out', type: 'done', onPress: () => {
+            this.props.logout().then(() => {
+              this.props.navigation.dispatch(
+                NavigationActions.reset({
+                  index: 0,
+                  actions: [NavigationActions.navigate({ routeName: 'Onboarding' })]
+                })
+              );
+            });
+          }
+        }]} />
         <KeyboardAvoidingView style={styles.full} behavior="padding">
           <ScrollView style={styles.full} contentContainerStyle={styles.contentContainer}>
-            <Input title="Full Name" placeholder="John Smith" value={fullName} onChangeText={value => (this.state.fullName = value)} />
-            <Input title="User Name" placeholder="JohnSmith123" value={userName} onChangeText={value => (this.state.userName = value)} />
-            <Input title="Mobile Number" keyboardType="phone-pad" placeholder="+65 12345678" value={phoneNumber} editable={false} />
+            <Input title="Full Naaaa" placeholder="John Smith" value={fullName} onChangeText={value => (this.state.fullName = value)} />
             <Input title="Bank Name" placeholder="UOB" value={bankName} onChangeText={value => (this.state.bankName = value)} />
             <Input title="Bank Account Number" keyboardType="phone-pad" placeholder="1231231231" value={bankAccount} onChangeText={value => (this.state.bankAccount = value)} />
             <Button text="Update" onPress={this.update} />
@@ -52,5 +61,6 @@ class ProfilePage extends Component {
 
 export default connect(mapStateToProps, {
   updateUser,
-  getUser
+  getUser,
+  logout,
 })(ProfilePage);
