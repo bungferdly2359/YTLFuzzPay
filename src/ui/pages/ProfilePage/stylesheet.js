@@ -6,10 +6,41 @@ export default FSStyleSheet.create(props => ({
     flex: 1,
     backgroundColor: colors.white
   },
-  full: {
-    flex: 1
+  profileContainer: {
+    height: 260,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: 20
   },
-  contentContainer: {
-    padding: 25
+  image: {
+    width: 100,
+    height: 100,
+    overflow: 'hidden',
+    borderRadius: 50,
+    borderWidth: 5,
+    borderColor: colors.white
+  },
+  name: {
+    fontFamily: fonts.proximaNovaBold,
+    fontSize: 16,
+    color: colors.white,
+    marginTop: 10,
+    marginBottom: 3,
+    textAlign: 'center'
+  },
+  email: {
+    fontFamily: fonts.proximaNova,
+    fontSize: 16,
+    color: colors.white,
+    textAlign: 'center'
+  },
+  cellText: {
+    flex: 1,
+    fontFamily: fonts.proximaNova,
+    fontSize: 16,
+    color: colors.greyishDark
+  },
+  logout: {
+    color: colors.red
   }
 }));

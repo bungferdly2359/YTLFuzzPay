@@ -6,17 +6,60 @@ export default FSStyleSheet.create(props => ({
     flex: 1,
     backgroundColor: colors.white
   },
-  full: {
-    flex: 1
+  touchable: {
+    borderRadius: 3,
+    overflow: 'hidden'
   },
-  contentContainer: {
-    padding: 25
+  itemContainer: {
+    flex: 1,
+    padding: 5,
+    backgroundColor: colors.white
+  },
+  imageContainer: {
+    borderRadius: 3,
+    overflow: 'hidden',
+    aspectRatio: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.greyishLight
   },
   image: {
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
-    paddingBottom: 15,
-    height: 180,
-    backgroundColor: colors.greyishWhite
+    width: '100%',
+    aspectRatio: 1
   },
+  name: {
+    fontFamily: fonts.proximaNovaBold,
+    fontSize: 16,
+    color: colors.greyishDark
+  },
+  info: {
+    fontFamily: fonts.proximaNova,
+    fontSize: 14,
+    color: colors.greyish
+  },
+  headerContainer: {
+    marginTop: -10,
+    marginBottom: 10
+  },
+  header: {
+    height: 180
+  },
+  sectionContainer: {
+    marginHorizontal: 15,
+    marginBottom: 10,
+    padding: 4,
+    borderRadius: 3,
+    alignItems: 'center',
+    backgroundColor: colors.greyish
+  },
+  sectionText: {
+    fontFamily: fonts.proximaNova,
+    color: colors.white,
+    fontSize: 14
+  },
+  location: {
+    fontSize: 12,
+    fontFamily: fonts.proximaNova,
+    color: colors.greyish
+  }
 }));

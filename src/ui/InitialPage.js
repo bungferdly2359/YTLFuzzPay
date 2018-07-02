@@ -9,6 +9,7 @@ const mapStateToProps = state => ({
 class InitialPage extends PureComponent {
   componentDidMount() {
     const { navigation, isRegistered } = this.props;
+
     navigation.dispatch(
       NavigationActions.reset({
         index: 0,

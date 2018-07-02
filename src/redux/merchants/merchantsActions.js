@@ -1,5 +1,5 @@
 import firebase from 'react-native-firebase';
-import { makeRequest } from '../api';
+import { makeRequest, uploadImagePromise } from '../api';
 import { IdHelper } from '../../helpers';
 
 export const actionTypes = {
@@ -20,18 +20,25 @@ export const getMyMerchant = () =>
         .get()
   });
 
-export const updateMyMerchant = ({ mid, ...params }) =>
-  makeRequest({
+export const updateMyMerchant = ({ imagePath, ...params }) => {
+  const customPayload = { ...params };
+  return makeRequest({
     type: actionTypes.updateMyMerchant,
-    customPayload: { mid, ...params },
+    customPayload: customPayload,
     loadingText: 'Updating...',
     api: () =>
-      firebase
-        .firestore()
-        .collection('merchants')
-        .doc(mid)
-        .set(params)
+      uploadImagePromise(IdHelper.merchantIid(params.mid), imagePath).then(({ downloadURL }) => {
+        if (downloadURL) {
+          customPayload.imageURL = downloadURL;
+        }
+        return firebase
+          .firestore()
+          .collection('merchants')
+          .doc(params.mid)
+          .set(customPayload, { merge: true });
+      })
   });
+};
 
 export const getMerchantsByHawkerId = hid =>
   makeRequest({

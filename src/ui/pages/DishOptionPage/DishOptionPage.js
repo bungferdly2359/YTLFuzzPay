@@ -29,10 +29,10 @@ export default class DishOptionPage extends Component {
       <KeyboardAvoidingView style={styles.container} behavior="padding">
         <View style={styles.contentContainer}>
           <Input title="Name" placeholder="Extra chili" value={this.newOption.name} onChangeText={value => (this.newOption.name = value)} />
-          <Input title="Price" prefix="$" keyboardType="numeric" placeholder="0.00" value={this.newOption.price} onChangeText={value => (this.newOption.price = value)} />
+          <Input title="Price" prefix="S$" keyboardType="numeric" placeholder="0.00" value={this.newOption.price} onChangeText={value => (this.newOption.price = value)} />
           <View style={styles.buttonContainer}>
-            <Button style={styles.button} text="Cancel" onPress={this.goBack} />}
-            <Button style={styles.button} text="Add" onPress={this.addNewOption} />
+            <Button type="primary gradient" style={styles.button} text="Cancel" onPress={this.goBack} />}
+            <Button type="primary gradient" style={styles.button} text="Add" onPress={this.addNewOption} />
           </View>
         </View>
       </KeyboardAvoidingView>

@@ -9,7 +9,7 @@ export const FlatList = ({ emptyText, data, type, ...props }) => {
     const styles = stylesheet.styles();
     const { refreshing = false, onRefresh, ListHeaderComponent } = props;
     return (
-      <View style={styles.emptyContainer}>
+      <View style={[styles.emptyContainer, props.spacing && { padding: props.spacing }]}>
         {ListHeaderComponent}
         <View style={styles.emptyContainer2}>
           {!refreshing && <Text style={styles.emptyText}>{emptyText}</Text>}

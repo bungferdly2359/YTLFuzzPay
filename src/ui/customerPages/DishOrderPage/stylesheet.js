@@ -9,10 +9,7 @@ export default FSStyleSheet.create(props => ({
     padding: 20
   },
   image: {
-    height: 180,
-    margin: -20,
-    backgroundColor: colors.greyishLight,
-    marginBottom: 10
+    height: 180
   },
   text: {
     fontFamily: fonts.proximaNova,

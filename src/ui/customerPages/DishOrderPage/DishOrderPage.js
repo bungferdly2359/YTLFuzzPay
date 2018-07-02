@@ -63,34 +63,36 @@ class DishOrderPage extends Component {
     const { dish = {}, navigation } = this.props;
     return (
       <PopupView style={styles.container} navigation={navigation}>
-        <ScrollView contentContainerStyle={styles.contentContainer}>
-          <Image resizeMode="cover" source={dish.imageURL} style={styles.image} />
-          <Text style={[styles.text, styles.title]}>{dish.name}</Text>
-          {dish.description && <Text style={[styles.text, styles.description]}>{dish.description}</Text>}
-          <View style={styles.content2Container}>
-            <View style={styles.priceContainer}>
-              <Text style={[styles.text, styles.priceTitle]}>Price</Text>
-              <View style={styles.priceSeparator} />
-              <Text style={styles.text}>{MoneyHelper.display(dish.price)}</Text>
-            </View>
-            {(dish.options || []).length > 0 && (
+        <ScrollView>
+          {dish.imageURL != null && <Image resizeMode="cover" source={dish.imageURL} style={styles.image} />}
+          <View style={styles.contentContainer}>
+            <Text style={[styles.text, styles.title]}>{dish.name}</Text>
+            {dish.description && <Text style={[styles.text, styles.description]}>{dish.description}</Text>}
+            <View style={styles.content2Container}>
               <View style={styles.priceContainer}>
-                <Text style={[styles.text, styles.priceTitle]}>Extra</Text>
+                <Text style={[styles.text, styles.priceTitle]}>Price</Text>
+                <View style={styles.priceSeparator} />
+                <Text style={styles.text}>{MoneyHelper.display(dish.price)}</Text>
               </View>
-            )}
-            {(dish.options || []).length > 0 &&
-              dish.options.map((e, i) => (
-                <View key={i} style={styles.priceContainer}>
-                  <CheckBox style={styles.checkbox} textStyle={[styles.text, styles.checkboxTitle]} onChangeValue={() => this.toggleOptionIndex(i)} text={e.name} />
-                  <View style={styles.priceSeparator} />
-                  <Text style={styles.text}>{MoneyHelper.display(e.price)}</Text>
+              {(dish.options || []).length > 0 && (
+                <View style={styles.priceContainer}>
+                  <Text style={[styles.text, styles.priceTitle]}>Extra</Text>
                 </View>
-              ))}
-            <View style={styles.priceContainer}>
-              <Text style={[styles.text, styles.priceTitle]}>Notes</Text>
-              <Button icon="icon_info" style={styles.infoButton} iconStyle={styles.infoIcon} onPress={this.showAdditionalInfo} />
+              )}
+              {(dish.options || []).length > 0 &&
+                dish.options.map((e, i) => (
+                  <View key={i} style={styles.priceContainer}>
+                    <CheckBox style={styles.checkbox} textStyle={[styles.text, styles.checkboxTitle]} onChangeValue={() => this.toggleOptionIndex(i)} text={e.name} />
+                    <View style={styles.priceSeparator} />
+                    <Text style={styles.text}>{MoneyHelper.display(e.price)}</Text>
+                  </View>
+                ))}
+              <View style={styles.priceContainer}>
+                <Text style={[styles.text, styles.priceTitle]}>Notes</Text>
+                <Button icon="icon_info" style={styles.infoButton} iconStyle={styles.infoIcon} onPress={this.showAdditionalInfo} />
+              </View>
+              <InputText inputStyle={styles.inputText} multiline keyboardDismissMode="interactive" onChangeText={t => (this.state.additional = t)} autogrow />
             </View>
-            <InputText inputStyle={styles.inputText} multiline keyboardDismissMode="interactive" onChangeText={t => (this.state.additional = t)} autogrow />
           </View>
         </ScrollView>
         <View style={styles.totalContainer}>

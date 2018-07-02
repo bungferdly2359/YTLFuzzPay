@@ -1,28 +1,25 @@
 import React from 'react';
-import { View, Platform, Image as RNImage } from 'react-native';
+import { Image as RNImage, ImageBackground } from 'react-native';
 import { CachedImage } from 'react-native-cached-image';
-import stylesheet from './stylesheet';
 import FSResources from '../../Helpers/FSResources';
 
-const FSImage = props => {
-  const { children, placeholderSource, source: src, style, ...otherProps } = props;
-  const source = FSResources.getResource(src);
-  const isUri = source && source.uri != null && source.uri.startsWith('http');
-  const styles = stylesheet.styles();
-  if (isUri || children) {
-    return (
-      <View style={style}>
-        {placeholderSource && <RNImage resizeMode="contain" {...otherProps} source={FSResources.getResource(placeholderSource)} style={styles.imagePlaceholder} />}
-        {isUri ? (
-          <CachedImage resizeMode="contain" useQueryParamsInCacheKey {...otherProps} source={source} style={styles.imagePlaceholder} />
-        ) : (
-          <RNImage resizeMode="contain" {...otherProps} source={source} style={styles.imagePlaceholder} />
-        )}
-        {children}
-      </View>
-    );
+export const FSImage = ({ source, defaultSource, style, resizeMode, children, ...otherProps }) => {
+  const src = FSResources.getResource(source);
+  const pSrc = FSResources.getResource(defaultSource);
+  const imgProps = {
+    useQueryParamsInCacheKey: true,
+    resizeMode,
+    source: src,
+    defaultSource: pSrc,
+    style,
+    children,
+    ...otherProps
+  };
+  if (FSResources.isUri(src)) {
+    return <CachedImage {...imgProps} />;
+  } else if (children) {
+    return <ImageBackground {...imgProps} />;
+  } else {
+    return <RNImage {...imgProps} />;
   }
-  return <RNImage resizeMode="contain" style={style} {...otherProps} source={source} />;
 };
-
-export { FSImage };

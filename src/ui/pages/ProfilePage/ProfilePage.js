@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { NavigationActions } from 'react-navigation';
+import { Text, View, ScrollView, Alert } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import { connect } from 'react-redux';
+import { NavigationActions } from 'react-navigation';
 import stylesheet from './stylesheet';
-import { updateUser, getUser, logout } from '../../../redux/user';
-import { Image, Button, NavBar, Input } from '../../components';
-import resources from '../../resources';
-import { ValidateHelper, AlertHelper } from '../../../helpers';
+import { getUser, logout } from '../../../redux/user';
+import { Image, NavBar, Cell } from '../../components';
+import { colors } from '../../../constants';
 
 const mapStateToProps = ({ user }) => ({ user });
 
@@ -15,52 +15,52 @@ class ProfilePage extends Component {
     tabBarIcon: 'icon_account'
   };
 
-  state = {};
-
   componentDidMount() {
     this.props.getUser();
   }
 
-  update = () => {
-    const { fullName, bankName, bankAccount } = this.state;
-    const params = { fullName, bankName, bankAccount };
-    if (ValidateHelper.isValidParams(params)) {
-      this.props.updateUser(params).then(() => AlertHelper.showSuccess('Profile Updated!'));
-    }
+  logout = () => {
+    Alert.alert('Logout', 'Are you sure you want to log out?', [
+      {
+        text: 'Yes',
+        style: 'destructive',
+        onPress: () =>
+          this.props.logout().then(() =>
+            this.props.navigation.dispatch(
+              NavigationActions.reset({
+                index: 0,
+                actions: [NavigationActions.navigate({ routeName: 'Onboarding' })],
+                key: null
+              })
+            )
+          )
+      },
+      { text: 'Cancel', style: 'cancel' }
+    ]);
   };
 
   render() {
     const styles = stylesheet.styles();
-    const { fullName, bankName, bankAccount } = { ...this.props.user, ...this.state };
+    const { displayName, email, photoURL } = this.props.user;
     return (
       <View style={styles.container}>
-        <NavBar
-          title="Profile"
-          rightButtons={[
-            {
-              text: 'Sign Out',
-              type: 'done',
-              onPress: () => {
-                this.props.logout().then(() => {
-                  this.props.navigation.dispatch(
-                    NavigationActions.reset({
-                      index: 0,
-                      actions: [NavigationActions.navigate({ routeName: 'Onboarding' })]
-                    })
-                  );
-                });
-              }
-            }
-          ]}
-        />
-        <KeyboardAvoidingView style={styles.full} behavior="padding">
-          <ScrollView style={styles.full} contentContainerStyle={styles.contentContainer}>
-            <Input title="Full Naaaa" placeholder="John Smith" value={fullName} onChangeText={value => (this.state.fullName = value)} />
-            <Input title="Bank Name" placeholder="UOB" value={bankName} onChangeText={value => (this.state.bankName = value)} />
-            <Input title="Bank Account Number" keyboardType="phone-pad" placeholder="1231231231" value={bankAccount} onChangeText={value => (this.state.bankAccount = value)} />
-            <Button text="Update" onPress={this.update} />
-          </ScrollView>
-        </KeyboardAvoidingView>
+        <NavBar title="Profile" rightButtons={[{ text: 'Edit', onPress: () => this.props.navigation.navigate('ProfileEdit') }]} />
+        <ScrollView>
+          <LinearGradient colors={[colors.lightOrange, colors.orange]} style={styles.profileContainer}>
+            <Image style={styles.image} source={photoURL || 'image_profile'} />
+            <Text style={styles.name}>{displayName}</Text>
+            <Text style={styles.email}>{email}</Text>
+          </LinearGradient>
+          <Cell disclosure onPress={() => this.props.navigation.navigate('About')}>
+            <Text style={styles.cellText}>About FuzzPay</Text>
+          </Cell>
+          <Cell disclosure onPress={() => this.props.navigation.navigate('Privacy')}>
+            <Text style={styles.cellText}>Privacy Policy</Text>
+          </Cell>
+          <Cell onPress={this.logout}>
+            <Text style={[styles.cellText, styles.logout]}>Logout</Text>
+          </Cell>
+        </ScrollView>
       </View>
     );
   }
@@ -68,9 +68,5 @@ class ProfilePage extends Component {
 
 export default connect(
   mapStateToProps,
-  {
-    updateUser,
-    getUser,
-    logout
-  }
+  { getUser, logout }
 )(ProfilePage);

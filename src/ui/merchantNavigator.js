@@ -6,18 +6,19 @@ import InitialPage from './InitialPage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import OrdersPage from './pages/OrdersPage';
-import MenuPage from './pages/MenuPage';
 import ProfilePage from './pages/ProfilePage';
-import MerchantPage from './pages/MerchantPage';
+import MerchantEditPage from './pages/MerchantEditPage';
 import DishOptionPage from './pages/DishOptionPage';
-import DishPage from './pages/DishPage';
+import DishEditPage from './pages/DishEditPage';
+import ProfileEditPage from './pages/ProfileEditPage';
+import MerchantPage from './pages/MerchantPage';
 
 const mainTabNavigator = (config = {}) =>
   MainTabNavigator(
     {
+      Menu: { screen: MerchantPage },
       Orders: { screen: OrdersPage },
-      Menu: { screen: MenuPage },
-      Accounts: { screen: ProfilePage }
+      Profile: { screen: ProfilePage }
     },
     {
       ...config
@@ -31,9 +32,11 @@ const rootNavigator = (config = {}) =>
       Onboarding: { screen: OnboardingPage },
       Register: { screen: RegisterPage },
       Login: { screen: LoginPage },
-      Merchant: { screen: MerchantPage },
-      Dish: { screen: DishPage },
+      MerchantEdit: { screen: MerchantEditPage },
+      Dish: { screen: DishEditPage },
       DishOption: { screen: DishOptionPage },
+      ProfileSetup: { screen: ProfileEditPage },
+      ProfileEdit: { screen: ProfileEditPage },
       MainTab: { screen: mainTabNavigator(config.mainTabConfig) }
     },
     config

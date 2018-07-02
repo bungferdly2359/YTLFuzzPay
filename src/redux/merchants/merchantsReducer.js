@@ -17,10 +17,10 @@ export function merchantsReducer(state = initialState(), action) {
       return state.version != currentVersion ? initialState(state) : state;
 
     case actionTypes.getMyMerchant:
-      return { ...state, myMerchant: (payload.response.docs || []).map(d => ({ mid: d.id, ...d.data() }))[0] };
+      return { ...state, myMerchant: (payload.response.docs || []).map(d => ({ mid: d.id, ...d.data() }))[0] || state.myMerchant };
 
     case actionTypes.updateMyMerchant:
-      return { ...state, myMerchant: payload.customPayload };
+      return { ...state, myMerchant: { ...state.myMerchant, ...payload.customPayload } };
 
     case actionTypes.getMerchantsByHawkerId: {
       let merchants = (payload.response.docs || []).map(d => ({ mid: d.id, ...d.data() })).sort((a, b) => a.number > b.number);

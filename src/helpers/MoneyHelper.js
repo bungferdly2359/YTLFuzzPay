@@ -10,8 +10,8 @@ const price = money => {
   return float;
 };
 
-const display = money => {
-  return 'S$ ' + price(money).toFixed(2);
+const display = (money, showCurrency = true) => {
+  return (showCurrency ? 'S$ ' : '') + price(money).toFixed(2);
 };
 
 export const MoneyHelper = {

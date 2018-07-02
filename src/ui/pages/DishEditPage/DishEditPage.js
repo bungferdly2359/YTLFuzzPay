@@ -13,7 +13,7 @@ const mapStateToProps = ({ merchants, dishes }) => ({
   dish: dishes.dishes.find(d => d.did === dishes.currentDishId)
 });
 
-class DishPage extends Component {
+class DishEditPage extends Component {
   state = {
     optionsLength: ((this.props.dish || {}).options || []).length,
     imagePath: null
@@ -89,14 +89,14 @@ class DishPage extends Component {
       <View style={styles.container}>
         <NavBar navigation={this.props.navigation} title={isNew ? 'Add New Dish' : 'Update Dish'} />
         <KeyboardAvoidingView style={styles.full} behavior="padding">
-          <ScrollView style={styles.full} contentContainerStyle={styles.contentContainer}>
+          <ScrollView style={styles.full} contentContainerStyle={styles.contentContainer} keyboardDismissMode="interactive" keyboardShouldPersistTaps="always">
             <Image style={styles.image} resizeMode="cover" source={imagePath || imageURL}>
               <Button type="none" icon="image_edit" onPress={this.chooseImage} />
             </Image>
             <Section>
               <Input title="Name" placeholder="Fish Soup" value={name} onChangeText={value => (this.dishState.name = value)} />
               <Input title="Description" placeholder="Enter description here" value={description} onChangeText={value => (this.dishState.description = value)} />
-              <Input title="Price" prefix="$" keyboardType="numeric" placeholder="0.00" value={price} onChangeText={value => (this.dishState.price = value)} />
+              <Input title="Price" prefix="S$" keyboardType="numeric" placeholder="0.00" value={price} onChangeText={value => (this.dishState.price = value)} />
               <Input title="Availability" type="checkbox" value={available} onChangeValue={value => (this.dishState.available = value)} />
             </Section>
             <Section title="Options" action={{ text: '+Add', type: 'baritem done', onPress: this.toggleNewOption }}>
@@ -105,7 +105,7 @@ class DishPage extends Component {
                   action={{ text: 'Remove', onPress: () => this.deleteOptionIndex(i) }}
                   key={i}
                   title={o.name}
-                  prefix="$"
+                  prefix="S$"
                   keyboardType="numeric"
                   placeholder="0.00"
                   value={o.price}
@@ -114,8 +114,8 @@ class DishPage extends Component {
               ))}
             </Section>
             <Section style={styles.buttonContainer}>
-              {!isNew && <Button style={styles.button} text={'Delete'} onPress={this.delete} />}
-              <Button style={styles.button} text={isNew ? 'Save' : 'Update'} onPress={this.update} />
+              {!isNew && <Button type="primary gradient" style={styles.button} text={'Delete'} onPress={this.delete} />}
+              <Button type="primary gradient" style={styles.button} text={isNew ? 'Save' : 'Update'} onPress={this.update} />
             </Section>
           </ScrollView>
         </KeyboardAvoidingView>
@@ -124,7 +124,10 @@ class DishPage extends Component {
   }
 }
 
-export default connect(mapStateToProps, {
-  updateDish,
-  deleteDish
-})(DishPage);
+export default connect(
+  mapStateToProps,
+  {
+    updateDish,
+    deleteDish
+  }
+)(DishEditPage);

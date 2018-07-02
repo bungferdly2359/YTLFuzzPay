@@ -6,14 +6,14 @@ import InitialPage from './InitialPage';
 import RegisterPage from './pages/RegisterPage';
 import HawkersPage from './customerPages/HawkersPage';
 import HawkerPage from './customerPages/HawkerPage';
-import MerchantPage from './customerPages/MerchantPage';
+import MerchantPage from './pages/MerchantPage';
 import DishOrderPage from './customerPages/DishOrderPage';
 import CartPage from './customerPages/CartPage';
 import CheckoutPage from './customerPages/CheckoutPage';
 import OrdersPage from './customerPages/OrdersPage/OrdersPage';
 import OrderDetailsPage from './customerPages/OrderDetailsPage';
-import ProfilePage from './customerPages/ProfilePage';
-import ProfileEditPage from './customerPages/ProfileEditPage';
+import ProfilePage from './pages/ProfilePage';
+import ProfileEditPage from './pages/ProfileEditPage';
 import AboutPage from './pages/AboutPage';
 import PrivacyPage from './pages/PrivacyPage';
 
@@ -76,7 +76,7 @@ const rootNavigator = (config = {}) =>
       Onboarding: { screen: OnboardingPage },
       Register: { screen: RegisterPage },
       MainTab: { screen: mainTabNavigator(config.mainTabConfig) },
-      DishOrder: { screen: DishOrderPage }
+      Dish: { screen: DishOrderPage }
     },
     config
   );

@@ -2,6 +2,7 @@ let _resources = {};
 let _baseURLFunction = null;
 
 export default {
+  isUri: source => source && source.uri != null && source.uri.startsWith('http'),
   setResources: resources => (_resources = resources),
   setBaseURLFunction: baseURLFunction => (_baseURLFunction = baseURLFunction),
   getResource: resourceName => {
