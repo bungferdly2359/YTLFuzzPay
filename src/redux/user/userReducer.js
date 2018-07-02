@@ -11,7 +11,6 @@ const initialState = (oldState = {}) => ({
   uid: null,
   name: null,
   userName: null,
-  phoneNumber: null,
   bankName: null,
   bankAccount: null
 });
@@ -29,22 +28,8 @@ export function userReducer(state = initialState(), action) {
     case actionTypes.getUser:
       return { ...state, ...payload.response.data() };
 
-    case actionTypes.updateUser:
-      return { ...state, ...payload.customPayload };
-
     case actionTypes.register:
-      return { ...state, ...payload.customPayload };
-
-    case actionTypes.verifyPhoneNumber: {
-      const { refreshToken, uid } = ((payload || {}).response || {})._user || {};
-      return {
-        ...state,
-        isRegistered: true,
-        refreshToken,
-        uid
-      };
-    }
-
+    case actionTypes.login:
     case actionTypes.signInWithFacebook:
     case actionTypes.signInWithGoogle: {
       const { refreshToken, email, displayName, uid, photoURL } = payload.response.user._user;

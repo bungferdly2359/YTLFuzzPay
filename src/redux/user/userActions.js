@@ -11,7 +11,7 @@ export const actionTypes = {
   getUser: 'user::getUser',
   updateUser: 'user::updateUser',
   register: 'user::register',
-  verifyPhoneNumber: 'user::verifyPhoneNumber',
+  login: 'user::login',
   logout: 'user::logout'
 };
 
@@ -114,27 +114,20 @@ export const updateUser = ({ photoPath, ...params }) => {
   });
 };
 
-let confirmResult = null;
 export const register = params =>
   makeRequest({
     type: actionTypes.register,
     customPayload: params,
     loadingText: 'Registering...',
-    api: () =>
-      firebase
-        .auth()
-        .signInWithPhoneNumber(params.phoneNumber)
-        .then(r => {
-          confirmResult = r;
-          return r;
-        })
+    api: () => firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(params.email, params.password)
   });
 
-export const verifyPhoneNumber = verificationCode =>
+export const login = params =>
   makeRequest({
-    type: actionTypes.verifyPhoneNumber,
-    api: () => confirmResult.confirm(verificationCode),
-    loadingText: 'Verifying...'
+    type: actionTypes.login,
+    customPayload: params,
+    loadingText: 'Signing in...',
+    api: () => firebase.auth().signInAndRetrieveDataWithEmailAndPassword(params.email, params.password)
   });
 
 export const logout = () =>

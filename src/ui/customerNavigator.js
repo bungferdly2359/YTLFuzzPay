@@ -4,7 +4,6 @@ import MainTabNavigator from './navigators/MainTabNavigator';
 import OnboardingPage from './pages/OnboardingPage';
 import InitialPage from './InitialPage';
 import RegisterPage from './pages/RegisterPage';
-import VerifyPage from './pages/VerifyPage';
 import HawkersPage from './customerPages/HawkersPage';
 import HawkerPage from './customerPages/HawkerPage';
 import MerchantPage from './customerPages/MerchantPage';
@@ -76,7 +75,6 @@ const rootNavigator = (config = {}) =>
       InitialPage: { screen: InitialPage },
       Onboarding: { screen: OnboardingPage },
       Register: { screen: RegisterPage },
-      Verify: { screen: VerifyPage },
       MainTab: { screen: mainTabNavigator(config.mainTabConfig) },
       DishOrder: { screen: DishOrderPage }
     },

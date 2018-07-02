@@ -28,7 +28,7 @@ const OnboardingPage = props => {
       </Text>
       {isCustomer && <Button style={styles.fbButton} type="primary" text="Sign in with Facebook" onPress={() => props.signInWithFacebook().then(gotoMain)} />}
       {isCustomer && <Button style={styles.googleButton} type="primary" text="Sign in with Google" onPress={() => props.signInWithGoogle().then(gotoMain)} />}
-      {!isCustomer && <Button style={styles.register} type="primary" text="Register" onPress={() => props.navigation.navigate('Register')} />}
+      {!isCustomer && <Button style={styles.register} type="primary gradient" text="Register" onPress={() => props.navigation.navigate('Register')} />}
       {!isCustomer && (
         <Text style={styles.login} onPress={() => props.navigation.navigate('Login')}>
           Already have an account? Login

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native';
+import { View, Text, Keyboard } from 'react-native';
 import { Image } from '../../ui/components';
 import { clearError } from '../../redux/api';
 import stylesheet from './stylesheet';
@@ -29,17 +29,17 @@ class RequestService extends Component {
 
   handleLoading = () => {
     const { loadingRequest } = this.props;
-
-    return (
-      loadingRequest &&
-      stylesheet.render(styles => (
+    if (loadingRequest) {
+      Keyboard.dismiss();
+      return stylesheet.render(styles => (
         <View style={styles.container}>
           <View style={styles.loadingContainer}>
             <Text style={styles.text}>{loadingRequest.loadingText}</Text>
           </View>
         </View>
-      ))
-    );
+      ));
+    }
+    return null;
   };
 
   render() {
@@ -47,4 +47,7 @@ class RequestService extends Component {
   }
 }
 
-export default connect(mapStateToProps, { clearError })(RequestService);
+export default connect(
+  mapStateToProps,
+  { clearError }
+)(RequestService);

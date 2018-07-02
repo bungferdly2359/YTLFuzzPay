@@ -1,11 +1,10 @@
 import React from 'react';
-import { Text, View, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { View, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
-import { login } from '../../../redux/api';
-import { Image, Button, NavBar, Input } from '../../components';
-import resources from '../../resources';
+import { login } from '../../../redux/user';
+import { Button, NavBar, Input } from '../../components';
 import { ValidateHelper } from '../../../helpers';
 
 const LoginPage = props => {
@@ -33,16 +32,19 @@ const LoginPage = props => {
     <View style={styles.container}>
       <NavBar navigation={props.navigation} title="Login" />
       <KeyboardAvoidingView style={styles.full} behavior="padding">
-        <ScrollView style={styles.full} contentContainerStyle={styles.contentContainer}>
+        <ScrollView keyboardShouldPersistTaps="always" keyboardDismissMode="interactive" style={styles.full} contentContainerStyle={styles.contentContainer}>
           <Input title="Email" keyboardType="email-address" placeholder="your@email.com" onChangeText={value => (state.email = value)} />
           <Input title="Password" secureTextEntry={true} onChangeText={value => (state.password = value)} />
-          <Button text="Sign In" onPress={login} />
+          <Button text="Sign In" type="primary gradient" onPress={login} />
         </ScrollView>
       </KeyboardAvoidingView>
     </View>
   );
 };
 
-export default connect(null, {
-  login
-})(LoginPage);
+export default connect(
+  null,
+  {
+    login
+  }
+)(LoginPage);
