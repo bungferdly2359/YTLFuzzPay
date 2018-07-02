@@ -4,16 +4,15 @@ import { Text, View, ScrollView, Alert } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
-import { Image, Button, NavBar, Input, CheckBox, Section, FlatList, Cell } from '../../components';
-import resources from '../../resources';
+import { Button, NavBar, Cell } from '../../components';
 import { setCurrentHawkerId } from '../../../redux/hawkers';
 import { setCurrentMerchantId } from '../../../redux/merchants';
-import { OrderHelper, MoneyHelper } from '../../../helpers';
+import { OrderHelper, MoneyHelper, UserHelper } from '../../../helpers';
 import { updateOrderStatus } from '../../../redux/orders';
 
 const mapStateToProps = ({ orders }) => ({ currentOrder: orders.orders.find(o => o.oid === orders.currentOrderId) });
 
-class OrderDetailsPage extends PureComponent {
+class OrderPage extends PureComponent {
   gotoHawker = () => {
     this.props.setCurrentHawkerId(this.props.currentOrder.hid);
     this.props.navigation.dispatch(
@@ -41,7 +40,7 @@ class OrderDetailsPage extends PureComponent {
         text: 'Yes',
         style: 'destructive',
         onPress: () => {
-          this.props.updateOrderStatus(this.props.currentOrder.oid, OrderHelper.orderStatus.cancelled).then(() => this.props.navigation.goBack());
+          this.updateOrderStatus(OrderHelper.orderStatus.cancelled).then(() => this.props.navigation.goBack());
         }
       },
       {
@@ -51,8 +50,11 @@ class OrderDetailsPage extends PureComponent {
     ]);
   };
 
+  updateOrderStatus = status => this.props.updateOrderStatus(this.props.currentOrder.oid, status);
+
   render() {
     const styles = stylesheet.styles();
+    const isCustomer = UserHelper.isCustomer();
     const { hawkerName, merchantName, dishName, description, price, takeAway, takeAwayPrice, status, createdDate, paymentMethod } = this.props.currentOrder;
     return (
       <View style={styles.container}>
@@ -62,14 +64,18 @@ class OrderDetailsPage extends PureComponent {
             <Text style={styles.title}>Order Date</Text>
             <Text style={styles.detail}>{moment(createdDate).format('DD/MM/YY [at] hh:mm a')}</Text>
           </Cell>
-          <Cell disclosure onPress={this.gotoHawker}>
-            <Text style={styles.title}>Hawker</Text>
-            <Text style={styles.detail}>{hawkerName}</Text>
-          </Cell>
-          <Cell disclosure onPress={this.gotoMerchant}>
-            <Text style={styles.title}>Merchant</Text>
-            <Text style={styles.detail}>{merchantName}</Text>
-          </Cell>
+          {isCustomer && (
+            <Cell disclosure onPress={this.gotoHawker}>
+              <Text style={styles.title}>Hawker</Text>
+              <Text style={styles.detail}>{hawkerName}</Text>
+            </Cell>
+          )}
+          {isCustomer && (
+            <Cell disclosure onPress={this.gotoMerchant}>
+              <Text style={styles.title}>Merchant</Text>
+              <Text style={styles.detail}>{merchantName}</Text>
+            </Cell>
+          )}
           <Cell>
             <Text style={styles.title}>Dish</Text>
             <Text style={styles.detail}>{dishName}</Text>
@@ -100,7 +106,16 @@ class OrderDetailsPage extends PureComponent {
             <Text style={styles.title}>Status</Text>
             <Text style={[styles.detail, { color: OrderHelper.orderStatusColor[status] }]}>{OrderHelper.orderStatusDisplay[status]}</Text>
           </Cell>
-          {status == OrderHelper.orderStatus.pending && <Button type="gradient primary" style={styles.button} text="Cancel Order" onPress={this.cancelOrder} />}
+          {isCustomer && status == OrderHelper.orderStatus.pending && <Button type="gradient primary" style={styles.button} text="Cancel Order" onPress={this.cancelOrder} />}
+          {!isCustomer &&
+            status < OrderHelper.orderStatus.completed && (
+              <Button
+                type="gradient primary"
+                style={styles.button}
+                text={'Set as ' + OrderHelper.orderStatusDisplay[status + 1]}
+                onPress={() => this.updateOrderStatus(status + 1)}
+              />
+            )}
         </ScrollView>
       </View>
     );
@@ -114,4 +129,4 @@ export default connect(
     setCurrentMerchantId,
     updateOrderStatus
   }
-)(OrderDetailsPage);
+)(OrderPage);

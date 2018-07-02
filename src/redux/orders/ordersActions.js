@@ -12,28 +12,17 @@ export const actionTypes = {
   setCurrentOrderId: 'orders::setCurrentOrderId'
 };
 
-export const getOrders = mid => (dispatch, getState) =>
+export const getOrders = ({ mid, uid }) => (dispatch, getState) =>
   makeRequest({
     type: actionTypes.getOrders,
     api: () =>
       firebase
         .firestore()
         .collection('orders')
-        .where('mid', '==', mid)
+        .where(mid ? 'mid' : 'uid', '==', mid || uid)
+        .where('createdDate', '>=', Date.now() - 604800)
         .get()
   })(dispatch, getState);
-
-export const getOrdersAsCustomer = () =>
-  makeRequest({
-    type: actionTypes.getOrders,
-    api: () =>
-      firebase
-        .firestore()
-        .collection('orders')
-        .where('uid', '==', IdHelper.currentUid())
-        .limit(10)
-        .get()
-  });
 
 export const makeOrder = items =>
   makeRequest({

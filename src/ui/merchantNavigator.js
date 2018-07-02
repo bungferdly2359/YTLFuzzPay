@@ -12,12 +12,22 @@ import DishOptionPage from './pages/DishOptionPage';
 import DishEditPage from './pages/DishEditPage';
 import ProfileEditPage from './pages/ProfileEditPage';
 import MerchantPage from './pages/MerchantPage';
+import OrderPage from './pages/OrderPage';
+
+const ordersNavigator = (config = {}) =>
+  MainNavigator(
+    {
+      OrdersMain: { screen: OrdersPage },
+      Order: { screen: OrderPage }
+    },
+    config
+  );
 
 const mainTabNavigator = (config = {}) =>
   MainTabNavigator(
     {
       Menu: { screen: MerchantPage },
-      Orders: { screen: OrdersPage },
+      Orders: { screen: ordersNavigator(config.orders) },
       Profile: { screen: ProfilePage }
     },
     {

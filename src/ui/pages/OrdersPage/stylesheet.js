@@ -4,58 +4,40 @@ import { colors, fonts } from '../../../constants';
 export default FSStyleSheet.create(props => ({
   container: {
     flex: 1,
-    backgroundColor: colors.greyishWhite
+    backgroundColor: colors.white
   },
-  contentContainer: {
-    paddingVertical: 25
+  cellContainer: {
+    flex: 1
   },
-  itemContainer: {
-    flexDirection: 'row'
-  },
-  iconContainer: {
-    width: 83,
-    paddingHorizontal: 5,
-    paddingVertical: 10,
-    borderRightWidth: 1,
-    borderColor: '#e8e8e8',
-    alignItems: 'center',
-    marginVertical: -3,
-    marginLeft: -20,
-    marginRight: 13
-  },
-  iconImage: {
-    width: 42,
-    height: 42,
-    borderRadius: 21,
-    backgroundColor: colors.orange,
-    overflow: 'hidden'
-  },
-  iconText: {
+  qnTitle: {
+    marginTop: 15,
     fontFamily: fonts.proximaNova,
-    fontSize: 10,
-    fontWeight: '600',
-    color: '#383838'
+    fontSize: 12,
+    color: colors.greyish
   },
-  menuContainer: {
-    flex: 1,
-  },
-  dishName: {
-    fontFamily: fonts.proximaNova,
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#383838'
+  qnValue: {
+    fontFamily: fonts.proximaNovaBold,
+    fontSize: 30,
+    color: colors.greyishDark
   },
   dishContainer: {
-    marginVertical: 12
+    flexDirection: 'row'
   },
-  dishDetail: {
-    marginTop: 7,
+  date: {
     fontFamily: fonts.proximaNova,
-    fontSize: 14,
-    fontWeight: 'normal',
-    color: '#383838'
+    color: colors.greyish,
+    fontSize: 16
   },
-  checkbox: {
-    marginVertical: 8
+  dishName: {
+    fontFamily: fonts.proximaNovaBold,
+    fontSize: 16,
+    flex: 1,
+    color: colors.greyishDark,
+    marginHorizontal: 10
+  },
+  status: {
+    fontFamily: fonts.proximaNova,
+    color: colors.greyishDark,
+    fontSize: 16
   }
 }));

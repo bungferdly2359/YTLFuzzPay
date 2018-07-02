@@ -2,10 +2,10 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
-import { FSApp } from '../../../modules/fs-foundation';
 import stylesheet from './stylesheet';
 import { Image, Button } from '../../components';
 import { signInWithFacebook, signInWithGoogle } from '../../../redux/user';
+import { UserHelper } from '../../../helpers';
 
 const OnboardingPage = props => {
   const styles = stylesheet.styles();
@@ -17,7 +17,7 @@ const OnboardingPage = props => {
       })
     );
   };
-  const isCustomer = FSApp.getNativeProps('customer');
+  const isCustomer = UserHelper.isCustomer();
   return (
     <View style={styles.container}>
       <Image style={styles.image} source="image_onboarding" />

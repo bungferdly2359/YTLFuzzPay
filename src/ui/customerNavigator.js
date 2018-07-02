@@ -10,8 +10,8 @@ import MerchantPage from './pages/MerchantPage';
 import DishOrderPage from './customerPages/DishOrderPage';
 import CartPage from './customerPages/CartPage';
 import CheckoutPage from './customerPages/CheckoutPage';
-import OrdersPage from './customerPages/OrdersPage/OrdersPage';
-import OrderDetailsPage from './customerPages/OrderDetailsPage';
+import OrdersPage from './pages/OrdersPage';
+import OrderPage from './pages/OrderPage';
 import ProfilePage from './pages/ProfilePage';
 import ProfileEditPage from './pages/ProfileEditPage';
 import AboutPage from './pages/AboutPage';
@@ -40,7 +40,7 @@ const ordersNavigator = (config = {}) =>
   MainNavigator(
     {
       OrderMain: { screen: OrdersPage },
-      OrderDetails: { screen: OrderDetailsPage }
+      Order: { screen: OrderPage }
     },
     config
   );

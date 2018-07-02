@@ -1,76 +1,86 @@
-import React, { Component } from 'react';
-import { Text, View, KeyboardAvoidingView, FlatList, RefreshControl } from 'react-native';
+import React, { PureComponent } from 'react';
+import moment from 'moment';
+import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
-import { Image, Button, NavBar, Input, CheckBox, Section } from '../../components';
+import { Image, Button, NavBar, Input, CheckBox, Section, FlatList, Cell } from '../../components';
 import resources from '../../resources';
-import { getOrders, updateOrderStatus } from '../../../redux/orders';
-import { OrderHelper } from '../../../helpers';
+import { updateOrderStatus, getOrders, setCurrentOrderId } from '../../../redux/orders';
+import { OrderHelper, UserHelper, IdHelper, StateHelper } from '../../../helpers';
 
-const mapStateToProps = ({ merchants, orders }) => ({
-  merchant: merchants.myMerchant,
-  orders: orders.orders
+const mapStateToProps = state => ({
+  orders: state.orders.orders,
+  mid: StateHelper.getCurrentMerchant(state).mid
 });
 
-class OrdersPage extends Component {
+let ordersPage = null;
+
+class OrdersPage extends PureComponent {
   static navigationOptions = {
-    tabBarIcon: 'icon_orders'
+    tabBarIcon: {
+      icon: 'icon_orders',
+      mapStateToUnread: state => state.orders.orders.filter(o => o.status < OrderHelper.orderStatus.completed).length,
+      onPress: () => ordersPage && ordersPage.reloadData(true)
+    }
   };
 
   state = {
     refreshing: false
   };
 
+  constructor(props) {
+    super(props);
+    ordersPage = this;
+  }
+
   componentDidMount() {
-    this.reloadData();
+    this.reloadData(true);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.orders !== this.props.orders || nextState.refreshing !== this.state.refreshing;
-  }
-
-  reloadData = (fromRefreshControl = true) => {
-    const { orders, merchant } = this.props;
-    if (merchant) {
+  reloadData = silent => {
+    const { orders, mid } = this.props;
+    const isCustomer = UserHelper.isCustomer();
+    if (!silent || orders.length == 0) {
       this.setState({ refreshing: true });
-      this.props
-        .getOrders(this.props.merchant.mid)
-        .then(() => this.setState({ refreshing: false }))
-        .catch(() => this.setState({ refreshing: false }));
     }
+    this.props
+      .getOrders(isCustomer ? { uid: IdHelper.currentUid() } : { mid })
+      .then(() => this.setState({ refreshing: false }))
+      .catch(() => this.setState({ refreshing: false }));
+  };
+
+  gotoOrderDetails = item => {
+    this.props.setCurrentOrderId(item.oid);
+    this.props.navigation.navigate('Order');
   };
 
   render() {
     const styles = stylesheet.styles();
     const { orders } = this.props;
+    const { refreshing } = this.state;
     return (
       <View style={styles.container}>
-        <NavBar title={this.props.navigation.state.routeName} />
+        <NavBar title="Orders" />
         <FlatList
-          refreshControl={<RefreshControl refreshing={this.state.refreshing} onRefresh={this.reloadData} />}
-          contentContainerStyle={styles.contentContainer}
-          keyExtractor={(item, i) => i.toString()}
+          refreshing={refreshing}
+          onRefresh={this.reloadData}
+          emptyText="No Order found"
           data={orders}
           renderItem={({ item }) => {
-            const { customer = {}, menu = {}, oid, status } = item;
+            const { createdDate, dishName, status, queueNumber } = item;
+            const showQN = queueNumber != null && status < OrderHelper.orderStatus.completed;
             return (
-              <Section style={styles.itemContainer}>
-                {customer.name != null && (
-                  <View style={styles.iconContainer}>
-                    <Image style={styles.iconImage} source={customer.imageURL} />
-                    <Text style={styles.iconText}>{customer.name}</Text>
+              <Cell disclosure onPress={this.gotoOrderDetails.bind(this, item)}>
+                <View style={styles.cellContainer}>
+                  <View style={styles.dishContainer}>
+                    <Text style={styles.date}>{moment(createdDate).format('DD/MM/YY')}</Text>
+                    <Text style={styles.dishName}>{dishName}</Text>
+                    <Text style={[styles.status, { color: OrderHelper.orderStatusColor[status] }]}>{OrderHelper.orderStatusDisplay[status]}</Text>
                   </View>
-                )}
-                <View style={styles.menuContainer}>
-                  {menu.map((m, i) => (
-                    <View key={i} style={styles.dishContainer}>
-                      <Text style={styles.dishName}>{m.name}</Text>
-                      {(m.additional || '').length > 0 && <Text style={styles.dishDetail}>{m.additional}</Text>}
-                    </View>
-                  ))}
+                  {showQN && <Text style={styles.qnTitle}>Queue Number:</Text>}
+                  {showQN && <Text style={styles.qnValue}>{queueNumber}</Text>}
                 </View>
-                <CheckBox value={status == 'done'} style={styles.checkbox} onChangeValue={selected => this.props.updateOrderStatus(oid, selected ? 'done' : 'pending')} />
-              </Section>
+              </Cell>
             );
           }}
         />
@@ -79,7 +89,11 @@ class OrdersPage extends Component {
   }
 }
 
-export default connect(mapStateToProps, {
-  getOrders,
-  updateOrderStatus
-})(OrdersPage);
+export default connect(
+  mapStateToProps,
+  {
+    getOrders,
+    setCurrentOrderId,
+    updateOrderStatus
+  }
+)(OrdersPage);
