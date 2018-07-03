@@ -6,11 +6,11 @@ import stylesheet from './stylesheet';
 import { updateDish, deleteDish } from '../../../redux/api';
 import { Image, Button, NavBar, Input, Section } from '../../components';
 import resources from '../../resources';
-import { ValidateHelper, AlertHelper, IdHelper } from '../../../helpers';
+import { ValidateHelper, AlertHelper, IdHelper, StateHelper } from '../../../helpers';
 
-const mapStateToProps = ({ merchants, dishes }) => ({
-  merchant: merchants.myMerchant,
-  dish: dishes.dishes.find(d => d.did === dishes.currentDishId)
+const mapStateToProps = state => ({
+  merchant: StateHelper.getCurrentMerchant(state),
+  dish: StateHelper.getCurrentDish(state)
 });
 
 class DishEditPage extends Component {

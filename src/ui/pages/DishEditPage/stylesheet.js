@@ -4,7 +4,7 @@ import { colors, fonts } from '../../../constants';
 export default FSStyleSheet.create(props => ({
   container: {
     flex: 1,
-    backgroundColor: colors.greyishWhite
+    backgroundColor: colors.white
   },
   full: {
     flex: 1
@@ -15,6 +15,7 @@ export default FSStyleSheet.create(props => ({
   },
   image: {
     alignItems: 'flex-end',
+    backgroundColor: colors.greyishLight,
     justifyContent: 'flex-end',
     paddingBottom: 15,
     height: 180
@@ -24,6 +25,7 @@ export default FSStyleSheet.create(props => ({
     marginBottom: 20
   },
   buttonContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginHorizontal: -5
   }
 }));

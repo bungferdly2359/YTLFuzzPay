@@ -1,6 +1,6 @@
 import { actionTypes as apiActionTypes } from '../api';
 import { actionTypes } from './';
-import { config } from '../../constants';
+import { actionTypes as userActionTypes } from '../user';
 
 const currentVersion = 1;
 
@@ -35,6 +35,9 @@ export function dishesReducer(state = initialState(), action) {
       let id = (dishes[0] || {}).mid;
       return id ? { ...state, dishesByMerchantId: { ...state.dishesByMerchantId, [id]: dishes } } : state;
     }
+
+    case userActionTypes.logout:
+      return initialState();
 
     default:
       return state;

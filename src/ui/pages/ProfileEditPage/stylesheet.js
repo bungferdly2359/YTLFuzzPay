@@ -21,9 +21,7 @@ export default FSStyleSheet.create(props => ({
     overflow: 'hidden',
     alignSelf: 'center',
     borderRadius: 50,
-    borderWidth: 5,
     marginBottom: 20,
-    backgroundColor: colors.white,
-    borderColor: colors.white
+    backgroundColor: colors.white
   }
 }));

@@ -1,6 +1,5 @@
-import { actionTypes as apiActionTypes } from '../api';
+import { actionTypes as userActionTypes } from '../user';
 import { actionTypes } from './';
-import { config } from '../../constants';
 
 const currentVersion = 2;
 
@@ -41,6 +40,9 @@ export function hawkersReducer(state = initialState(), action) {
 
     case actionTypes.getHawkerById:
       return { ...state, hawkerByhawkerId: { ...state.hawkerByhawkerId, [payload.response.id]: { hid: payload.response.id, ...payload.response.data() } } };
+
+    case userActionTypes.logout:
+      return initialState();
 
     default:
       return state;

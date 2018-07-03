@@ -1,8 +1,8 @@
 import MainNavigator from './navigators/MainNavigator';
 import MainTabNavigator from './navigators/MainTabNavigator';
 
-import OnboardingPage from './pages/OnboardingPage';
 import InitialPage from './InitialPage';
+import OnboardingPage from './pages/OnboardingPage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import OrdersPage from './pages/OrdersPage';
@@ -13,6 +13,18 @@ import DishEditPage from './pages/DishEditPage';
 import ProfileEditPage from './pages/ProfileEditPage';
 import MerchantPage from './pages/MerchantPage';
 import OrderPage from './pages/OrderPage';
+import AboutPage from './pages/AboutPage';
+import PrivacyPage from './pages/PrivacyPage';
+
+const menuNavigator = (config = {}) =>
+  MainNavigator(
+    {
+      MenuMain: { screen: MerchantPage },
+      MerchantEdit: { screen: MerchantEditPage },
+      Dish: { screen: DishEditPage }
+    },
+    config
+  );
 
 const ordersNavigator = (config = {}) =>
   MainNavigator(
@@ -23,12 +35,23 @@ const ordersNavigator = (config = {}) =>
     config
   );
 
+const profileNavigator = (config = {}) =>
+  MainNavigator(
+    {
+      ProfileMain: { screen: ProfilePage },
+      ProfileEdit: { screen: ProfileEditPage },
+      About: { screen: AboutPage },
+      Privacy: { screen: PrivacyPage }
+    },
+    config
+  );
+
 const mainTabNavigator = (config = {}) =>
   MainTabNavigator(
     {
-      Menu: { screen: MerchantPage },
+      Menu: { screen: menuNavigator(config.menu) },
       Orders: { screen: ordersNavigator(config.orders) },
-      Profile: { screen: ProfilePage }
+      Profile: { screen: profileNavigator(config.profile) }
     },
     {
       ...config
@@ -42,11 +65,7 @@ const rootNavigator = (config = {}) =>
       Onboarding: { screen: OnboardingPage },
       Register: { screen: RegisterPage },
       Login: { screen: LoginPage },
-      MerchantEdit: { screen: MerchantEditPage },
-      Dish: { screen: DishEditPage },
       DishOption: { screen: DishOptionPage },
-      ProfileSetup: { screen: ProfileEditPage },
-      ProfileEdit: { screen: ProfileEditPage },
       MainTab: { screen: mainTabNavigator(config.mainTabConfig) }
     },
     config

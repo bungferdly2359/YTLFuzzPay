@@ -20,7 +20,7 @@ const OnboardingPage = props => {
   const isCustomer = UserHelper.isCustomer();
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source="image_onboarding" />
+      <Image resizeMode="contain" style={styles.image} source="image_onboarding" />
       <Text style={styles.detail}>
         {isCustomer
           ? 'Imagine the future where the ease of ordering from the hawkers is just at the touch of your mobile phone? Just collect your food when your phone buzzes. Add to that future scenario, the possibility of going cashless at the hawkers? Use fuzzpay and make the future possible today.'

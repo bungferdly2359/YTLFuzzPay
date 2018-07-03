@@ -6,15 +6,13 @@ export default FSStyleSheet.create(props => ({
     paddingVertical: 7,
     paddingHorizontal: 20,
     backgroundColor: colors.white,
-    borderBottomWidth: 2,
-    borderColor: 'rgba(0, 0, 0, 0.13)',
     marginVertical: 7
   },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderBottomWidth: 1,
+    borderTopWidth: 1,
     borderColor: '#c2c2c2',
     height: 40,
     marginHorizontal: -20,

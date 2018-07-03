@@ -16,9 +16,7 @@ export default FSStyleSheet.create(props => ({
     width: 100,
     height: 100,
     overflow: 'hidden',
-    borderRadius: 50,
-    borderWidth: 5,
-    borderColor: colors.white
+    borderRadius: 50
   },
   name: {
     fontFamily: fonts.proximaNovaBold,

@@ -1,4 +1,5 @@
 import { actionTypes } from './';
+import { actionTypes as userActionTypes } from '../user';
 
 const currentVersion = 1;
 
@@ -30,6 +31,9 @@ export function merchantsReducer(state = initialState(), action) {
 
     case actionTypes.setCurrentMerchantId:
       return { ...state, currentMerchantId: payload };
+
+    case userActionTypes.logout:
+      return initialState();
 
     default:
       return state;

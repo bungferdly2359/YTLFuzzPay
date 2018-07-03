@@ -1,11 +1,10 @@
 import { actionTypes } from './';
-import { config } from '../../constants';
+import { actionTypes as userActionTypes } from '../user';
 
 const initialState = (oldState = {}) => ({
   cart: [],
   orders: [],
-  currentOrderId: null,
-  customers: []
+  currentOrderId: null
 });
 
 export function ordersReducer(state = initialState(), action) {
@@ -32,6 +31,9 @@ export function ordersReducer(state = initialState(), action) {
 
     case actionTypes.setCurrentOrderId:
       return { ...state, currentOrderId: payload };
+
+    case userActionTypes.logout:
+      return initialState();
 
     default:
       return state;

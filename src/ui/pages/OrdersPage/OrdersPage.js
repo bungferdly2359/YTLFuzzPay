@@ -3,8 +3,7 @@ import moment from 'moment';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
-import { Image, Button, NavBar, Input, CheckBox, Section, FlatList, Cell } from '../../components';
-import resources from '../../resources';
+import { NavBar, FlatList, Cell } from '../../components';
 import { updateOrderStatus, getOrders, setCurrentOrderId } from '../../../redux/orders';
 import { OrderHelper, UserHelper, IdHelper, StateHelper } from '../../../helpers';
 
