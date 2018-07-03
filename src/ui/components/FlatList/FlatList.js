@@ -13,7 +13,7 @@ export const FlatList = ({ emptyText, data, type, ...props }) => {
         {ListHeaderComponent}
         <View style={styles.emptyContainer2}>
           {!refreshing && <Text style={styles.emptyText}>{emptyText}</Text>}
-          {onRefresh && !refreshing && <Button type="primary gradient" style={styles.emptyButton} text="Reload" onPress={onRefresh} />}
+          {onRefresh && !refreshing && <Button type="primary" style={styles.emptyButton} text="Reload" onPress={onRefresh} />}
           {onRefresh && refreshing && <ActivityIndicator size="large" />}
         </View>
       </View>

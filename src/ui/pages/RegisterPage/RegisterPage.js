@@ -37,7 +37,7 @@ const RegisterPage = props => {
           <Input title="Email" keyboardType="email-address" placeholder="your@email.com" onChangeText={value => (state.email = value)} />
           <Input title="Password" secureTextEntry={true} onChangeText={value => (state.password = value)} />
           <Input title="Repeat Password" secureTextEntry={true} onChangeText={value => (state.repeatPassword = value)} />
-          <Button text="Sign Up" type="primary gradient" onPress={register} />
+          <Button text="Sign Up" type="primary" onPress={register} />
         </ScrollView>
       </KeyboardAvoidingView>
     </View>

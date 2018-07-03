@@ -10,7 +10,7 @@ import { setCurrentMerchantId } from '../../../redux/merchants';
 import { OrderHelper, MoneyHelper, UserHelper } from '../../../helpers';
 import { updateOrderStatus } from '../../../redux/orders';
 
-const mapStateToProps = ({ orders }) => ({ currentOrder: orders.orders.find(o => o.oid === orders.currentOrderId) });
+const mapStateToProps = ({ orders }) => ({ currentOrder: orders.orders.find(o => o.oid === orders.currentOrderId) || {} });
 
 class OrderPage extends PureComponent {
   gotoHawker = () => {
@@ -106,16 +106,11 @@ class OrderPage extends PureComponent {
             <Text style={styles.title}>Status</Text>
             <Text style={[styles.detail, { color: OrderHelper.orderStatusColor[status] }]}>{OrderHelper.orderStatusDisplay[status]}</Text>
           </Cell>
-          {isCustomer && status == OrderHelper.orderStatus.pending && <Button type="gradient primary" style={styles.button} text="Cancel Order" onPress={this.cancelOrder} />}
           {!isCustomer &&
             status < OrderHelper.orderStatus.completed && (
-              <Button
-                type="gradient primary"
-                style={styles.button}
-                text={'Set as ' + OrderHelper.orderStatusDisplay[status + 1]}
-                onPress={() => this.updateOrderStatus(status + 1)}
-              />
+              <Button type="primary" style={styles.button} text={'Set as ' + OrderHelper.orderStatusDisplay[status + 1]} onPress={() => this.updateOrderStatus(status + 1)} />
             )}
+          {status == OrderHelper.orderStatus.pending && <Button type="destructive" style={styles.button} text="Cancel Order" onPress={this.cancelOrder} />}
         </ScrollView>
       </View>
     );

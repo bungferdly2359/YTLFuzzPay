@@ -65,7 +65,7 @@ class MerchantEditPage extends Component {
               onChangeText={value => (this.state.takeAwayPrice = MoneyHelper.price(value))}
             />
             <Input title="Online" type="checkbox" value={online} onChangeValue={value => (this.state.online = value)} />
-            <Button type="primary gradient" text={isNew ? 'Create' : 'Update'} onPress={this.update} />
+            <Button type="primary" text={isNew ? 'Create' : 'Update'} onPress={this.update} />
           </ScrollView>
         </KeyboardAvoidingView>
       </View>

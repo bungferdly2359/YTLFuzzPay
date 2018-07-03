@@ -13,12 +13,12 @@ const buildStyles = (types, suffix, def) => {
   return [styles[suffix], ...types.map(t => styles[t + capSuffix]), def];
 };
 
-export const Button = ({ type = 'primary', icon, text, style, onPress, textStyle, iconStyle, gradientStyle, numberOfLines = 1, disabled = false, children }) => {
+export const Button = ({ type = '', icon, text, style, onPress, textStyle, iconStyle, gradient = true, numberOfLines = 1, disabled = false, children }) => {
   const types = type.split(' ').filter(t => t);
-  const colors = types.findMap(t => gradientColors[t]);
+  const colors = gradient && types.findMap(t => gradientColors[t]);
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={onPress} disabled={disabled} style={buildStyles(types, 'container', style)}>
-      {colors && <LinearGradient colors={colors} style={buildStyles(types, 'gradient', gradientStyle)} />}
+      {colors && <LinearGradient colors={colors} style={buildStyles(types, 'gradient')} />}
       {icon != null && <Image style={buildStyles(types, 'icon', iconStyle)} source={icon} />}
       {text != null && (
         <Text style={buildStyles(types, 'text', textStyle)} numberOfLines={numberOfLines}>

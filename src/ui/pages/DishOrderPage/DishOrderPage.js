@@ -99,7 +99,7 @@ class DishOrderPage extends Component {
           <Text style={[styles.text, styles.priceTitle]}>Total</Text>
           <LazyView ref={r => (this.totalView = r)} render={() => <Text style={[styles.text, styles.priceTitle]}>{MoneyHelper.display(this.state.totalPrice)}</Text>} />
         </View>
-        <Button style={styles.cartButton} type="primary gradient" text="Add to Cart" onPress={this.addToCart} />
+        <Button style={styles.cartButton} type="primary" text="Add to Cart" onPress={this.addToCart} />
       </PopupView>
     );
   }

@@ -5,7 +5,7 @@ export default FSStyleSheet.create(props => ({
   container: {
     backgroundColor: colors.white,
     flexDirection: 'row',
-    paddingHorizontal: 17
+    paddingHorizontal: 20
   },
   contentContainer: {
     flex: 1,

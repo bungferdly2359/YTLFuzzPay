@@ -20,6 +20,7 @@ export default FSStyleSheet.create(props => ({
     fontSize: 16
   },
   button: {
-    margin: 15
+    margin: 20,
+    marginBottom: 0
   }
 }));

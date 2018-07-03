@@ -35,7 +35,7 @@ const LoginPage = props => {
         <ScrollView keyboardShouldPersistTaps="always" keyboardDismissMode="interactive" style={styles.full} contentContainerStyle={styles.contentContainer}>
           <Input title="Email" keyboardType="email-address" placeholder="your@email.com" onChangeText={value => (state.email = value)} />
           <Input title="Password" secureTextEntry={true} onChangeText={value => (state.password = value)} />
-          <Button text="Sign In" type="primary gradient" onPress={login} />
+          <Button text="Sign In" type="primary" onPress={login} />
         </ScrollView>
       </KeyboardAvoidingView>
     </View>

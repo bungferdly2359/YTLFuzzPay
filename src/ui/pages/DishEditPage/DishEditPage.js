@@ -112,8 +112,8 @@ class DishEditPage extends Component {
               ))}
             </Section>
             <Section style={styles.buttonContainer}>
-              {!isNew && <Button type="primary gradient" style={styles.button} text={'Delete'} onPress={this.delete} />}
-              <Button type="primary gradient" style={styles.button} text={isNew ? 'Save' : 'Update'} onPress={this.update} />
+              {!isNew && <Button type="destructive" style={styles.button} text={'Delete'} onPress={this.delete} />}
+              <Button type="primary" style={styles.button} text={isNew ? 'Save' : 'Update'} onPress={this.update} />
             </Section>
           </ScrollView>
         </KeyboardAvoidingView>

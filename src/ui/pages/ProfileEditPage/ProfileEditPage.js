@@ -42,7 +42,7 @@ class ProfilePage extends Component {
         <ScrollView contentContainerStyle={styles.contentContainer} keyboardDismissMode="interactive" keyboardShouldPersistTaps="always">
           <Button type="plain" iconStyle={styles.image} icon={photoPath || photoURL || 'image_profile'} onPress={this.chooseImage} />
           <Input title="Display Name" placeholder="John Smith" value={displayName} onChangeText={value => (this.state.displayName = value)} />
-          <Button type="primary gradient" style={styles.update} text="Update" onPress={this.update} />
+          <Button type="primary" style={styles.update} text="Update" onPress={this.update} />
         </ScrollView>
       </View>
     );

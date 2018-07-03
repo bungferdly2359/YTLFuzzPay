@@ -2,10 +2,21 @@ import { FSStyleSheet } from '../../../modules/fs-foundation';
 import { colors, fonts } from '../../../constants';
 
 export const gradientColors = {
-  gradient: [colors.lightOrange, colors.orange]
+  primary: [colors.lightOrange, colors.orange],
+  sheet: [colors.lightOrange, colors.orange],
+  destructive: [colors.greyishWhite, colors.greyishLight]
 };
 
 export default FSStyleSheet.create(props => ({
+  destructiveContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 45,
+    paddingHorizontal: 15,
+    overflow: 'hidden',
+    borderRadius: 3
+  },
   primaryContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -31,6 +42,11 @@ export default FSStyleSheet.create(props => ({
     fontWeight: '600',
     fontSize: 16,
     color: colors.white
+  },
+  destructiveText: {
+    fontFamily: fonts.proximaNova,
+    fontSize: 16,
+    color: colors.red
   },
   barItemText: {
     fontFamily: fonts.proximaNova,

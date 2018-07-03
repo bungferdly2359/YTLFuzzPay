@@ -53,7 +53,7 @@ export default FSStyleSheet.create(props => ({
     marginLeft: 8
   },
   infoButton: {
-    margin: -10
+    marginLeft: 5
   },
   infoIcon: {
     width: 20,

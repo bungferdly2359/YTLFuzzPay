@@ -120,7 +120,7 @@ class CheckoutPage extends PureComponent {
           <Text style={styles.total}>Total</Text>
           <Text style={[styles.total, styles.totalPrice]}>{MoneyHelper.display(this.totalPrice())}</Text>
         </View>
-        <Button style={styles.cartButton} type="primary gradient" text="Place Order" onPress={this.checkout} />
+        <Button style={styles.cartButton} type="primary" text="Place Order" onPress={this.checkout} />
       </View>
     );
   }
