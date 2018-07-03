@@ -10,12 +10,13 @@ const passwordRegex = /^.{1,20}$/;
 const bankRegex = /^[0-9]{5,20}$/;
 
 export const ValidateHelper = {
-  isValidParams: ({ name, description, price, fullName, firstName, lastName, userName, bankName, bankAccount, email, password, repeatPassword }) => {
+  isValidParams: ({ name, hawkerName, description, price, fullName, firstName, lastName, userName, bankName, bankAccount, email, password, repeatPassword }) => {
     if (FSApp.getNativeProps('testUI')) {
       return true;
     }
     var error =
       (name != null && !nameRegex.test(name) && 'Invalid name') ||
+      (hawkerName != null && !nameRegex.test(hawkerName) && 'Invalid hawker name') ||
       (description != null && !descriptionRegex.test(description) && 'Invalid description') ||
       (price != null && !priceRegex.test(price) && 'Invalid price') ||
       (fullName != null && !nameRegex.test(fullName) && 'Invalid full name') ||

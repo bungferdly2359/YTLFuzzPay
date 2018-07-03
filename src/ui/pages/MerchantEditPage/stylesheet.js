@@ -10,7 +10,8 @@ export default FSStyleSheet.create(props => ({
     flex: 1
   },
   contentContainer: {
-    padding: 25
+    padding: 25,
+    flexDirection: 'column-reverse'
   },
   image: {
     width: 100,
@@ -20,5 +21,40 @@ export default FSStyleSheet.create(props => ({
     borderRadius: 15,
     marginBottom: 20,
     backgroundColor: colors.white
+  },
+  searchContainer: {
+    marginHorizontal: -20
+  },
+  searchInput: {
+    marginHorizontal: 20
+  },
+  searchList: {
+    position: 'absolute',
+    left: 15,
+    right: 15,
+    top: -18,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: colors.greyish
+  },
+  searchCell: {
+    height: 35,
+    paddingHorizontal: 5,
+    backgroundColor: colors.greyishWhite
+  },
+  searchContentCell: {
+    paddingVertical: 0,
+    alignItems: 'center',
+    backgroundColor: colors.greyishWhite
+  },
+  title: {
+    flex: 1,
+    fontFamily: fonts.proximaNova,
+    // height: 35,
+    fontSize: 14
+  },
+  location: {
+    fontFamily: fonts.proximaNova,
+    fontSize: 14
   }
 }));

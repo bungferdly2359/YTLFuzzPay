@@ -10,19 +10,6 @@ export class SearchBar extends PureComponent {
     LayoutAnimation.configureNext({ ...LayoutAnimation.Presets.easeInEaseOut, duration: 200 });
   }
 
-  onChangeText = text => {
-    let { onSearch } = this.props;
-    if (!onSearch) {
-      return;
-    }
-    this.lastText = text;
-    setTimeout(() => {
-      if (this.lastText === text) {
-        this.props.onSearch(text);
-      }
-    }, 400);
-  };
-
   render() {
     const { searching, onToggleSearch } = this.props;
     const styles = stylesheet.styles();
@@ -36,7 +23,7 @@ export class SearchBar extends PureComponent {
             iconStyle={searching ? styles.iconSearching : styles.icon}
             onPress={onToggleSearch}
           />
-          {searching && <InputText placeholder="Search" autoFocus inputStyle={[styles.input, searching && styles.inputSearching]} onChangeText={this.onChangeText} />}
+          {searching && <InputText placeholder="Search" autoFocus inputStyle={[styles.input, searching && styles.inputSearching]} onSearch={this.props.onSearch} />}
         </View>
         <Button disabled={!searching} type="barItem" text="cancel" textStyle={[styles.cancel, searching && styles.cancelSearching]} onPress={onToggleSearch} />
       </View>
