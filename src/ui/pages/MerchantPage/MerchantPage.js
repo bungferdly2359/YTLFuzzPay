@@ -53,7 +53,7 @@ class MerchantPage extends PureComponent {
     const isMyMerchant = merchant.uid === IdHelper.currentUid();
     const data = isMyMerchant ? [...dishes, addMenu] : dishes;
     const styles = stylesheet.styles();
-    if (!merchant.mid) {
+    if (!merchant.hid) {
       return <MerchantEditPage navigation={this.props.navigation} />;
     }
     return (

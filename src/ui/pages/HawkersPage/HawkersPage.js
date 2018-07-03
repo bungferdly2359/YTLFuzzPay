@@ -42,7 +42,7 @@ class HawkersPage extends PureComponent {
   };
 
   onSearch = text => {
-    text.length > 2 ? this.props.searchHawkers(text) : this.props.clearSearchedHawkers();
+    text ? this.props.searchHawkers(text) : this.props.clearSearchedHawkers();
   };
 
   reloadData = () => {
@@ -116,4 +116,7 @@ class HawkersPage extends PureComponent {
   }
 }
 
-export default connect(mapStateToProps, { getCurrentLocation, getNearbyHawkers, searchHawkers, setCurrentHawkerId, clearSearchedHawkers })(HawkersPage);
+export default connect(
+  mapStateToProps,
+  { getCurrentLocation, getNearbyHawkers, searchHawkers, setCurrentHawkerId, clearSearchedHawkers }
+)(HawkersPage);
