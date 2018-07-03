@@ -24,6 +24,7 @@ export default FSStyleSheet.create(props => ({
     flexDirection: 'row'
   },
   date: {
+    width: 65,
     fontFamily: fonts.proximaNova,
     color: colors.greyish,
     fontSize: 16

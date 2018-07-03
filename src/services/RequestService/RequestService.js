@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, Keyboard } from 'react-native';
-import { Image } from '../../ui/components';
 import { clearError } from '../../redux/api';
 import stylesheet from './stylesheet';
 import { AlertHelper } from '../../helpers';
 
 const mapStateToProps = state => ({
   loadingRequest: state.api.requests.find(r => r.loadingText) || null,
-  isTester: false,
   errorRequest: state.api.requests.find(r => r.errorMessage) || null
 });
 
@@ -18,7 +16,7 @@ class RequestService extends Component {
   }
 
   handleError = () => {
-    const { errorRequest, isTester } = this.props;
+    const { errorRequest } = this.props;
     if (errorRequest) {
       if (errorRequest.errorType === 'alert') {
         AlertHelper.showError(errorRequest.errorMessage);

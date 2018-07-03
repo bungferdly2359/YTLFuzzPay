@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react';
 import { View, Text, ScrollView, Alert } from 'react-native';
 import { connect } from 'react-redux';
-import { NavigationActions } from 'react-navigation';
-import { NavBar, Cell, Image, FlatList, Button, RadioButton } from '../../components';
+import { NavBar, Button, RadioButton } from '../../components';
 import stylesheet from './stylesheet';
 import { MoneyHelper, IdHelper, OrderHelper } from '../../../helpers';
-import { makeOrder, getOrdersAsCustomer } from '../../../redux/orders/ordersActions';
+import { makeOrder } from '../../../redux/orders/ordersActions';
 
 const mapStateToProps = state => ({
   items: state.orders.cart
@@ -61,7 +60,6 @@ class CheckoutPage extends PureComponent {
       )
       .then(() => {
         Alert.alert('Success', 'Your order has been placed', [{ text: 'Ok', style: 'cancel', onPress: () => this.props.navigation.goBack() }]);
-        this.props.getOrdersAsCustomer();
       });
   };
 
@@ -128,5 +126,5 @@ class CheckoutPage extends PureComponent {
 
 export default connect(
   mapStateToProps,
-  { makeOrder, getOrdersAsCustomer }
+  { makeOrder }
 )(CheckoutPage);

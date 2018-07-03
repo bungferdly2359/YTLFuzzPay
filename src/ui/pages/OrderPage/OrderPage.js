@@ -10,7 +10,9 @@ import { setCurrentMerchantId } from '../../../redux/merchants';
 import { OrderHelper, MoneyHelper, UserHelper } from '../../../helpers';
 import { updateOrderStatus } from '../../../redux/orders';
 
-const mapStateToProps = ({ orders }) => ({ currentOrder: orders.orders.find(o => o.oid === orders.currentOrderId) || {} });
+const mapStateToProps = ({ orders }) => ({
+  currentOrder: orders.orders.find(o => o.oid === orders.currentOrderId) || {}
+});
 
 class OrderPage extends PureComponent {
   gotoHawker = () => {

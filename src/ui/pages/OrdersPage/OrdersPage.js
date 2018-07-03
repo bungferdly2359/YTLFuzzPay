@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import moment from 'moment';
-import { Text, View } from 'react-native';
+import { Text, View, AppState } from 'react-native';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { NavBar, FlatList, Cell } from '../../components';
@@ -9,31 +9,47 @@ import { OrderHelper, UserHelper, IdHelper, StateHelper } from '../../../helpers
 
 const mapStateToProps = state => ({
   orders: state.orders.orders,
-  mid: StateHelper.getCurrentMerchant(state).mid
+  mid: (StateHelper.getCurrentMerchant(state) || {}).mid,
+  isCurrentRoute: StateHelper.getCurrentRoute(state).routeName === 'OrderMain'
 });
 
-let ordersPage = null;
-
-class OrdersPage extends PureComponent {
+class OrdersPage extends Component {
   static navigationOptions = {
     tabBarIcon: {
       icon: 'icon_orders',
-      mapStateToUnread: state => state.orders.orders.filter(o => o.status < OrderHelper.orderStatus.completed).length,
-      onPress: () => ordersPage && ordersPage.reloadData(true)
+      mapStateToUnread: state => state.orders.orders.filter(o => o.status < OrderHelper.orderStatus.completed).length
     }
   };
 
   state = {
-    refreshing: false
+    refreshing: false,
+    appState: AppState.currentState
   };
 
-  constructor(props) {
-    super(props);
-    ordersPage = this;
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isCurrentRoute && !this.props.isCurrentRoute) {
+      this.reloadData(true);
+    }
   }
 
   componentDidMount() {
     this.reloadData(true);
+    AppState.addEventListener('change', this.handleAppStateChange);
+  }
+
+  componentWillUnmount() {
+    AppState.removeEventListener('change', this.handleAppStateChange);
+  }
+
+  handleAppStateChange = nextAppState => {
+    if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+      this.reloadData(true);
+    }
+    this.state.appState = nextAppState;
+  };
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.orders !== nextProps.orders || this.state.refreshing !== nextState.refreshing;
   }
 
   reloadData = silent => {
@@ -57,6 +73,7 @@ class OrdersPage extends PureComponent {
     const styles = stylesheet.styles();
     const { orders } = this.props;
     const { refreshing } = this.state;
+    const dateNow = Date.now(); //1 hour
     return (
       <View style={styles.container}>
         <NavBar title="Orders" />
@@ -72,7 +89,9 @@ class OrdersPage extends PureComponent {
               <Cell disclosure onPress={this.gotoOrderDetails.bind(this, item)}>
                 <View style={styles.cellContainer}>
                   <View style={styles.dishContainer}>
-                    <Text style={styles.date}>{moment(createdDate).format('DD/MM/YY')}</Text>
+                    <Text style={styles.date}>
+                      {createdDate > dateNow - 3600000 ? Math.floor((dateNow - createdDate) / 60000) + ' mins' : moment(createdDate).format('DD/MM/YY')}
+                    </Text>
                     <Text style={styles.dishName}>{dishName}</Text>
                     <Text style={[styles.status, { color: OrderHelper.orderStatusColor[status] }]}>{OrderHelper.orderStatusDisplay[status]}</Text>
                   </View>
