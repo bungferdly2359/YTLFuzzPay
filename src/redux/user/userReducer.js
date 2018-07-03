@@ -1,6 +1,4 @@
-import { actionTypes as apiActionTypes } from '../api';
 import { actionTypes } from './';
-import { config } from '../../constants';
 
 const currentVersion = 1;
 
@@ -21,6 +19,9 @@ export function userReducer(state = initialState(), action) {
   switch (type) {
     case '@@redux/INIT':
       return state.version !== currentVersion ? initialState(state) : state;
+
+    case actionTypes.updateUser:
+      return { ...state, ...payload.customPayload };
 
     case actionTypes.updateData:
       return { ...state, ...payload };

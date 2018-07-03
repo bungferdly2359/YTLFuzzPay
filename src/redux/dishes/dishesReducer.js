@@ -1,4 +1,3 @@
-import { actionTypes as apiActionTypes } from '../api';
 import { actionTypes } from './';
 import { actionTypes as userActionTypes } from '../user';
 
@@ -7,7 +6,7 @@ const currentVersion = 1;
 const initialState = (oldState = {}) => ({
   version: currentVersion,
   currentDishId: null,
-  dishes: [],
+  merchantId: null,
   dishesByMerchantId: {}
 });
 
@@ -21,19 +20,22 @@ export function dishesReducer(state = initialState(), action) {
     case actionTypes.setCurrentDishId:
       return { ...state, currentDishId: payload };
 
-    case apiActionTypes.getDishes:
-      return { ...state, dishes: (payload.response.docs || []).map(d => ({ did: d.id, ...d.data() })) };
+    case actionTypes.updateDish: {
+      let mid = state.merchantId;
+      let dishes = state.dishesByMerchantId[mid].mapOrAdd(m => m.did == payload.customPayload.did, () => payload.customPayload).sort((a, b) => a.name > b.name);
+      return { ...state, dishesByMerchantId: { ...state.dishesByMerchantId, [mid]: dishes } };
+    }
 
-    case apiActionTypes.updateDish:
-      return { ...state, dishes: state.dishes.mapOrAdd(m => m.did == payload.customPayload.did, () => payload.customPayload) };
-
-    case apiActionTypes.deleteDish:
-      return { ...state, dishes: [...state.dishes.filter(m => m.did !== payload.customPayload)] };
+    case actionTypes.deleteDish: {
+      let mid = state.merchantId;
+      let dishes = state.dishesByMerchantId[mid].filter(m => m.did !== payload.customPayload.did);
+      return { ...state, dishesByMerchantId: { ...state.dishesByMerchantId, [mid]: dishes } };
+    }
 
     case actionTypes.getDishesByMerchantId: {
+      let mid = payload.customPayload.mid;
       let dishes = (payload.response.docs || []).map(d => ({ did: d.id, ...d.data() })).sort((a, b) => a.name > b.name);
-      let id = (dishes[0] || {}).mid;
-      return id ? { ...state, dishesByMerchantId: { ...state.dishesByMerchantId, [id]: dishes } } : state;
+      return dishes.length > 0 ? { ...state, merchantId: mid, dishesByMerchantId: { ...state.dishesByMerchantId, [mid]: dishes } } : state;
     }
 
     case userActionTypes.logout:

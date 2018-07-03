@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { Text, View, KeyboardAvoidingView } from 'react-native';
 import stylesheet from './stylesheet';
-import { updateDish, deleteDish } from '../../../redux/api';
-import { Image, Button, NavBar, Input, Section } from '../../components';
-import resources from '../../resources';
+import { Button, Input } from '../../components';
 import { ValidateHelper } from '../../../helpers';
 
 export default class DishOptionPage extends Component {

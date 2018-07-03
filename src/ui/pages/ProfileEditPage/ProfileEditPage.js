@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, Keyboard } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { updateUser } from '../../../redux/user';
-import { Image, Button, NavBar, Cell, Input } from '../../components';
-import { colors } from '../../../constants';
+import { Button, NavBar, Input } from '../../components';
 import { AlertHelper } from '../../../helpers';
-import { FSApp } from '../../../modules/fs-foundation';
 
 const mapStateToProps = ({ user }) => ({ user });
 
