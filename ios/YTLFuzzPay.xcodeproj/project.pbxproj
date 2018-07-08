@@ -1060,7 +1060,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				D5CD84369CBDCEB98AF60334 /* [CP] Embed Pods Frameworks */,
 				82AC124AC6618E0136777B34 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1081,7 +1080,6 @@
 				42664A2E20A9380600FDAA4F /* Frameworks */,
 				42664A3F20A9380600FDAA4F /* Resources */,
 				42664A4B20A9380600FDAA4F /* Bundle React Native code and images */,
-				B867BC902F49B68BE76EC96B /* [CP] Embed Pods Frameworks */,
 				941294BFAF8436A0F23CF777 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1102,7 +1100,6 @@
 				42664A5920A9398100FDAA4F /* Frameworks */,
 				42664A6A20A9398100FDAA4F /* Resources */,
 				42664A7620A9398100FDAA4F /* Bundle React Native code and images */,
-				CA5C7CF6AD1C7F61850A10EF /* [CP] Embed Pods Frameworks */,
 				B131875F98BDD79FFA4D8906 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1123,7 +1120,6 @@
 				42664A8420A94ADF00FDAA4F /* Frameworks */,
 				42664A9520A94ADF00FDAA4F /* Resources */,
 				42664AA120A94ADF00FDAA4F /* Bundle React Native code and images */,
-				6BA75423259EB2856E8AB7DD /* [CP] Embed Pods Frameworks */,
 				C90090D703A23AD85279B231 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1144,7 +1140,6 @@
 				42EF6D2620738555004DDCBE /* Frameworks */,
 				42EF6D3320738555004DDCBE /* Resources */,
 				42EF6D3620738555004DDCBE /* Bundle React Native code and images */,
-				E9A690C47E2F4063C193D3CC /* [CP] Embed Pods Frameworks */,
 				5BF558B29F429BFE6B131F1F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1816,21 +1811,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MerchantProd/Pods-MerchantProd-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6BA75423259EB2856E8AB7DD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestUI/Pods-TestUI-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6CB2583FAB3F1AB518E7795B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1951,21 +1931,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CustomerProd/Pods-CustomerProd-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B867BC902F49B68BE76EC96B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CustomerStaging/Pods-CustomerStaging-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C7DF461593B6E4F94D4E1BF4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2010,51 +1975,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestUI/Pods-TestUI-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CA5C7CF6AD1C7F61850A10EF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CustomerProd/Pods-CustomerProd-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D5CD84369CBDCEB98AF60334 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MerchantStaging/Pods-MerchantStaging-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E9A690C47E2F4063C193D3CC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MerchantProd/Pods-MerchantProd-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
