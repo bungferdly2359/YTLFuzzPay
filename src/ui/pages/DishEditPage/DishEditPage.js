@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { updateDish, deleteDish } from '../../../redux/dishes';
 import { Image, Button, NavBar, Input, Section } from '../../components';
-import { ValidateHelper, AlertHelper, IdHelper, StateHelper } from '../../../helpers';
+import { ValidateHelper, AlertHelper, IdHelper, StateHelper, MoneyHelper } from '../../../helpers';
 
 const mapStateToProps = state => ({
   merchant: StateHelper.getCurrentMerchant(state),
@@ -21,9 +21,9 @@ class DishEditPage extends Component {
     did: IdHelper.createId(),
     mid: (this.props.merchant || {}).mid,
     name: '',
-    description: '',
+    description: null,
     available: false,
-    price: '',
+    price: 0,
     imageURL: null,
     imagePath: null,
     ...(this.props.dish || {}),
@@ -94,7 +94,14 @@ class DishEditPage extends Component {
             <Section>
               <Input title="Name" placeholder="Fish Soup" value={name} onChangeText={value => (this.dishState.name = value)} />
               <Input title="Description" placeholder="Enter description here" value={description} onChangeText={value => (this.dishState.description = value)} />
-              <Input title="Price" prefix="S$" keyboardType="numeric" placeholder="0.00" value={price} onChangeText={value => (this.dishState.price = value)} />
+              <Input
+                title="Price"
+                prefix="S$"
+                keyboardType="numeric"
+                placeholder="0.00"
+                value={price > 0 ? MoneyHelper.display(price, false) : null}
+                onChangeText={value => (this.dishState.price = MoneyHelper.price(value))}
+              />
               <Input title="Availability" type="checkbox" value={available} onChangeValue={value => (this.dishState.available = value)} />
             </Section>
             <Section title="Options" action={{ text: '+Add', type: 'baritem done', onPress: this.toggleNewOption }}>
@@ -106,8 +113,8 @@ class DishEditPage extends Component {
                   prefix="S$"
                   keyboardType="numeric"
                   placeholder="0.00"
-                  value={o.price}
-                  onChangeText={value => (this.dishState.options[i].price = value)}
+                  value={o.price > 0 ? MoneyHelper.display(o.price, false) : null}
+                  onChangeText={value => (this.dishState.options[i].price = MoneyHelper.price(value))}
                 />
               ))}
             </Section>

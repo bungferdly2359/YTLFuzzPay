@@ -10,7 +10,6 @@ export default FSStyleSheet.create(props => ({
     flex: 1
   },
   qnTitle: {
-    marginTop: 15,
     fontFamily: fonts.proximaNova,
     fontSize: 12,
     color: colors.greyish
@@ -40,5 +39,21 @@ export default FSStyleSheet.create(props => ({
     fontFamily: fonts.proximaNova,
     color: colors.greyishDark,
     fontSize: 16
+  },
+  detailContainer: {
+    flexDirection: 'row',
+    marginTop: 15,
+    justifyContent: 'space-between'
+  },
+  detail: {
+    fontFamily: fonts.proximaNova,
+    color: colors.greyish,
+    fontSize: 14
+  },
+  actionButton: {
+    marginLeft: 15
+  },
+  footer: {
+    margin: 20
   }
 }));

@@ -67,9 +67,9 @@ class MerchantEditPage extends PureComponent {
             <Input title="Store Name" placeholder="John's Cafe" value={name} onChangeText={value => (this.state.name = value)} />
             <HawkerListInput
               value={hawkerName}
-              onPressItem={item => {
-                this.state.hawkerName = item.name;
-                this.state.hid = item.hid;
+              onPressItem={(item = {}) => {
+                this.state.hawkerName = item.name || '';
+                this.state.hid = item.hid || '';
               }}
             />
             <Button type="plain" iconStyle={styles.image} icon={imagePath || imageURL || 'image_store'} onPress={this.chooseImage} />

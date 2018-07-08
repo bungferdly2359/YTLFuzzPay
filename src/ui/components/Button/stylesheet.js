@@ -4,28 +4,24 @@ import { colors, fonts } from '../../../constants';
 export const gradientColors = {
   primary: [colors.lightOrange, colors.orange],
   sheet: [colors.lightOrange, colors.orange],
-  destructive: [colors.greyishWhite, colors.greyishLight]
+  destructive: [colors.greyishWhite, colors.greyishLight],
+  positive: [colors.lightGreen, colors.green]
+};
+
+const container = {
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: 45,
+  paddingHorizontal: 15,
+  overflow: 'hidden',
+  borderRadius: 3
 };
 
 export default FSStyleSheet.create(props => ({
-  destructiveContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 45,
-    paddingHorizontal: 15,
-    overflow: 'hidden',
-    borderRadius: 3
-  },
-  primaryContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 45,
-    paddingHorizontal: 15,
-    overflow: 'hidden',
-    borderRadius: 3
-  },
+  destructiveContainer: container,
+  primaryContainer: container,
+  positiveContainer: container,
   barItemContainer: {
     padding: 8
   },
@@ -38,8 +34,7 @@ export default FSStyleSheet.create(props => ({
     padding: 5
   },
   primaryText: {
-    fontFamily: fonts.proximaNova,
-    fontWeight: '600',
+    fontFamily: fonts.proximaNovaBold,
     fontSize: 16,
     color: colors.white
   },
@@ -48,10 +43,15 @@ export default FSStyleSheet.create(props => ({
     fontSize: 16,
     color: colors.red
   },
+  positiveText: {
+    fontFamily: fonts.proximaNovaBold,
+    fontSize: 16,
+    color: colors.white
+  },
   barItemText: {
     fontFamily: fonts.proximaNova,
     fontSize: 16,
-    fontWeight: '600',
+    textAlign: 'center',
     color: colors.orange
   },
   barItemIcon: {

@@ -12,34 +12,46 @@ const mapStateToProps = state => ({
 class HawkerListInput extends PureComponent {
   state = {
     value: this.props.value,
-    selectedValue: this.props.value
+    selectedValue: this.props.value,
+    searching: false
   };
 
   onPressItem = item => {
     Keyboard.dismiss();
-    this.state.value = item.name;
-    this.state.selectedValue = item.name;
-    this.props.clearSearchedHawkers();
     this.props.onPressItem(item);
+    this.setState({ value: item.name, selectedValue: item.name, searching: false });
+    this.props.clearSearchedHawkers();
   };
 
   onEndEditing = () => {
-    this.state.value = this.state.selectedValue;
+    if (this.state.value != this.state.selectedValue) {
+      this.setState({ value: null, selectedValue: null, searching: false });
+    }
     this.props.clearSearchedHawkers();
   };
 
+  onFocus = () => {
+    this.setState({ searching: true });
+  };
+
   onSearch = text => {
-    text ? this.props.searchHawkers(text) : this.props.clearSearchedHawkers();
+    if (text) {
+      this.props.searchHawkers(text);
+    } else {
+      this.props.clearSearchedHawkers();
+    }
   };
 
   onChangeText = text => {
     this.state.value = text;
+    this.props.onPressItem();
   };
 
   render() {
     const styles = stylesheet.styles();
     const { searchedHawkers = [] } = this.props;
-    const { value } = this.state;
+    const { value, searching } = this.state;
+
     return (
       <View style={styles.searchContainer}>
         <Input
@@ -50,20 +62,22 @@ class HawkerListInput extends PureComponent {
           onChangeText={this.onChangeText}
           onSearch={this.onSearch}
           onEndEditing={this.onEndEditing}
+          onFocus={this.onFocus}
         />
         <View>
-          {searchedHawkers.length > 0 && (
-            <FlatList
-              style={[styles.searchList, { height: Math.min(searchedHawkers.length, 5) * 35 }]}
-              data={searchedHawkers}
-              renderItem={({ item }) => (
-                <Cell style={styles.searchCell} contentContainerStyle={styles.searchContentCell} onPress={this.onPressItem.bind(this, item)}>
-                  <Text style={styles.title}>{item.name}</Text>
-                  <Text style={styles.location}>{item.address}</Text>
-                </Cell>
-              )}
-            />
-          )}
+          {searching &&
+            searchedHawkers.length > 0 && (
+              <FlatList
+                style={[styles.searchList, { height: Math.min(searchedHawkers.length, 5) * 35 }]}
+                data={searchedHawkers}
+                renderItem={({ item }) => (
+                  <Cell style={styles.searchCell} contentContainerStyle={styles.searchContentCell} onPress={this.onPressItem.bind(this, item)}>
+                    <Text style={styles.title}>{item.name}</Text>
+                    <Text style={styles.location}>{item.address}</Text>
+                  </Cell>
+                )}
+              />
+            )}
         </View>
       </View>
     );

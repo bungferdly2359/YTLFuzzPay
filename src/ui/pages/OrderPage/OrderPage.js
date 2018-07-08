@@ -37,7 +37,8 @@ class OrderPage extends PureComponent {
   };
 
   cancelOrder = () => {
-    Alert.alert('Cancel Order', 'Are you sure you want to cancel the order?', [
+    const title = UserHelper.isCustomer() ? 'Cancel' : 'Refuse';
+    Alert.alert(title + 'Order', 'Are you sure you want to ' + title.toLowerCase() + ' the order?', [
       {
         text: 'Yes',
         style: 'destructive',
@@ -57,7 +58,7 @@ class OrderPage extends PureComponent {
   render() {
     const styles = stylesheet.styles();
     const isCustomer = UserHelper.isCustomer();
-    const { hawkerName, merchantName, dishName, description, price, takeAway, takeAwayPrice, status, createdDate, paymentMethod } = this.props.currentOrder;
+    const { hawkerName, merchantName, dishName, description, price, takeAway, takeAwayPrice, status, createdDate, paymentMethod, queueNumber } = this.props.currentOrder;
     return (
       <View style={styles.container}>
         <NavBar title="Order Details" navigation={this.props.navigation} />
@@ -95,6 +96,10 @@ class OrderPage extends PureComponent {
             <Text style={styles.detail}>{OrderHelper.paymentMethod[paymentMethod]}</Text>
           </Cell>
           <Cell>
+            <Text style={styles.title}>Queue Number</Text>
+            <Text style={styles.detail}>{queueNumber || 'N/A'}</Text>
+          </Cell>
+          <Cell>
             <Text style={styles.title}>Price</Text>
             <Text style={styles.detail}>{MoneyHelper.display(price)}</Text>
           </Cell>
@@ -110,9 +115,16 @@ class OrderPage extends PureComponent {
           </Cell>
           {!isCustomer &&
             status < OrderHelper.orderStatus.completed && (
-              <Button type="primary" style={styles.button} text={'Set as ' + OrderHelper.orderStatusDisplay[status + 1]} onPress={() => this.updateOrderStatus(status + 1)} />
+              <Button
+                type={status == OrderHelper.orderStatus.collecting ? 'positive' : 'primary'}
+                style={styles.button}
+                text={'Set as ' + OrderHelper.orderStatusDisplay[status + 1]}
+                onPress={() => this.updateOrderStatus(status + 1)}
+              />
             )}
-          {status == OrderHelper.orderStatus.pending && <Button type="destructive" style={styles.button} text="Cancel Order" onPress={this.cancelOrder} />}
+          {status == OrderHelper.orderStatus.pending && (
+            <Button type="destructive" style={styles.button} text={isCustomer ? 'Cancel Order' : 'Refuse Order'} onPress={this.cancelOrder} />
+          )}
         </ScrollView>
       </View>
     );

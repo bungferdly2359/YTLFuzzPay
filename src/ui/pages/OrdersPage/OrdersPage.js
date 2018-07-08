@@ -3,8 +3,8 @@ import moment from 'moment';
 import { Text, View, AppState } from 'react-native';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
-import { NavBar, FlatList, Cell } from '../../components';
-import { updateOrderStatus, getOrders, setCurrentOrderId } from '../../../redux/orders';
+import { NavBar, FlatList, Cell, Button } from '../../components';
+import { updateOrderStatus, getOrders, setCurrentOrderId, ordersReducer } from '../../../redux/orders';
 import { OrderHelper, UserHelper, IdHelper, StateHelper } from '../../../helpers';
 
 const mapStateToProps = state => ({
@@ -23,7 +23,8 @@ class OrdersPage extends Component {
 
   state = {
     refreshing: false,
-    appState: AppState.currentState
+    appState: AppState.currentState,
+    showAllOrders: false
   };
 
   componentWillReceiveProps(nextProps) {
@@ -49,7 +50,7 @@ class OrdersPage extends Component {
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.props.orders !== nextProps.orders || this.state.refreshing !== nextState.refreshing;
+    return this.props.orders !== nextProps.orders || this.state.refreshing !== nextState.refreshing || this.state.showAllOrders != nextState.showAllOrders;
   }
 
   reloadData = silent => {
@@ -72,8 +73,12 @@ class OrdersPage extends Component {
   render() {
     const styles = stylesheet.styles();
     const { orders } = this.props;
-    const { refreshing } = this.state;
+    const { refreshing, showAllOrders } = this.state;
     const dateNow = Date.now(); //1 hour
+    const isCustomer = UserHelper.isCustomer();
+    const pendingOrders = orders.filter(o => o.status < OrderHelper.orderStatus.completed).sort((o1, o2) => o1.createdDate > o2.createdDate);
+    const restOrders = showAllOrders ? orders.filter(o => o.status >= OrderHelper.orderStatus.completed) : [];
+    const displayedOrders = [...pendingOrders, ...restOrders];
     return (
       <View style={styles.container}>
         <NavBar title="Orders" />
@@ -81,10 +86,12 @@ class OrdersPage extends Component {
           refreshing={refreshing}
           onRefresh={this.reloadData}
           emptyText="No Order found"
-          data={orders}
+          data={displayedOrders}
           renderItem={({ item }) => {
-            const { createdDate, dishName, status, queueNumber } = item;
-            const showQN = queueNumber != null && status < OrderHelper.orderStatus.completed;
+            const { createdDate, dishName, status, queueNumber, oid, description, takeAway } = item;
+            const showAction = !isCustomer && status < OrderHelper.orderStatus.completed;
+            const showQN = (isCustomer && status < OrderHelper.orderStatus.completed) || (!isCustomer && status == OrderHelper.orderStatus.collecting);
+            const showDesc = showAction && !showQN;
             return (
               <Cell disclosure onPress={this.gotoOrderDetails.bind(this, item)}>
                 <View style={styles.cellContainer}>
@@ -95,12 +102,36 @@ class OrdersPage extends Component {
                     <Text style={styles.dishName}>{dishName}</Text>
                     <Text style={[styles.status, { color: OrderHelper.orderStatusColor[status] }]}>{OrderHelper.orderStatusDisplay[status]}</Text>
                   </View>
-                  {showQN && <Text style={styles.qnTitle}>Queue Number:</Text>}
-                  {showQN && <Text style={styles.qnValue}>{queueNumber}</Text>}
+                  {(showAction || showQN || showDesc) && (
+                    <View style={styles.detailContainer}>
+                      <View style={styles.container}>
+                        {showQN && <Text style={styles.qnTitle}>Queue:</Text>}
+                        {showQN && <Text style={styles.qnValue}>{queueNumber || 'N/A'}</Text>}
+                        {showDesc && takeAway && <Text style={styles.detail}>Take Away</Text>}
+                        {showDesc && (description || '').length > 0 && <Text style={styles.detail}>{description}</Text>}
+                      </View>
+                      {showAction && (
+                        <Button
+                          style={styles.actionButton}
+                          type={status == OrderHelper.orderStatus.collecting ? 'positive' : 'primary'}
+                          text={OrderHelper.orderStatusDisplay[status + 1]}
+                          onPress={() => this.props.updateOrderStatus(oid, status + 1)}
+                        />
+                      )}
+                    </View>
+                  )}
                 </View>
               </Cell>
             );
           }}
+          ListFooterComponent={
+            <Button
+              style={styles.footer}
+              type="barItem"
+              text={showAllOrders ? 'Hide completed orders' : 'Show completed orders'}
+              onPress={() => this.setState({ showAllOrders: !showAllOrders })}
+            />
+          }
         />
       </View>
     );

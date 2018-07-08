@@ -45,8 +45,7 @@ export const searchHawkers = keyword =>
     auth: {
       username: 'user',
       password: 'fCQnF9szJqvH'
-    },
-    errorType: 'alert'
+    }
   });
 
 export const getHawkerById = hid =>

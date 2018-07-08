@@ -16,17 +16,17 @@ export class Input extends Component {
   }
 
   onFocus = (event) => {
-    this.setState({ focus: true });
     if (this.props.onFocus) {
       this.props.onFocus(event);
     }
+    this.setState({ focus: true });
   }
   
   onEndEditing = (event) => {
-    this.setState({ focus: false });
     if (this.props.onEndEditing) {
       this.props.onEndEditing(event);
     }
+    this.setState({ focus: false });
   }
 
   render() {
@@ -41,7 +41,6 @@ export class Input extends Component {
     const { focus } = this.state;
     const styles = stylesheet.styles();
     const { Element, line, row } = inputFields[type];
-    
     return (
       <View style={[styles.container, line && styles.bottomLine, line && focus && styles.focusBottomLine, row && styles.rowContainer, style]}>
         <View style={styles.titleContainer}>

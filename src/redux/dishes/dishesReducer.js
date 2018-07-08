@@ -6,7 +6,6 @@ const currentVersion = 1;
 const initialState = (oldState = {}) => ({
   version: currentVersion,
   currentDishId: null,
-  merchantId: null,
   dishesByMerchantId: {}
 });
 
@@ -21,13 +20,13 @@ export function dishesReducer(state = initialState(), action) {
       return { ...state, currentDishId: payload };
 
     case actionTypes.updateDish: {
-      let mid = state.merchantId;
-      let dishes = state.dishesByMerchantId[mid].mapOrAdd(m => m.did == payload.customPayload.did, () => payload.customPayload).sort((a, b) => a.name > b.name);
+      let mid = payload.customPayload.mid;
+      let dishes = (state.dishesByMerchantId[mid] || []).mapOrAdd(m => m.did == payload.customPayload.did, () => payload.customPayload).sort((a, b) => a.name > b.name);
       return { ...state, dishesByMerchantId: { ...state.dishesByMerchantId, [mid]: dishes } };
     }
 
     case actionTypes.deleteDish: {
-      let mid = state.merchantId;
+      let mid = payload.customPayload.mid;
       let dishes = state.dishesByMerchantId[mid].filter(m => m.did !== payload.customPayload.did);
       return { ...state, dishesByMerchantId: { ...state.dishesByMerchantId, [mid]: dishes } };
     }
@@ -35,7 +34,7 @@ export function dishesReducer(state = initialState(), action) {
     case actionTypes.getDishesByMerchantId: {
       let mid = payload.customPayload.mid;
       let dishes = (payload.response.docs || []).map(d => ({ did: d.id, ...d.data() })).sort((a, b) => a.name > b.name);
-      return dishes.length > 0 ? { ...state, merchantId: mid, dishesByMerchantId: { ...state.dishesByMerchantId, [mid]: dishes } } : state;
+      return dishes.length > 0 ? { ...state, dishesByMerchantId: { ...state.dishesByMerchantId, [mid]: dishes } } : state;
     }
 
     case userActionTypes.logout:

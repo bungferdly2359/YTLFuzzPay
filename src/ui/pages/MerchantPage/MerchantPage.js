@@ -88,11 +88,12 @@ class MerchantPage extends PureComponent {
                   <Image style={styles.image} source={item.imageURL} resizeMode={item.resizeMode} />
                 </View>
                 {item.name != null && <Text style={styles.name}>{item.name}</Text>}
-                {item.description != null && (
-                  <Text style={styles.info} numberOfLines={1}>
-                    {item.description}
-                  </Text>
-                )}
+                {item.description != null &&
+                  item.description.length > 0 && (
+                    <Text style={styles.info} numberOfLines={1}>
+                      {item.description}
+                    </Text>
+                  )}
                 {item.price != null && <Text style={styles.info}>{item.available ? MoneyHelper.display(item.price) : 'Unavailable'}</Text>}
               </View>
             </TouchableHighlight>
