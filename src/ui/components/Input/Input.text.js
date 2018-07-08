@@ -35,6 +35,7 @@ export default class TextInput extends PureComponent {
         defaultValue={value}
         maxLength={200}
         onContentSizeChange={autogrow ? e => this.setState({ height: Math.max(e.nativeEvent.contentSize.height + 20, 60) }) : undefined}
+        underlineColorAndroid="transparent"
         {...otherProps}
         onChangeText={this.onChangeText}
       />

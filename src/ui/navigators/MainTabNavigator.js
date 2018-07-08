@@ -64,6 +64,8 @@ const MainTabBarWithRedux = connect(
 
 const configBuilder = config => ({
   tabBarComponent: MainTabBarWithRedux,
+  swipeEnabled: false,
+  animationEnabled: false,
   tabBarPosition: 'bottom',
   ...config
 });

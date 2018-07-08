@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View, TouchableHighlight, RefreshControl } from 'react-native';
+import { Text, View, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { Image, Button, NavBar, Input, CheckBox, Cell, SearchBar, LazyView, FlatList } from '../../components';
@@ -30,6 +30,7 @@ class HawkersPage extends PureComponent {
   }
 
   onPressItem = item => {
+    Keyboard.dismiss();
     this.props.setCurrentHawkerId(item.hid);
     this.props.navigation.navigate('Hawker');
   };

@@ -26,7 +26,7 @@ class FSApp extends Component {
       UIManager.setLayoutAnimationEnabledExperimental(true);
     }
     appProps.nativeProps = this.props;
-
+    console.log(appProps.nativeProps);
     let prefix = '';
     if (appProps.testUIBundle && this.props.testUI) {
       prefix = 'testUI::';
