@@ -25,7 +25,7 @@ const showActionSheet = (title = '', message = '', actions) => {
 };
 
 const showImagePicker = (options, completion) => {
-  showActionSheet('', '', [
+  showActionSheet('', 'Change Picture', [
     {
       text: 'Take Photo',
       onPress: () => {

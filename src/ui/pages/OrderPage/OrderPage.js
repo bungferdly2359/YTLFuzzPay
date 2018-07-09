@@ -62,7 +62,7 @@ class OrderPage extends PureComponent {
     return (
       <View style={styles.container}>
         <NavBar title="Order Details" navigation={this.props.navigation} />
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.contentContainer}>
           <Cell>
             <Text style={styles.title}>Order Date</Text>
             <Text style={styles.detail}>{moment(createdDate).format('DD/MM/YY [at] hh:mm a')}</Text>

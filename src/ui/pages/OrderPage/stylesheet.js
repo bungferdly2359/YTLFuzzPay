@@ -6,6 +6,9 @@ export default FSStyleSheet.create(props => ({
     flex: 1,
     backgroundColor: colors.white
   },
+  contentContainer: {
+    paddingBottom: 20
+  },
   title: {
     fontFamily: fonts.proximaNovaBold,
     color: colors.greyishDark,

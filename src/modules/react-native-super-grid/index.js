@@ -152,7 +152,8 @@ class SuperGrid extends Component {
       <FlatList
         data={rows}
         renderItem={this.renderRow}
-        style={[{ ...(horizontal ? { paddingLeft: spacing } : { paddingTop: spacing }) }, style]}
+        style={style}
+        contentContainerStyle={{ ...(horizontal ? { paddingLeft: spacing } : { paddingTop: spacing }) }}
         onLayout={this.onLayout}
         {...props}
         horizontal={horizontal}

@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import { GoogleSignin } from 'react-native-google-signin';
 import firebase from 'react-native-firebase';
@@ -22,11 +23,15 @@ export const updateData = data => ({
 
 export const getCurrentLocation = () => dispatch =>
   new Promise((resolve, reject) => {
-    this.navigator.geolocation.requestAuthorization();
+    if (Platform.OS == 'ios') {
+      this.navigator.geolocation.requestAuthorization();
+    }
     this.navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
+        console.log(coords);
         dispatch(getGeocode(coords.latitude, coords.longitude))
           .then(geocode => {
+            console.log(geocode);
             if (geocode) {
               const findValueWithType = type => geocode.results.findMap(item => item.address_components.findMap(addr => ~addr.types.indexOf(type) && addr.long_name));
               const address = ['route', 'neighborhood', 'political', 'locality'].findMap(findValueWithType);
@@ -41,13 +46,15 @@ export const getCurrentLocation = () => dispatch =>
             reject('No Geocode found');
           })
           .catch(error => {
+            console.log('error get geocode: ', error);
             reject(error);
           });
       },
       error => {
+        console.log('error get location: ', error);
         reject(error);
       },
-      { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 }
+      { enableHighAccuracy: true, timeout: 20000 }
     );
   });
 

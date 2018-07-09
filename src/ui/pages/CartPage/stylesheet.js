@@ -58,6 +58,7 @@ export default FSStyleSheet.create(props => ({
     backgroundColor: colors.white,
     paddingHorizontal: 30,
     alignItems: 'center',
+    elevation: 10,
     height: 60
   },
   total: {

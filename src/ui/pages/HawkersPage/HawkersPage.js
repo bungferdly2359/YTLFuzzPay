@@ -61,8 +61,9 @@ class HawkersPage extends PureComponent {
     const { searching, refreshing, error } = this.state;
     return (
       <View style={styles.container}>
-        <NavBar title="Hawker Centres" />
-        <SearchBar onToggleSearch={this.onToggleSearch} onSearch={this.onSearch} searching={searching} />
+        <NavBar title="Hawker Centres">
+          <SearchBar onToggleSearch={this.onToggleSearch} onSearch={this.onSearch} searching={searching} />
+        </NavBar>
         <View style={styles.container}>
           <LazyView
             state={[refreshing, hawkers.map(h => h.hid)]}

@@ -13,6 +13,7 @@ export default FSStyleSheet.create(props => ({
     },
     shadowRadius: 2,
     shadowOpacity: 1,
+    elevation: 3,
     zIndex: 100
   },
   buttonsContainer: {

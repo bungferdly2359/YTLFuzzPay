@@ -92,19 +92,25 @@ class OrdersPage extends Component {
             const showAction = !isCustomer && status < OrderHelper.orderStatus.completed;
             const showQN = (isCustomer && status < OrderHelper.orderStatus.completed) || (!isCustomer && status == OrderHelper.orderStatus.collecting);
             const showDesc = showAction && !showQN;
+            let date = '';
+            if (createdDate >= dateNow - 120000) {
+              date = 'just now';
+            } else if (createdDate > dateNow - 3600000) {
+              date = Math.floor((dateNow - createdDate) / 60000) + ' mins';
+            } else {
+              date = moment(createdDate).format('DD/MM/YY');
+            }
             return (
               <Cell disclosure onPress={this.gotoOrderDetails.bind(this, item)}>
                 <View style={styles.cellContainer}>
                   <View style={styles.dishContainer}>
-                    <Text style={styles.date}>
-                      {createdDate > dateNow - 3600000 ? Math.floor((dateNow - createdDate) / 60000) + ' mins' : moment(createdDate).format('DD/MM/YY')}
-                    </Text>
+                    <Text style={styles.date}>{date}</Text>
                     <Text style={styles.dishName}>{dishName}</Text>
                     <Text style={[styles.status, { color: OrderHelper.orderStatusColor[status] }]}>{OrderHelper.orderStatusDisplay[status]}</Text>
                   </View>
                   {(showAction || showQN || showDesc) && (
                     <View style={styles.detailContainer}>
-                      <View style={styles.container}>
+                      <View style={styles.queueContainer}>
                         {showQN && <Text style={styles.qnTitle}>Queue:</Text>}
                         {showQN && <Text style={styles.qnValue}>{queueNumber || 'N/A'}</Text>}
                         {showDesc && takeAway && <Text style={styles.detail}>Take Away</Text>}
@@ -125,12 +131,14 @@ class OrdersPage extends Component {
             );
           }}
           ListFooterComponent={
-            <Button
-              style={styles.footer}
-              type="barItem"
-              text={showAllOrders ? 'Hide completed orders' : 'Show completed orders'}
-              onPress={() => this.setState({ showAllOrders: !showAllOrders })}
-            />
+            restOrders.length > 0 ? (
+              <Button
+                style={styles.footer}
+                type="barItem"
+                text={showAllOrders ? 'Hide completed orders' : 'Show completed orders'}
+                onPress={() => this.setState({ showAllOrders: !showAllOrders })}
+              />
+            ) : null
           }
         />
       </View>

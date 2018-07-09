@@ -11,7 +11,6 @@ export default FSStyleSheet.create(props => ({
     flex: 1,
     paddingVertical: 17,
     flexDirection: 'row',
-    backgroundColor: colors.white,
     borderBottomWidth: 1,
     borderColor: colors.greyishLight
   },

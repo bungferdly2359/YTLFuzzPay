@@ -45,6 +45,9 @@ export default FSStyleSheet.create(props => ({
     marginTop: 15,
     justifyContent: 'space-between'
   },
+  queueContainer: {
+    flex: 1
+  },
   detail: {
     fontFamily: fonts.proximaNova,
     color: colors.greyish,

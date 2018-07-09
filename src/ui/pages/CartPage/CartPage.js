@@ -70,7 +70,7 @@ class CartPage extends PureComponent {
                   <Image style={styles.image} resizeMode="cover" source={dish.imageURL} />
                   <View style={styles.detailContainer}>
                     <Text style={styles.title}>{dish.name}</Text>
-                    <Text style={styles.info}>{OrderHelper.getCartItemDescription(item)}</Text>}
+                    <Text style={styles.info}>{OrderHelper.getCartItemDescription(item)}</Text>
                   </View>
                   <Text style={styles.title}>{MoneyHelper.display(totalPrice)}</Text>
                   <Button type="plain" icon="icon_trash" iconStyle={styles.trashIcon} onPress={() => this.props.removeItemFromCart(item)} />
