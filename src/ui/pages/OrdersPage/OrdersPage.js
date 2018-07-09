@@ -77,8 +77,8 @@ class OrdersPage extends Component {
     const dateNow = Date.now(); //1 hour
     const isCustomer = UserHelper.isCustomer();
     const pendingOrders = orders.filter(o => o.status < OrderHelper.orderStatus.completed).sort((o1, o2) => o1.createdDate > o2.createdDate);
-    const restOrders = showAllOrders ? orders.filter(o => o.status >= OrderHelper.orderStatus.completed) : [];
-    const displayedOrders = [...pendingOrders, ...restOrders];
+    const restOrders = orders.filter(o => o.status >= OrderHelper.orderStatus.completed);
+    const displayedOrders = showAllOrders ? [...pendingOrders, ...restOrders] : pendingOrders;
     return (
       <View style={styles.container}>
         <NavBar title="Orders" />

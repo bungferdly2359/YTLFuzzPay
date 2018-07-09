@@ -28,11 +28,11 @@ class MerchantPage extends PureComponent {
   }
 
   onPressItem = item => {
-    if (this.props.merchant.uid === IdHelper.currentUid() || this.props.merchant.online) {
+    if (this.props.merchant.uid === IdHelper.currentUid() || (this.props.merchant.online && item.available)) {
       this.props.setCurrentDishId(item.did);
       this.props.navigation.navigate('Dish');
     } else {
-      AlertHelper.showError('Cannot order a dish when the merchant is offline');
+      AlertHelper.showError('Cannot order a dish when the merchant is offline or item is unvailable');
     }
   };
 

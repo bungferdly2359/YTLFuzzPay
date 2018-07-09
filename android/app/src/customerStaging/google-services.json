@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "721775440052-3nsohirv7e9cc908atlm6cldmsl7nrgr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ytlfuzzpay.customer.staging",
+            "certificate_hash": "90cec08ac3c9641436f5c0fb634cba2fd04c2313"
+          }
+        },
+        {
           "client_id": "721775440052-an1a7r1qn815qj744jmnedjivecaod2h.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,20 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721775440052-b5tqopd0du138qhfo99rsjvr7ns860v7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "721775440052-moe9n66qhv73d5v30skfmcmud4tthkfu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yewteelab.fuzzpay"
+              }
+            }
+          ]
         },
         "ads_service": {
           "status": 2

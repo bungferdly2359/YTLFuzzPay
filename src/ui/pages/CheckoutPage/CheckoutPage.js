@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, Text, ScrollView, Alert } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import { NavBar, Button, RadioButton } from '../../components';
 import stylesheet from './stylesheet';
@@ -59,7 +60,16 @@ class CheckoutPage extends PureComponent {
         }))
       )
       .then(() => {
-        Alert.alert('Success', 'Your order has been placed', [{ text: 'Ok', style: 'cancel', onPress: () => this.props.navigation.goBack() }]);
+        Alert.alert('Success', 'Your order has been placed', [
+          {
+            text: 'Ok',
+            style: 'cancel',
+            onPress: () => {
+              this.props.navigation.goBack();
+              this.props.navigation.navigate('Orders');
+            }
+          }
+        ]);
       });
   };
 

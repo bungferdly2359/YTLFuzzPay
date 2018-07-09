@@ -3,7 +3,7 @@ import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import { GoogleSignin } from 'react-native-google-signin';
 import firebase from 'react-native-firebase';
 import { getGeocode, makeRequest, uploadImagePromise } from '../api';
-import { IdHelper } from '../../helpers';
+import { IdHelper, AlertHelper } from '../../helpers';
 
 export const actionTypes = {
   updateData: 'user::updateData',
@@ -54,7 +54,7 @@ export const getCurrentLocation = () => dispatch =>
         console.log('error get location: ', error);
         reject(error);
       },
-      { enableHighAccuracy: true, timeout: 20000 }
+      { enableHighAccuracy: false, timeout: 20000 }
     );
   });
 
@@ -82,7 +82,10 @@ export const signInWithGoogle = () =>
     type: actionTypes.signInWithGoogle,
     loadingText: 'Signing in...',
     api: () =>
-      GoogleSignin.configure({ iosClientId: '721775440052-h0bjalbvr972o1rpebh47g7de6sjhrji.apps.googleusercontent.com' })
+      GoogleSignin.configure({
+        iosClientId: '721775440052-h0bjalbvr972o1rpebh47g7de6sjhrji.apps.googleusercontent.com',
+        webClientId: '721775440052-an1a7r1qn815qj744jmnedjivecaod2h.apps.googleusercontent.com'
+      })
         .then(() => GoogleSignin.signIn())
         .then(data => {
           const credential = firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken);
