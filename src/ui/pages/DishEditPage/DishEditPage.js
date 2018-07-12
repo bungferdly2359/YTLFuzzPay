@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, KeyboardAvoidingView, ScrollView, LayoutAnimation } from 'react-native';
+import { View, KeyboardAvoidingView, ScrollView, LayoutAnimation, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
 import { updateDish, deleteDish } from '../../../redux/dishes';
@@ -86,7 +86,7 @@ class DishEditPage extends Component {
     return (
       <View style={styles.container}>
         <NavBar navigation={this.props.navigation} title={isNew ? 'Add New Dish' : 'Update Dish'} />
-        <KeyboardAvoidingView style={styles.full} behavior="padding">
+        <KeyboardAvoidingView style={styles.full} behavior={Platform.OS === 'ios' ? 'padding' : null}>
           <ScrollView style={styles.full} contentContainerStyle={styles.contentContainer} keyboardDismissMode="interactive" keyboardShouldPersistTaps="always">
             <Image style={styles.image} resizeMode="cover" source={imagePath || imageURL}>
               <Button type="none" icon="image_edit" onPress={this.chooseImage} />

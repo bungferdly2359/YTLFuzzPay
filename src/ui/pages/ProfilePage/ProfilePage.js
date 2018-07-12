@@ -47,7 +47,7 @@ class ProfilePage extends Component {
         <NavBar title="Profile" rightButtons={[{ text: 'Edit', onPress: () => this.props.navigation.navigate('ProfileEdit') }]} />
         <ScrollView>
           <LinearGradient colors={[colors.lightOrange, colors.orange]} style={styles.profileContainer}>
-            <Image style={styles.image} source={photoURL} defaultSource="image_profile" />
+            <Image style={styles.image} source={photoURL || 'image_profile'} />
             <Text style={styles.name}>{displayName}</Text>
             <Text style={styles.email}>{email}</Text>
           </LinearGradient>

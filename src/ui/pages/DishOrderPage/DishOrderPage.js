@@ -67,7 +67,7 @@ class DishOrderPage extends Component {
           {dish.imageURL != null && <Image resizeMode="cover" source={dish.imageURL} style={styles.image} />}
           <View style={styles.contentContainer}>
             <Text style={[styles.text, styles.title]}>{dish.name}</Text>
-            {dish.description && <Text style={[styles.text, styles.description]}>{dish.description}</Text>}
+            {dish.description != null && <Text style={[styles.text, styles.description]}>{dish.description}</Text>}
             <View style={styles.content2Container}>
               <View style={styles.priceContainer}>
                 <Text style={[styles.text, styles.priceTitle]}>Price</Text>

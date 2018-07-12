@@ -176,7 +176,7 @@ SuperGrid.propTypes = {
 
 SuperGrid.defaultProps = {
   fixed: false,
-  itemDimension: 120,
+  itemDimension: 140,
   itemWidth: null,
   spacing: 10,
   style: {},

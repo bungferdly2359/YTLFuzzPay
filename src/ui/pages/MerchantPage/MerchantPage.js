@@ -5,7 +5,7 @@ import stylesheet from './stylesheet';
 import { Image, NavBar, FlatList } from '../../components';
 import { setCurrentDishId, getDishesByMerchantId } from '../../../redux/dishes';
 import { StateHelper, AlertHelper, MoneyHelper, IdHelper } from '../../../helpers';
-import MerchantEditPage from '../MerchantEditPage';
+import { getMyMerchant } from '../../../redux/merchants';
 
 const mapStateToProps = state => ({
   merchant: StateHelper.getCurrentMerchant(state),
@@ -38,6 +38,9 @@ class MerchantPage extends PureComponent {
 
   reloadData = silent => {
     const { merchant, dishes } = this.props;
+    if (merchant.mid == null) {
+      return;
+    }
     if (!silent || dishes == null || dishes.length == 0) {
       this.setState({ refreshing: true });
     }

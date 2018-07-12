@@ -9,9 +9,10 @@ export const actionTypes = {
   getMerchantsByHawkerId: 'merchants::getMerchantsByHawkerId'
 };
 
-export const getMyMerchant = () =>
+export const getMyMerchant = (showLoading = false) =>
   makeRequest({
     type: actionTypes.getMyMerchant,
+    loadingText: showLoading ? 'Getting data...' : undefined,
     api: () =>
       firebase
         .firestore()

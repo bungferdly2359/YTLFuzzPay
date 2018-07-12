@@ -4,6 +4,7 @@ FSResources.setResources({
   icon_account: require('./images/icon_account.png'),
   icon_back: require('./images/icon_back.png'),
   icon_cart: require('./images/icon_cart.png'),
+  icon_checkbox0: require('./images/icon_checkbox0.png'),
   icon_checkbox1: require('./images/icon_checkbox1.png'),
   icon_close: require('./images/icon_close.png'),
   icon_disclosure: require('./images/icon_disclosure.png'),

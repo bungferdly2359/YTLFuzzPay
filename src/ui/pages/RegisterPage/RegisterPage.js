@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { View, KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import stylesheet from './stylesheet';
@@ -32,7 +32,7 @@ const RegisterPage = props => {
   return (
     <View style={styles.container}>
       <NavBar navigation={props.navigation} title="Registration" />
-      <KeyboardAvoidingView style={styles.full} behavior="padding">
+      <KeyboardAvoidingView style={styles.full} behavior={Platform.OS === 'ios' ? 'padding' : null}>
         <ScrollView keyboardShouldPersistTaps="always" style={styles.full} keyboardDismissMode="interactive" contentContainerStyle={styles.contentContainer}>
           <Input title="Email" keyboardType="email-address" placeholder="your@email.com" onChangeText={value => (state.email = value)} />
           <Input title="Password" secureTextEntry={true} onChangeText={value => (state.password = value)} />

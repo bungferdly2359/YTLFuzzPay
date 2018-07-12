@@ -47,6 +47,7 @@ export default FSStyleSheet.create(props => ({
   },
   prefix: {
     flex: 0,
+    alignSelf: 'center',
     marginRight: 5
   }
 }));

@@ -23,7 +23,7 @@ export function apiReducer(state = initialState(), action) {
     case actionTypes.clearError:
       return {
         ...state,
-        requests: state.requests.map(r => (r.requestType === payload.requestType ? { ...r, errorMessage: null } : r))
+        requests: state.requests.map(r => (r.errorMessage != null ? { ...r, errorMessage: null } : r))
       };
     default:
       return state;
